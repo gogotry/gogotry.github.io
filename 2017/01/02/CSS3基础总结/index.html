@@ -1,0 +1,1328 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端基础,CSS3," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="CSS3简介如同人类的的进化一样，CSS3是CSS2的“进化”版本，在CSS2基础上，增强或新增了许多特性，弥补了CSS2的众多不足之处，使得Web开发变得更为高效和便捷。
+CSS3的现状1、浏览器支持程度差，需要添加私有前缀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3基础总结">
+<meta property="og:url" content="http://yoursite.com/2017/01/02/CSS3基础总结/index.html">
+<meta property="og:site_name" content="biubiu love">
+<meta property="og:description" content="CSS3简介如同人类的的进化一样，CSS3是CSS2的“进化”版本，在CSS2基础上，增强或新增了许多特性，弥补了CSS2的众多不足之处，使得Web开发变得更为高效和便捷。
+CSS3的现状1、浏览器支持程度差，需要添加私有前缀">
+<meta property="og:image" content="http://yoursite.com/media/110dabcaf6cdf82762d885fa2ddf3bbf.png">
+<meta property="og:image" content="http://yoursite.com/media/f47499199d6f29d290db7d1982f5129b.jpg">
+<meta property="og:image" content="http://yoursite.com/media/c0561bcfb177623973edca46b1def4cb.jpg">
+<meta property="og:image" content="http://yoursite.com/media/6eb78c9ef294ad96c371e4acf5293373.png">
+<meta property="og:image" content="http://yoursite.com/media/ec378877baa4e52a8a2d3e2286cba527.jpg">
+<meta property="og:image" content="http://yoursite.com/media/9171683f69de8eebd5b25cfe91f863d4.png">
+<meta property="og:image" content="http://yoursite.com/media/14a92e451681185de5b7621291e2a32d.png">
+<meta property="og:image" content="http://yoursite.com/media/5fbe0c6dcc68370c2733dd455244a14f.png">
+<meta property="og:image" content="http://yoursite.com/media/be8cfbfce83501be207fab3389e9d1ba.png">
+<meta property="og:image" content="http://yoursite.com/media/e8df6939c2f1ba831a3fed0e2b0b2b69.png">
+<meta property="og:image" content="http://yoursite.com/media/70176261fa465100896b26daa60a68b9.png">
+<meta property="og:image" content="http://yoursite.com/media/034a779c365083d01081894aead93624.png">
+<meta property="og:image" content="http://yoursite.com/media/b92cf8974fdc164ef8a418224172da03.png">
+<meta property="og:image" content="http://yoursite.com/media/bddba71b972ce8b23f29633086849274.png">
+<meta property="og:image" content="http://yoursite.com/media/ea625a3d38b0d9ddffc17e9014e27c00.png">
+<meta property="og:image" content="http://yoursite.com/media/5a93ab21acde7cee4c91f8cc6c2c948f.jpg">
+<meta property="og:image" content="http://yoursite.com/media/d7743a7db602d3205b481e87afc6b6a7.png">
+<meta property="og:image" content="http://yoursite.com/media/4785ab4ee3f1e938fa3652106c7890e3.png">
+<meta property="og:updated_time" content="2017-02-09T12:08:33.913Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3基础总结">
+<meta name="twitter:description" content="CSS3简介如同人类的的进化一样，CSS3是CSS2的“进化”版本，在CSS2基础上，增强或新增了许多特性，弥补了CSS2的众多不足之处，使得Web开发变得更为高效和便捷。
+CSS3的现状1、浏览器支持程度差，需要添加私有前缀">
+<meta name="twitter:image" content="http://yoursite.com/media/110dabcaf6cdf82762d885fa2ddf3bbf.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6383972067393406000',
+      author: '博主大人'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/02/CSS3基础总结/"/>
+
+
+
+
+
+  <title> CSS3基础总结 | biubiu love </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">biubiu love</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/02/CSS3基础总结/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="angiter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="biubiu love">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="biubiu love" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS3基础总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-02T20:06:25+08:00">
+                2017-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端基础总结/" itemprop="url" rel="index">
+                    <span itemprop="name">前端基础总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/02/CSS3基础总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/CSS3基础总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/02/CSS3基础总结/" class="leancloud_visitors" data-flag-title="CSS3基础总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="CSS3简介"><a href="#CSS3简介" class="headerlink" title="CSS3简介"></a>CSS3简介</h1><p>如同人类的的进化一样，CSS3是CSS2的“进化”版本，在CSS2基础上，增强或新增了许多特性，<br>弥补了CSS2的众多不足之处，使得Web开发变得更为高效和便捷。</p>
+<h2 id="CSS3的现状"><a href="#CSS3的现状" class="headerlink" title="CSS3的现状"></a>CSS3的现状</h2><p>1、浏览器支持程度差，需要添加私有前缀</p>
+<a id="more"></a>
+<p>2、移动端支持优于PC端</p>
+<p>3、不断改进中</p>
+<p>4、应用相对广泛</p>
+<h2 id="如何对待"><a href="#如何对待" class="headerlink" title="如何对待"></a>如何对待</h2><p>1、坚持渐进增强原则</p>
+<p>2、考虑用户群体</p>
+<p>3、遵照产品的方案</p>
+<p>4、听Boss的</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="统一环境"><a href="#统一环境" class="headerlink" title="统一环境"></a>统一环境</h2><p>由于CSS3兼容性问题的普遍存在，为了避免因兼容性带来的干扰，我们约定统一的环境，以保证学习的效率，在最后会单独说明兼容性的问题。</p>
+<p>1、Chrome浏览器 version 46+</p>
+<p>2、Firefox浏览器 firefox 42+</p>
+<p>3、PhotoShop CS6（建议）</p>
+<h2 id="如何使用手册"><a href="#如何使用手册" class="headerlink" title="如何使用手册"></a>如何使用手册</h2><p>学会使用工具，可以让我们事半功倍。</p>
+<p>[] 表示全部可选项</p>
+<p>|| 表示或者</p>
+<p>| 表示多选一</p>
+<p>？ 表示0个或者1个</p>
+<p>* 表示0个或者多个</p>
+<p>{} 表示范围</p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>CSS3新增了许多灵活查找元素的方法，极大的提高了查找元素的效率和精准度。CSS3选择器与jQuery中所提供的绝大部分选择器兼容。</p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p>参考手册</p>
+<p>1、E[attr] 表示存在attr属性即可；</p>
+<p>2、E[attr=val] 表示属性值完全等于val</p>
+<p>3、E[attr~=val] 表示的一个单独的属性值 这个属性值是以空格分隔的</p>
+<p>4、E[attr|=val] 表示的要么一个单独的属性值 要么这个属性值是以“-”分隔的</p>
+<p>5、E[attr*=val] 表示的属性值里包含val字符并且在“任意”位置</p>
+<p>6、E[attr\^=val] 表示的属性值里包含val字符并且在“开始”位置</p>
+<p>7、E[attr\$=val] 表示的属性值里包含val字符并且在“结束”位置</p>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><p>参考手册</p>
+<p>重点理解E是用来参考确定其父元素的，nth-child(n)<br>对应根据E元素确定的父元素的所有子元素，nth-of-type(n)<br>的不同之处在于其对应的是只有E元素，会忽略其子元素。（此处要配合案例加强理解）</p>
+<p>E:nth-child(n) 第n个子元素，计算方法是E元素的全部兄弟元素</p>
+<p>E:nth-of-type(n) 第n个子元素，计算方法只是E元素，会忽略其子元素的</p>
+<p>存在</p>
+<p>E:nth-last-child(n) 同E:nth-child(n) 计算顺序相反。</p>
+<p>E:nth-last-of-type(n) 同E:nth-of-type(n) 计算顺序相反。</p>
+<p>n遵循线性变化，其取值1、2、3、4、…</p>
+<p>关于n的取值范围：</p>
+<p>1、当n做为一个独立值时，n取值为n>=1，例如nth-child(n)</p>
+<p>2、当n做一个系数时，n取值为n>=0者n\&lt;0，例如nth-child(2n+1)、nth-child(-1n+5)<br>此处需要理解2n+1或者-n+5做为一个整体不能小于1；</p>
+<p>E:only-child 表示当前以E确定的父元素，除E之外并无其它子元素（独生子）；</p>
+<p>E:only-of-type表示当前以E确定的父元素， 除E之外不能包含其它和E同类型的子元素；</p>
+<p>E:target 结合锚点进行使用，处于当前锚点的元素会被选中；</p>
+<p>E:empty 选中没有任何子节点的E元素；</p>
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><p>E::selection 可改变选中文本的样式</p>
+<p>E::placeholder<br>可改变placeholder默认样式，这个存在明显的兼容问题，比如::-webkit-input-placeholder，具体参考手册进行对比。</p>
+<p>E:after、E:before<br>在旧版本里是伪类，在新版本里是伪元素，新版本下E:after、E:before会被自动识别为E::after、E::before，按伪元素来对待。</p>
+<p>“:” 与 “::” 区别在于区分伪类和伪元素</p>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>新增了RGBA、HSLA模式，其中的A<br>表示透明度通道，即可以设置颜色值的透明度，相较opacity，不具有继承性，即不会影响子元素的透明度。</p>
+<p>Red、Green、Blue、Alpha即RGBA</p>
+<p>Hue、Saturation、Lightness、Alpha即HSLA</p>
+<p>R、G、B 取值范围0~255</p>
+<p>H 取值范围0~360，0/360表示黑色、120表示绿色、240表示蓝色</p>
+<p>S 取值范围0%~100%</p>
+<p>L 取值范围0%~100%</p>
+<p>A 取值范围0~1</p>
+<p>关于透明度：</p>
+<p>1、opacity子元素会继承父元素的透明度，在实际开发中会带来干扰；</p>
+<p>2 、transparent 设置透明度时完全类似于“玻璃”一样的透明；</p>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><p>参考手册</p>
+<p>文字阴影与边框阴影相似，可分别设置偏移量、模糊度、颜色（可设透明度）。</p>
+<p>单行文本溢出，需要配合overflow:hidden; white-space: nowrap;</p>
+<p>难理解的点：</p>
+<p>自已要多试着理解一下关于white-space的各个属性值之间的差异；</p>
+<p>换行符指的我们在键盘上的Enter键，Enter换行符会被当成空行来对待，而由Tab、Space产生的换行，则会视为一个空格。</p>
+<p>上述方法只能解决单行文本的溢出问题，多行文本溢出处理可参照下面的方法，但是有比较严重的兼容性，需要慎重选择，比较完备的多行溢出需要JS辅助完成，可自行尝试。</p>
+<p>多行文本文字溢出处理，非标准属性，可应用于移动端</p>
+<p><img src="media/110dabcaf6cdf82762d885fa2ddf3bbf.png" alt=""></p>
+<p>了解常握white-space 使用</p>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><p>其边框圆角、边框阴影属性，应用十分广泛，兼容性也相对较好，具有符合渐进增强原则的特征，我们需要重点掌握。</p>
+<h3 id="边框圆角"><a href="#边框圆角" class="headerlink" title="边框圆角"></a>边框圆角</h3><p>圆角处理时，脑中要形成圆、圆心、长半径、短半径的概念，正圆是椭圆的一种特殊情况。</p>
+<p><img src="media/f47499199d6f29d290db7d1982f5129b.jpg" alt=""></p>
+<p><img src="media/c0561bcfb177623973edca46b1def4cb.jpg" alt=""></p>
+<p>可分别设置长、短半径，以“/”进行分隔，遵循“1，2，3，规则，“/”前面的1~4个用来设置横轴半径（分别对应横轴1、2、3、4位置<br>），“/”后面1~4个参数用来设置纵轴半径（分别对应纵轴1、2、3、4位置 ）</p>
+<p>参考手册练习熟悉各种简写方式。</p>
+<p><img src="media/6eb78c9ef294ad96c371e4acf5293373.png" alt=""></p>
+<p>表格运用圆角需要要 border-collapse: separate;</p>
+<p>当圆角半径小于或等于边框宽度时，元素内角是直角</p>
+<p><img src="media/ec378877baa4e52a8a2d3e2286cba527.jpg" alt=""></p>
+<p>如何在PS中查看圆角半径？</p>
+<h3 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h3><p>设置的图片将会被“切割”成九宫格形式，然后进行设置。如下图</p>
+<p><img src="media/9171683f69de8eebd5b25cfe91f863d4.png" alt=""></p>
+<p>“切割”完成后生成虚拟的9块图形，然后按对应位置设置背景，</p>
+<p>其中四个角位置、形状保持不变，中心位置水平垂直两个方向平铺。如下图</p>
+<p><img src="media/14a92e451681185de5b7621291e2a32d.png" alt=""></p>
+<p>round 会自动调整尺寸，完整显示边框图片。</p>
+<p><img src="media/5fbe0c6dcc68370c2733dd455244a14f.png" alt=""></p>
+<p>repeat 单纯平铺多余部分，会被“裁切”而不显示。</p>
+<p><img src="media/be8cfbfce83501be207fab3389e9d1ba.png" alt=""></p>
+<p>background-slice: 27 40 40 27 分别设置裁切如下图</p>
+<p><img src="media/e8df6939c2f1ba831a3fed0e2b0b2b69.png" alt=""></p>
+<h3 id="边框阴影"><a href="#边框阴影" class="headerlink" title="边框阴影"></a>边框阴影</h3><p>水平偏移量 正值向右 负值向左 垂直正值向下 负值向上。</p>
+<p>模糊度是不能为负</p>
+<p>关于模糊度：从一个颜色值在一定距离内进行一个渐变至透明的过程。</p>
+<p>移量和扩展也是数学运算的，即正负会相互抵消。</p>
+<p>偏移量和模糊度是可以相加计算，偏移量负号只代表方向。</p>
+<p>设置边框阴影不会影响盒子的布局，即不会影响其兄弟元素的布局。</p>
+<p>spread可以与blur、h-shadow、v-shadow相互抵消，blur不可为负值</p>
+<p>可以设置多重边框阴影，实现更好的效果，增强立体感。</p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>关于盒模型存在两种形式，分别是W标准盒模型和IE盒模型，如下图所示，其区别主要在于宽度和高度的计算方式，CSS3对盒模型做出了新的定义，即允许开发人员指定盒子宽度和高度的计算方式。</p>
+<p><img src="media/70176261fa465100896b26daa60a68b9.png" alt=""></p>
+<p>IE模型下 width = padding + content + border;</p>
+<p>W盒模型下 width = content</p>
+<p>box-sizing: border-box width = border + padding + content</p>
+<p>box-sizing: content-box width = content</p>
+<p>IE盒模型只会出现在IE5版本和IE6+的怪异模式中。</p>
+<p>怪异模式</p>
+<p><a href="http://www.cnblogs.com/coco1s/p/4034937.html" target="_blank" rel="external">http://www.cnblogs.com/coco1s/p/4034937.html</a></p>
+<p>CSS3中可以通过box-sizing 来指定盒模型，即可指定为content-box、border-box;</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>背景在CSS3中也得到很大程度的增强，比如背景图片尺寸、背景裁切区域、背景定位参照点、多重背景等。</p>
+<p>cover 会使“最大”边，进行缩放，另一边同比缩放，铺满容器，超出部分会溢出。</p>
+<p>contain 会使“最小”边，进行缩放，另一边同比缩放，不一定铺满容器，会完整显示图片。</p>
+<p>background-size 与 background-clip无关</p>
+<p>background-size 与 background-origin 保持一致</p>
+<p>背景图片尺寸在实际开发中应用十分广泛。</p>
+<p>参照手册</p>
+<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><p>渐变是CSS3当中比较丰富多彩的一个特性，通过渐变我们可以实现许多炫丽的效果，有效的减少图片的使用数量，并且具有很强的适应性和可扩展性。</p>
+<p>可分为线性渐变、径向渐变、重复渐变。</p>
+<p>线性渐变指沿着某条直线朝一个方向产生渐变效果。</p>
+<p><img src="media/034a779c365083d01081894aead93624.png" alt=""></p>
+<p>上图是从黄色渐变到绿色</p>
+<p>必要的元素：方向、起始颜色、终止色；</p>
+<p>关于方向如下图</p>
+<p><img src="media/b92cf8974fdc164ef8a418224172da03.png" alt=""></p>
+<p>关于颜色起止，可以设置多个色值的渐变，并且可以分别设置渐变的距离</p>
+<p>如 linear-gradient(to left, yellow 10%, blue 15%, red 50%)</p>
+<p>径向渐变指从一个中心点开始沿着四周产生渐变效果</p>
+<p><img src="media/bddba71b972ce8b23f29633086849274.png" alt=""></p>
+<p>特点：</p>
+<p>1、辐射范围</p>
+<p>2、中心点</p>
+<p>3、颜色的起止</p>
+<p>关于中心点：中心位置参照的是盒子的左上角</p>
+<p>关于辐射范围：其半径可以不等即可以是椭圆</p>
+<p>关于圆的知识同边框圆角章节的介绍</p>
+<h2 id="伸缩布局"><a href="#伸缩布局" class="headerlink" title="伸缩布局"></a>伸缩布局</h2><p>CSS3在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用，使得开发人员一下子就过上了小康的生活。</p>
+<p>伸缩盒模型经历了几次演变，大致分为旧版伸缩布局、过渡伸缩布局、新版伸缩布局，同样为了避免混淆，我们以学习新版伸缩布局为主。</p>
+<h3 id="新版伸缩布局"><a href="#新版伸缩布局" class="headerlink" title="新版伸缩布局"></a>新版伸缩布局</h3><p>这里我们需要引入一些新的概念：</p>
+<p>主轴：Flex容器的主轴主要用来配置Flex项目。</p>
+<p>侧轴：与主轴垂直的轴称作侧轴，是侧轴方向的延伸。</p>
+<p>主轴和侧轴并不是固定不变的，通过flex-direction可以调整。</p>
+<p><img src="media/ea625a3d38b0d9ddffc17e9014e27c00.png" alt=""></p>
+<p>1、指定一个盒子为伸缩盒子 display: flex</p>
+<p>2、设置属性来调整此盒的子元素的布局方式 例如 flex-direction</p>
+<p>3、明确主侧轴的方向</p>
+<p>4、可互换主侧轴，也可改变方向</p>
+<p>其相关属性可参照源代码里的解释如flex-direction、flex-wrap、flex-flow、align-items、align-content、justify-content、align-self、flex、order等</p>
+<p>另个两个版本伸缩布局其实现思路与新版基本一致，区别在于其属性及属性值不同，熟练掌握新版伸缩布局后，要参照对比另外两个版本的不同。</p>
+<h2 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h2><p>类似报纸或杂志中的排版方式，上要用以控制大篇幅文本。</p>
+<p>参照手册</p>
+<h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><p>过渡是CSS3中具有颠覆性的特征之一，可以实现元素不同状态间的平滑过渡（补间动画），经常用来制作动画效果。</p>
+<p>帧动画：通过一帧一帧的关键画面按照固定顺序和速度播放。如电影胶片</p>
+<p><img src="media/5a93ab21acde7cee4c91f8cc6c2c948f.jpg" alt=""></p>
+<p>补间动画：自动完成从起始状到终止状的的过度。</p>
+<p>关于补间动画更多学习可查看<a href="http://mux.alimama.com/posts/1009" target="_blank" rel="external">http://mux.alimama.com/posts/1009</a></p>
+<p>特点：当前元素只要有“属性”发生变化时，可以平滑的进行过渡。</p>
+<p>transition-property设置过渡属性</p>
+<p>transition-duration设置过渡时间</p>
+<p>transition-timing-function设置过渡速度</p>
+<p>transition-delay设置过渡延时</p>
+<p>贝塞尔曲线限定了过渡的轨迹。这部分没有提及，有兴趣同学自行查阅相关资料了解一下即可。</p>
+<p>以上四属性重在更解，具体细节可参考手册辅助记忆</p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p>动画是CSS3中具有颠覆性的特征之一，可通过设置多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果。</p>
+<p>参考手册</p>
+<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><p>转换是CSS3中具有颠覆性的特征之一，可以实现元素的位移、旋转、变形、缩放，甚至支持矩阵方式，配合即将学习的过渡和动画知识，可以取代大量之前只能靠Flash才可以实现的效果。</p>
+<p>2D 转换</p>
+<p>translate(x,y) x、y 可为负值，相对自身移动，并未脱离文档流。</p>
+<p>左手坐标系：伸出左手，让拇指和食指成“L”形，大拇指向右，食指向上，中指指向前方。这样我们就建立了一个左手坐标系，拇指、食指和中指分别代表X、Y、Z轴的正方向。</p>
+<p>左手法则：左手握住旋转轴，竖起拇指指向旋转轴正方向，正向旋转方向就是其余手指卷曲的方向。</p>
+<p><img src="media/d7743a7db602d3205b481e87afc6b6a7.png" alt=""></p>
+<p>3D坐标轴，用X、Y、Z分别表示空间的3个维度，三条轴上互相垂直。</p>
+<p><img src="media/4785ab4ee3f1e938fa3652106c7890e3.png" alt=""></p>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><p>由于网页呈现终端设备越来越趋向于多样化，尤其是移动终端（手机），具有不同屏幕尽寸、不同分辨率，为了保证网页能十分友好的呈现，CSS3为开发人员提供了可以识别呈现终端的方法，这样便可以有针对性的为不同的呈现终端分别进行处理，被广泛应用于响应式开发中。</p>
+<p>html 标签方式：</p>
+<p>css 属性方式：</p>
+<p>常使用的是检测设备宽度</p>
+<p>参考手册</p>
+<h1 id="Web字体"><a href="#Web字体" class="headerlink" title="Web字体"></a>Web字体</h1><p>开发人员可以为自已的网页指定特殊的字体，无需考虑用户电脑上是否安装了此特殊字体，从此把特殊字体处理成图片的时代便成为了过去。</p>
+<p>支持程度比较好，甚至IE低版本浏览器也能支持。</p>
+<h2 id="字体格式"><a href="#字体格式" class="headerlink" title="字体格式"></a>字体格式</h2><p>不同浏览器所支持的字体格式是不一样的，我们有必要了解一下有关字体格式的知识。</p>
+<p>1、TureTpe(.ttf)格式</p>
+<p>.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome4+、Safari3+、Opera10+、iOS<br>Mobile、Safari4.2+；</p>
+<p>2、OpenType(.otf)格式</p>
+<p>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，支持这种字体的浏览器有Firefox3.5+、Chrome4.0+、Safari3.1+、Opera10.0+、iOS<br>Mobile、Safari4.2+；</p>
+<blockquote>
+<p>  3、Web Open Font Format(.woff)格式</p>
+</blockquote>
+<p>woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+；</p>
+<p>4、Embedded Open Type(.eot)格式</p>
+<p>.eot字体是IE专用字体，可以从TrueType创建此格式字体，支持这种字体的浏览器有IE4+；</p>
+<p>5、SVG(.svg)格式</p>
+<p>.svg字体是基于SVG字体渲染的一种格式，支持这种字体的浏览器有Chrome4+、Safari3.1+、Opera10.0+、iOS<br>Mobile Safari3.2+；</p>
+<p>关于字体介绍摘自<a href="http://www.w3cplus.com/content/css3-font-face/" target="_blank" rel="external">http://www.w3cplus.com/content/css3-font-face/</a></p>
+<p>了解了上面的知识后，我们就需要为不同的浏览器准备不同格式的字体，通常我们会通过字体生成工具帮我们生成各种格式的字体，因此无需过于在意字体格式间的区别差异。</p>
+<p>推荐<a href="http://www.zhaozi.cn/、http://www.youziku.com/" target="_blank" rel="external">http://www.zhaozi.cn/、http://www.youziku.com/</a> 查找更多中文字体</p>
+<h2 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h2><p>其实我们可以把文字理解成是一种特殊形状的图片，反之我们是不是也可以把图片制作成字体呢？</p>
+<p>答案是肯定的。</p>
+<p>常见的是把网页常用的一些小的图标，借助工具帮我们生成一个字体库，然后就可以像使用文字一样使用图标了。</p>
+<p>优点：</p>
+<p>1、将所有图标打包成字体库，减少请求；</p>
+<p>2、具有矢量性，可保证清晰度；</p>
+<p>3、使用灵活，便于维护；</p>
+<p>Font Awesome 使用介绍</p>
+<p><a href="http://fontawesome.dashgame.com/" target="_blank" rel="external">http://fontawesome.dashgame.com/</a></p>
+<p>定制自已的字体图标库</p>
+<p><a href="http://iconfont.cn/" target="_blank" rel="external">http://iconfont.cn/</a></p>
+<p><a href="https://icomoon.io/" target="_blank" rel="external">https://icomoon.io/</a></p>
+<p>SVG</p>
+<p><a href="http://www.iconsvg.com/" target="_blank" rel="external">http://www.iconsvg.com/</a></p>
+<h1 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h1><p>通过<a href="http://caniuse.com/" target="_blank" rel="external">http://caniuse.com/</a><br>可查询CSS3各特性的支持程度，一般兼容性处理的常见方法是为属性添加私有前缀，如不能解决，应避免使用，无需刻意去处理CSS3的兼容性问题。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/avatar.png" alt="angiter wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixin.png" alt="angiter WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.png" alt="angiter Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端基础/" rel="tag"># 前端基础</a>
+          
+            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/13/jQuery基础总结/" rel="next" title="jQuery基础总结">
+                <i class="fa fa-chevron-left"></i> jQuery基础总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/15/面向对象基础总结/" rel="prev" title="面向对象基础总结">
+                面向对象基础总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/01/02/CSS3基础总结/"
+     data-title="CSS3基础总结"
+     data-content=""
+     data-url="http://yoursite.com/2017/01/02/CSS3基础总结/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/02/CSS3基础总结/"
+           data-title="CSS3基础总结" data-url="http://yoursite.com/2017/01/02/CSS3基础总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="angiter" />
+          <p class="site-author-name" itemprop="name">angiter</p>
+          <p class="site-description motion-element" itemprop="description">大家一起来找茬</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xupeng01" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/" title="hexo" target="_blank">hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://theme-next.iissnan.com/" title="theme-next" target="_blank">theme-next</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS3简介"><span class="nav-number">1.</span> <span class="nav-text">CSS3简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3的现状"><span class="nav-number">1.1.</span> <span class="nav-text">CSS3的现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何对待"><span class="nav-number">1.2.</span> <span class="nav-text">如何对待</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#统一环境"><span class="nav-number">2.1.</span> <span class="nav-text">统一环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用手册"><span class="nav-number">2.2.</span> <span class="nav-text">如何使用手册</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础知识"><span class="nav-number">3.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">3.1.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性选择器"><span class="nav-number">3.1.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类选择器"><span class="nav-number">3.1.2.</span> <span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素选择器"><span class="nav-number">3.1.3.</span> <span class="nav-text">伪元素选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色"><span class="nav-number">3.2.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-number">3.3.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边框"><span class="nav-number">3.4.</span> <span class="nav-text">边框</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#边框圆角"><span class="nav-number">3.4.1.</span> <span class="nav-text">边框圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边框图片"><span class="nav-number">3.4.2.</span> <span class="nav-text">边框图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边框阴影"><span class="nav-number">3.4.3.</span> <span class="nav-text">边框阴影</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型"><span class="nav-number">3.5.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">3.6.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐变"><span class="nav-number">3.7.</span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伸缩布局"><span class="nav-number">3.8.</span> <span class="nav-text">伸缩布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新版伸缩布局"><span class="nav-number">3.8.1.</span> <span class="nav-text">新版伸缩布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多列布局"><span class="nav-number">3.9.</span> <span class="nav-text">多列布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡"><span class="nav-number">3.10.</span> <span class="nav-text">过渡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画"><span class="nav-number">3.11.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换"><span class="nav-number">3.12.</span> <span class="nav-text">转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">3.13.</span> <span class="nav-text">媒体查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web字体"><span class="nav-number">4.</span> <span class="nav-text">Web字体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字体格式"><span class="nav-number">4.1.</span> <span class="nav-text">字体格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体图标"><span class="nav-number">4.2.</span> <span class="nav-text">字体图标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#兼容性"><span class="nav-number">5.</span> <span class="nav-text">兼容性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">angiter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"biubiulove"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ke69LOowXRs1IqNCm4A1DdoT-gzGzoHsz", "O5iTwans1bqqmp62IcYiKP5J");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
