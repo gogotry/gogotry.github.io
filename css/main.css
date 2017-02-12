@@ -1801,7 +1801,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bbc30e;
+  background: #3b405e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2964,4 +2964,7 @@ a.search-result {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: url("/images/beij.jpg");
 }
