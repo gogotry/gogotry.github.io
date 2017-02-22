@@ -1,0 +1,1531 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端基础,JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Js基础介绍JS的组成
+ECMAScript 规定了js的语法标准以及规范
+
+DOM document object model 文档对象类型提供了一套操作DOM元素的API(应用程序接口)
+
+BOM Browser object model 浏览器对象模型 提供了一套操作浏览器相关内容的API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript基础一">
+<meta property="og:url" content="http://yoursite.com/2015/10/04/JavaScript基础一/index.html">
+<meta property="og:site_name" content="xupengfly">
+<meta property="og:description" content="Js基础介绍JS的组成
+ECMAScript 规定了js的语法标准以及规范
+
+DOM document object model 文档对象类型提供了一套操作DOM元素的API(应用程序接口)
+
+BOM Browser object model 浏览器对象模型 提供了一套操作浏览器相关内容的API">
+<meta property="og:image" content="http://yoursite.com/media/8e82caea6927679813eb940aaa22c467.png">
+<meta property="og:image" content="http://yoursite.com/media/d0dab56260f1fc8c61e6c3b34ae78416.png">
+<meta property="og:image" content="http://yoursite.com/media/4d8d5bb043f33709c9fcd553ebf79fe7.png">
+<meta property="og:updated_time" content="2017-02-22T14:11:04.993Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript基础一">
+<meta name="twitter:description" content="Js基础介绍JS的组成
+ECMAScript 规定了js的语法标准以及规范
+
+DOM document object model 文档对象类型提供了一套操作DOM元素的API(应用程序接口)
+
+BOM Browser object model 浏览器对象模型 提供了一套操作浏览器相关内容的API">
+<meta name="twitter:image" content="http://yoursite.com/media/8e82caea6927679813eb940aaa22c467.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6383972067393406000',
+      author: '博主大人'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/10/04/JavaScript基础一/"/>
+
+
+
+
+
+  <title> JavaScript基础一 | xupengfly </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xupengfly</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/04/JavaScript基础一/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="angiter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xupengfly">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xupengfly" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript基础一
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-10-04T12:07:24+08:00">
+                2015-10-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端基础/" itemprop="url" rel="index">
+                    <span itemprop="name">前端基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/10/04/JavaScript基础一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/JavaScript基础一/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/04/JavaScript基础一/" class="leancloud_visitors" data-flag-title="JavaScript基础一">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Js基础"><a href="#Js基础" class="headerlink" title="Js基础"></a>Js基础</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="JS的组成"><a href="#JS的组成" class="headerlink" title="JS的组成"></a>JS的组成</h3><ul>
+<li><p>ECMAScript 规定了js的语法标准以及规范</p>
+</li>
+<li><p>DOM document object model 文档对象类型<br>提供了一套操作DOM元素的API(应用程序接口)</p>
+</li>
+<li><p>BOM Browser object model 浏览器对象模型 提供了一套操作浏览器相关内容的API</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h3><p><strong>\@常用输出语句</strong></p>
+<p><img src="media/8e82caea6927679813eb940aaa22c467.png" alt=""></p>
+<h3 id="代码注释"><a href="#代码注释" class="headerlink" title="代码注释"></a>代码注释</h3><p><strong>\@代码注释</strong></p>
+<p>//单行注释</p>
+<p>/* 多行注释 */</p>
+<p>书写多行注释的时候注意不要发生嵌套</p>
+<p>/** + 回车 用于函数的说明</p>
+<h3 id="书写位置"><a href="#书写位置" class="headerlink" title="书写位置"></a>书写位置</h3><p><strong>\@书写位置</strong></p>
+<p>可以写在HTML页面内的任意位置或者从外部引用（可以类比样式代码的书写位置）</p>
+<h3 id="标签属性"><a href="#标签属性" class="headerlink" title="标签属性"></a>标签属性</h3><p><strong>\@script标签的属性</strong></p>
+<p><strong>type类型 src 地址</strong></p>
+<p><strong>async</strong>异步加载，加载完成立即执行<br><strong>defer</strong>异步加载，页面上的东西都执行完了才执行<em>（了解即可!!!）</em></p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h3><p><strong>\@变量的命名</strong></p>
+<p><strong>规则(必须遵守)</strong></p>
+<p>区分大小写</p>
+<p>不能是关键字和保留字</p>
+<p>由字母、数字、下划线、\$ 组成且开头不能是数字</p>
+<p>tips:关键字和保留字那么多，记不住怎么办？</p>
+<p>首先，关键字就是你平时用的那些，而保留字在非严格模式下不能使用的只有：</p>
+<p><strong>class enum extends super const export import</strong></p>
+<p>而且，其实如果你使用了关键webstorm是有提示的，但是常见的几个最好还是记住</p>
+<p><strong>规范(建议遵守)</strong></p>
+<p>变量的名称要有实际意义</p>
+<p>规则中所说的字母包括ASCII和Unicode字母字符，如汉字，但不推荐使用</p>
+<p>变量的命名遵守驼峰命名法，首字母小写,第二个单词的首字母大写 例如：userName</p>
+<h3 id="变量的声明赋值"><a href="#变量的声明赋值" class="headerlink" title="变量的声明赋值"></a>变量的声明赋值</h3><p><strong>\@变量的声明和赋值</strong></p>
+<p>书写格式</p>
+<p>var 变量名 = 值</p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><p><strong>\@交换两个变量的值</strong></p>
+<p><strong>\@不使用第三个变量</strong></p>
+<h3 id="弱类型"><a href="#弱类型" class="headerlink" title="弱类型"></a>弱类型</h3><p><strong>\@弱类型</strong></p>
+<p>JavaScript是弱类型的语言，即声明不同数据类型的变量使用同一个关键字var</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="数据类型-1"><a href="#数据类型-1" class="headerlink" title="数据类型"></a>数据类型</h3><p>声明的时候不用考虑类型，但是处理和计算的时候要考虑类型</p>
+<p><strong>简单数据类型(值类型)</strong></p>
+<p>number数值型 string字符串型 boolean布尔型 undefined 未定义 null空</p>
+<p><strong>复杂数据类型(引用类型)</strong></p>
+<p>object对象 function 函数 Array 数组 Data 日期 RegExp 正则 Math String Number<br>Boolean</p>
+<p><strong>使用typeof关键字可以查看变量的数据类型</strong></p>
+<h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><p><strong>\@数值类型</strong></p>
+<p><strong>字面量</strong></p>
+<p>var num = 数字;</p>
+<p><strong>浮点数</strong></p>
+<p>计算浮点数时会丢失精度</p>
+<p>我们通常用整数的计算来表示浮点数的计算</p>
+<p>不要以两个浮点数是否相等作为条件判断的依据（判断范围还是可以的）</p>
+<p><strong>NaN</strong></p>
+<p>NaN是数值类型</p>
+<p>NaN不等于自身</p>
+<p>isNaN( ) 不是有意义的数值返回true</p>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><p><strong>\@字符串型</strong></p>
+<p><strong>字面量</strong></p>
+<p>var str = “字符串”;</p>
+<p><strong>字符串的长度</strong></p>
+<p>str.length</p>
+<p>length就是长度的意思</p>
+<p><strong>转义符</strong></p>
+<p>\n 换行 \’单引号 \”双引号 \\斜杠</p>
+<p><strong>字符串的不可变性</strong></p>
+<p>由于字符串有不可变性，在大量拼接字符串的时候会非常消耗内存。</p>
+<h3 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h3><p><strong>\@布尔类型</strong></p>
+<p>所有类型的值都可以转化成布尔值</p>
+<p>会转化成false的值有： 空字符串 数值零NaN undefined null</p>
+<h3 id="undefined类型"><a href="#undefined类型" class="headerlink" title="undefined类型"></a>undefined类型</h3><p><strong>\@undefined</strong></p>
+<p>表示声明但未赋值的变量</p>
+<p>手动赋值为 undefined对象属性不存在的时候,这个属性的值为undefined</p>
+<p>变量不可能自动为 null 除非手动赋值</p>
+<p>当给别人提供一个返回对象的方法或者函数的时候<br>当函数中创建这个对象失败，或者获取对象失败，无法正常返回对象的时候，就应该返回null</p>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="转换成字符串"><a href="#转换成字符串" class="headerlink" title="转换成字符串"></a>转换成字符串</h3><p><strong>\@转换成字符串</strong></p>
+<p>将任意类型转化为字符串</p>
+<p>String(值)</p>
+<p>大部分类型都有toString方法</p>
+<p>值.toString()</p>
+<p>小技巧</p>
+<p>值+””</p>
+<h3 id="转化成数值型"><a href="#转化成数值型" class="headerlink" title="转化成数值型"></a>转化成数值型</h3><p><strong>\@转换成数值</strong></p>
+<p>将任意类型转化为数值型</p>
+<p>Number(值)</p>
+<p>将字符串转化为数值</p>
+<p>parseInt(“字符串”) parseFloat(“字符串”)</p>
+<p>小技巧</p>
+<p>值-0</p>
+<h3 id="转化成布尔值"><a href="#转化成布尔值" class="headerlink" title="转化成布尔值"></a>转化成布尔值</h3><p><strong>\@转换成布尔值</strong></p>
+<p>将任意类型转化为布尔值</p>
+<p>Boolean(值)</p>
+<p>条件判断中会自动转换</p>
+<p>if(值)</p>
+<p>小技巧</p>
+<p>!!值</p>
+<h2 id="获取数据类型"><a href="#获取数据类型" class="headerlink" title="获取数据类型"></a>获取数据类型</h2><h3 id="typeof-关键字"><a href="#typeof-关键字" class="headerlink" title="typeof 关键字"></a>typeof 关键字</h3><p>语法 typeof 变量</p>
+<p>返回值: 字符串的 类型 (返回的内容也是字符串)</p>
+<p>使用typeof关键字去获取复杂数据类型的类型的时候 只能获取到object</p>
+<p>typof是个关键字，后面加括号，只是对后面的代码进行分组，提升了优先级</p>
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p><strong>\@运算符</strong></p>
+<h3 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h3><p><strong>\@递增和递减</strong></p>
+<p>递增++ 递减–</p>
+<p>a++ 先参与运算 后自加</p>
+<p>++a 先自加 后参与运算</p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><strong>\@逻辑运算符</strong></p>
+<ul>
+<li><p>&amp;&amp; 与</p>
+<ol>
+<li><p>两个操作数都为true，结果为true</p>
+<p>只要有一个操作数为false，结果为false</p>
+</li>
+</ol>
+</li>
+<li><p>|| 或</p>
+<ol>
+<li><p>只要有一个操作数为true，结果为true</p>
+<p>两个操作数都为false，结果为false</p>
+</li>
+</ol>
+</li>
+<li><p>! 非</p>
+<ol>
+<li><p>逻辑非操作符首先会将它的操作数转换为一个布尔值，然后再对其求反</p>
+<p>只有一个操作数</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>逻辑运算</strong></p>
+<p>&amp;&amp; 和 || 都采取短路运算，即<strong>第一个能够决定结果就不再看第二个</strong>了</p>
+<p>&amp;&amp; 的要求比较宽松 要<strong>两个都是true才是true</strong><br>所以看到第一个是false就没有必要继续完后看了</p>
+<p>console.log(false &amp;&amp; 不管了);</p>
+<p>|| 的要求比较严格 要<strong>两个都是false才是false</strong><br>所以看到第一个是true就没有必要继续完后看了</p>
+<p>console.log(true || 不管了);</p>
+<p><strong>短路运算（了解）</strong></p>
+<p>&amp;&amp;和 ||<br>不但可以操作布尔类型的值，对<strong>其他类型的值</strong>也可以进行操作，并<strong>返回可以决定表达式结果的那个值</strong>。</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p><strong>\@赋值运算符</strong></p>
+<p>a+=b 等价于 a=a+b</p>
+<h3 id="关系运法符"><a href="#关系运法符" class="headerlink" title="关系运法符"></a>关系运法符</h3><ul>
+<li><p>\&lt; \&lt;= >= ></p>
+</li>
+<li><p>== != 相等和不相等</p>
+</li>
+<li><p>=== !== 全等和不全等</p>
+</li>
+<li><p>注意: 当引用类型的数据和值类型的数据进行运算（+-*/ == > \&lt;）的时候</p>
+<ul>
+<li><p>会调用引用类型数据的valueOf方法，获取返回值，如果这个返回值可以参与运算，那么就直接用了</p>
+</li>
+<li><p>如果不能参与运算，再去调用该引用类型数据的toString方法,拿这个返回值来参与运算</p>
+</li>
+<li><p>例</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>//字面量</p>
+<p>//{}</p>
+<p>//[]<br>//1.只要遇到字面量，必然是在创建对象<br>console.log([] == []);//false</p>
+<p>console.log({} == {});//false<br>//引用类型的数据和值类型<br>console.log([] == ![]);<br>//调用上述方法后就相当于console.log(“” == false);</p>
+<h3 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h3><ul>
+<li><p>优先级从高到底</p>
+<ol>
+<li><p>() 优先级最高</p>
+<p>一元运算符 ++ – !</p>
+<p>算数运算符 先* / % 后 + -</p>
+<p>关系运算符 > >= \&lt; \&lt;=</p>
+<p>相等运算符 == != === !==</p>
+<p>逻辑运算符 先&amp;&amp; 后||</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h3><ul>
+<li><p>值类型：直接存储数据本身的数据，就是值类型的数据</p>
+</li>
+<li><p>引用类型：存储的是数据的地址，数据单独存储，这种数据就是引用类型的数据</p>
+</li>
+</ul>
+<p>特征:</p>
+<ul>
+<li><p>值类型的数据在赋值的时候，会将存储的数据复制一份交给新的变量，两个变量值相等，但是存储的空间不一样，修改其中一个，另外一个不会受影响</p>
+</li>
+<li><p>引用类型的数据在赋值的时候，会将对象的地址复制一份交给新的变量，此时两个变量同时指向同一个对象，通过其中一个变量对对象进行修改，另外一个变量也会受到影响</p>
+</li>
+</ul>
+<p>var num = 100;</p>
+<p>function test(n){</p>
+<p>//n = num //值类型的赋值</p>
+<p>n = 1000;</p>
+<p>}</p>
+<p>test(num);</p>
+<p>console.log(num);//100</p>
+<p>var obj1 = {</p>
+<p>name:”高富帅”;</p>
+<p>}</p>
+<p>function test(obj){</p>
+<p>//obj = obj1; //引用类型的赋值</p>
+<p>obj.name = “矮穷丑”;</p>
+<p>}</p>
+<p>test(obj1);</p>
+<p>console.log(obj1.name);//矮穷丑</p>
+<p>var obj1 = {</p>
+<p>name:”高富帅”</p>
+<p>}</p>
+<p>function test(obj){</p>
+<p>obj.name = “矮穷丑”</p>
+<p>obj = {</p>
+<p>name : “白富美”</p>
+<p>}</p>
+<p>obj.name = “土肥圆”;</p>
+<p>return obj.name;</p>
+<p>}</p>
+<p>console.log(test(obj1));//土肥圆</p>
+<p>console.log(obj1.name);//矮穷丑</p>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="选择语句if"><a href="#选择语句if" class="headerlink" title="选择语句if"></a>选择语句if</h3><p>if (condition) {</p>
+<p>statement1</p>
+<p>} else if (condition) {</p>
+<p>statement2</p>
+<p>} else {</p>
+<p>statement3</p>
+<p>}</p>
+<h3 id="三元表达式"><a href="#三元表达式" class="headerlink" title="三元表达式"></a>三元表达式</h3><p>表达式1 ? 表达式2 : 表达式3</p>
+<h3 id="选择语句switch"><a href="#选择语句switch" class="headerlink" title="选择语句switch"></a>选择语句switch</h3><p>switch (expression) {</p>
+<p>case value:</p>
+<p>statement</p>
+<p>break;</p>
+<p>case value:</p>
+<p>statement</p>
+<p>break;</p>
+<p>default:</p>
+<p>statement</p>
+<p>}</p>
+<h3 id="循环语句for"><a href="#循环语句for" class="headerlink" title="循环语句for"></a>循环语句for</h3><p>for (initialization; expression; post-loop-expression)｛</p>
+<p>statement</p>
+<p>｝</p>
+<p>initialization表示：初始化表达式</p>
+<p>expression表示：控制表达式</p>
+<p>post-loop-expression表示：循环后表达式</p>
+<p>三者都是可选的</p>
+<h3 id="循环语句-for-in-amp-关键字in的使用"><a href="#循环语句-for-in-amp-关键字in的使用" class="headerlink" title="循环语句 for-in &amp; 关键字in的使用"></a>循环语句 for-in &amp; 关键字in的使用</h3><ul>
+<li>for-in 遍历对象的键</li>
+</ul>
+<p>语法 for (var k in obj)｛</p>
+<p>console.log(k);</p>
+<p>｝</p>
+<ul>
+<li><p>注意：对象的属性全都是字符串类型的</p>
+</li>
+<li><p>注意： 在for-in中使用键访问对象的值的时候，不能使用点语法</p>
+</li>
+<li><p>只能使用中括号 又叫做 关联数组语法</p>
+</li>
+<li><p>判断对象是否可以访问某个属性</p>
+<ul>
+<li>语法： 属性名 in 对象</li>
+</ul>
+</li>
+</ul>
+<p>console.log(“toString” in obj);</p>
+<ul>
+<li>返回值： 布尔值，表示能或者不能</li>
+</ul>
+<h3 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h3><p>break跳出当前循环，执行循环后的语句</p>
+<p>continue跳出当前循环，继续执行循环</p>
+<h3 id="循环语句while"><a href="#循环语句while" class="headerlink" title="循环语句while"></a>循环语句while</h3><p><strong>while语句</strong> 先判断后执行</p>
+<p>while(expression) statement</p>
+<p><strong>do while 语句</strong> 先执行后判断</p>
+<p>do {statement} while (expression);</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h3><p>通过构造函数声明（更加通用）</p>
+<p>var arr = new Array(“a”, “b”, “c”);</p>
+<p>通过字面量声明（更加简便）</p>
+<p>var arr = [“a”,”b”,”c”];</p>
+<h3 id="数组的赋值和取值"><a href="#数组的赋值和取值" class="headerlink" title="数组的赋值和取值"></a>数组的赋值和取值</h3><p><strong>赋值</strong></p>
+<p>数组名[索引号] = 值 //arr[0]=100</p>
+<p><strong>取值</strong>（通过数组名和索引即可取到对应的值）</p>
+<p>数组名[索引号] //console.log(arr[0])</p>
+<h3 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h3><p>数组的索引是从0开始的</p>
+<p>数组的长度可以通过arr.length获取</p>
+<p>由于数组的索引从0开始，所以最后一个值的索引为arr.length-1</p>
+<p><strong>通过for循环遍历数组</strong></p>
+<p>for (var i = 0; i \&lt;= arr.length - 1; i++) {</p>
+<p>console.log(arr[i]);</p>
+<p>}</p>
+<p>可<strong>简写</strong>为：</p>
+<p>for (var i = 0; i \&lt; arr.length; i++) {</p>
+<p>console.log(arr[i]);</p>
+<p>}</p>
+<p><strong>\@数组length的应用</strong></p>
+<p>往数组中添加新元素，数组的length会增加</p>
+<p>通过给arr.length赋值可以改变数组的长度</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p><strong>\@冒泡排序</strong></p>
+<p>var arr = [65, 97, 76, 13, 27, 49, 58];<br>//循环控制趟数<br>for (var i = 0; i \&lt; arr.length - 1; i++) {<br>//控制两两比较的次数<br>for (var j = 0; j \&lt; arr.length - 1; j++) {<br>//两两比较 从小到大排序<br>if (arr[j] > arr[j + 1]) {<br>//交换位置<br>var tmp = arr[j];<br>arr[j] = arr[j + 1];<br>arr[j + 1] = tmp;<br>}<br>}<br>}</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数的声明和调用"><a href="#函数的声明和调用" class="headerlink" title="函数的声明和调用"></a>函数的声明和调用</h3><p>函数的声明</p>
+<p>function 函数名 () {</p>
+<p>//函数体</p>
+<p>}</p>
+<p>函数的调用</p>
+<p>函数名();</p>
+<h3 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h3><p>有参数的函数的<strong>声明</strong>（声明中的参数只是一个占位符，没有实际的值，是形式参数，即<strong>形参</strong>）</p>
+<p>function 函数名 (参数1,参数2,参数3…) {</p>
+<p>//函数体</p>
+<p>}</p>
+<p>有参数的函数的<strong>调用</strong>（调用时传入的参数才是有真正数值的参数，是实际参数，即<strong>实参</strong>）</p>
+<p>函数名(参数1,参数2,参数3…);</p>
+<h3 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h3><p>在函数中通过return关键字将要返回值返回</p>
+<p>return 要返回的值;</p>
+<h3 id="函数高级概念"><a href="#函数高级概念" class="headerlink" title="函数高级概念"></a>函数高级概念</h3><p><strong>\@参数详解</strong></p>
+<p>在JS中实参的个数和形参的个数可以不一致</p>
+<p><strong>\@返回值详解</strong></p>
+<p>函数的返回值是什么，调用这个函数就相当于调用什么，如果没有返回值则为undefined</p>
+<p>函数在执行完成return语句后便会退出函数，后面的代码不会执行</p>
+<p><strong>\@三种定义方式</strong></p>
+<p>函数声明</p>
+<p>function fn1() {</p>
+<p>//函数体</p>
+<p>}</p>
+<p>函数表达式</p>
+<p>var fn2 = function () {</p>
+<p>//函数体</p>
+<p>};</p>
+<p>Function</p>
+<p>Var 函数名= new Function fn1()</p>
+<p><strong>\@匿名函数</strong></p>
+<p>匿名函数（没有名字的函数）</p>
+<p>变量 = function () {</p>
+<p>//函数体</p>
+<p>}</p>
+<p><strong>\@递归调用</strong></p>
+<p>程序调用自身的编程技巧称为递归</p>
+<p><strong>\@回调函数</strong></p>
+<p>函数也是一种普通的数据类型</p>
+<p>因此函数也可以被当作参数传递</p>
+<p>被当作参数传递的函数叫做回调函数</p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>从宏观的角度讲，对象是对客观事物的抽象，事物的特征可以用<strong>属性</strong>表示，事物的行为可以用<strong>方法</strong>表示</p>
+<p>从微观的角度讲，对象就是一种数据类型，通过对象可以方便地对<strong>变量</strong>和<strong>函数</strong>进行管理</p>
+<p>初期我们甚至可以把他简单地理解为一个工具箱</p>
+<h3 id="键值对"><a href="#键值对" class="headerlink" title="键值对"></a>键值对</h3><p>键值对就是一种对应关系，通过键能够方便地找到值</p>
+<p>键:值 key:value k:v</p>
+<h3 id="对象的声明"><a href="#对象的声明" class="headerlink" title="对象的声明"></a>对象的声明</h3><p>通过构造函数声明（更加通用）</p>
+<p>var obj= new Object();</p>
+<p>通过字面量声明（更加简便）</p>
+<p>var obj= {};</p>
+<p>对象具有属性和方法</p>
+<p>属性 用来描述对象的特征 一般是名词 对应变量</p>
+<p>方法 用来描述对象的行为 一般是动词 对应函数</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>属性的定义</p>
+<p>对象.属性名 = 值</p>
+<p>属性的调用</p>
+<p>对象.属性名</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>方法的定义</p>
+<p>对象.方法名 = function(){ //函数体 };</p>
+<p>方法的调用</p>
+<p>对象.方法名()</p>
+<h2 id="关于this-的指向"><a href="#关于this-的指向" class="headerlink" title="关于this 的指向"></a>关于this 的指向</h2><h3 id="全局上下文"><a href="#全局上下文" class="headerlink" title="全局上下文:"></a>全局上下文:</h3><p>全局运行上下文中（在任何函数体外部），this 指代全局对象</p>
+<h3 id="函数上下文"><a href="#函数上下文" class="headerlink" title="函数上下文:"></a>函数上下文:</h3><p><strong>对象方法中的this</strong>指的是该方法所属的对象 <strong>直接调用中的this</strong>指的是全局对象<br>总之，函数上下文中（在函数内部），this指的是当前函数所属的对象</p>
+<h3 id="构造函数中"><a href="#构造函数中" class="headerlink" title="构造函数中:"></a>构造函数中:</h3><p>当一个函数被作为构造函数使用时（前面加new关键字），new关键字会让this的指向改变，并让其成为当前函数的返回值</p>
+<h2 id="批量创建对象"><a href="#批量创建对象" class="headerlink" title="批量创建对象"></a>批量创建对象</h2><h3 id="工厂模式创建对象"><a href="#工厂模式创建对象" class="headerlink" title="工厂模式创建对象"></a>工厂模式创建对象</h3><p><strong>为什么要优化创建对象的方式</strong></p>
+<p>因为对象在项目中被大规模的使用，所以每一点小小的改进都会对项目整体效率带来很大的提升，现阶段同学们还不可能有深刻的体会，只是让大家了解一下，后面讲项目大家自然就明白了。</p>
+<p><strong>\@工厂模式创建对象</strong></p>
+<p>同类型对象，只是一些属性的值不同，通过对象字面量创建对象每次都要写那么多东西很费劲，我们可以<strong>将创建对象的过程封装进一个函数，只把发生变化的属性作为参数传入</strong>，从而简化对象创建的过程。</p>
+<p>但是工厂模式只是创建出来一个普通的对象并将其返回，因此无法判断实例的具体类型。</p>
+<h3 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h3><p><strong>\@this和new</strong></p>
+<p>利用new 关键字可以声明新的对象。new<br>关键字可以让构造函数中this的指向改变，并让构造函数把this返回。</p>
+<p><strong>\@构造函数</strong></p>
+<p>构造函数也是函数，只不过会默认返回一个对象。</p>
+<p><img src="media/d0dab56260f1fc8c61e6c3b34ae78416.png" alt=""></p>
+<p><img src="media/4d8d5bb043f33709c9fcd553ebf79fe7.png" alt=""></p>
+<p><strong>\@构造函数创建对象</strong></p>
+<p>通过构造函数创建对象更方便（不需要创建对象并返回）。更重要的是可以通过<strong>instanceof</strong>来判断实例的类型了。</p>
+<h2 id="对象的动态创建"><a href="#对象的动态创建" class="headerlink" title="对象的动态创建"></a>对象的动态创建</h2><h3 id="对象的动态特性"><a href="#对象的动态特性" class="headerlink" title="对象的动态特性"></a>对象的动态特性</h3><p>就是指，在对象创建出来之后，可以随时为对象添加成员的这种特性，就是动态特性</p>
+<p>语法: 成员：属性和方法</p>
+<h3 id="利用对象动态特性给对象添加成员的方式"><a href="#利用对象动态特性给对象添加成员的方式" class="headerlink" title="利用对象动态特性给对象添加成员的方式"></a>利用对象动态特性给对象添加成员的方式</h3><ul>
+<li>点语法</li>
+</ul>
+<p>对象名.属性名 = 值</p>
+<ul>
+<li>关联数组语法</li>
+</ul>
+<p>对象名[“属性名”] = 值</p>
+<ul>
+<li>案例</li>
+</ul>
+<p>obj[[]] = “我是一个怪物！！”;</p>
+<p>//相当于做了如下操作</p>
+<p>//obj[“[object Object]”] = “我是一个怪物！！”;</p>
+<h2 id="delete关键字"><a href="#delete关键字" class="headerlink" title="delete关键字"></a>delete关键字</h2><p>语法：delete 变量名/对象.属性名</p>
+<p>返回值：boolean类型 表示是否删除成功 不可信！！！</p>
+<h3 id="删除未使用var声明的变量-使用var的删不掉"><a href="#删除未使用var声明的变量-使用var的删不掉" class="headerlink" title="删除未使用var声明的变量 (使用var的删不掉)"></a>删除未使用var声明的变量 (使用var的删不掉)</h3><p>a = 10;</p>
+<p>console.log(delete a);</p>
+<p>console.log(a);</p>
+<h3 id="删除对象的属性"><a href="#删除对象的属性" class="headerlink" title="删除对象的属性"></a>删除对象的属性</h3><p>var obj = {</p>
+<p>// name : “郑天杨”</p>
+<p>// }<br>console.log(delete obj.name);<br>//Object.defineProperty() 表示是否可以删除对象的属性 后面js高级会学</p>
+<h3 id="delete删除数组元素"><a href="#delete删除数组元素" class="headerlink" title="delete删除数组元素"></a>delete删除数组元素</h3><p>delete删除数组元素的时候，数组原本的其他数据的索引不会变化而且数组的长度也不会变化！！只是删除了索引及其对应的值</p>
+<h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h3 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h3><p><strong>\@对象字面量</strong></p>
+<p>var o = {</p>
+<p>name : “zs”,</p>
+<p>age : 18,</p>
+<p>sayHi : function() {</p>
+<p>console.log(this.name);</p>
+<p>}</p>
+<p>};</p>
+<h3 id="对象标记法"><a href="#对象标记法" class="headerlink" title="对象标记法"></a>对象标记法</h3><p><strong>\@对象标记法</strong></p>
+<p>JavaScript Object<br>Notation（JavaScript对象标记法）是仿照JS中对象字面量的格式去书写的一串用来记录对象数据的<strong>字符串</strong>，可以用于数据传输。将来学习AJAX会详细学习。</p>
+<h3 id="访问属性的两种方式"><a href="#访问属性的两种方式" class="headerlink" title="访问属性的两种方式"></a>访问属性的两种方式</h3><p><strong>\@访问属性的两种方式</strong></p>
+<p>点语法（简单）</p>
+<p>对象.属性名</p>
+<p>中括号（灵活）</p>
+<p>对象[“属性名”]</p>
+<h3 id="遍历的两种方式"><a href="#遍历的两种方式" class="headerlink" title="遍历的两种方式"></a>遍历的两种方式</h3><p><strong>\@遍历的两种方式</strong></p>
+<p>通过for可以对集合进行有序的遍历</p>
+<p>通过forin可以对集合进行有序的遍历</p>
+<p>for(var k in obj) { 语句 }</p>
+<p>k变量代表的是json中的各个属性（key）和 var i = 0中的i是一个意思 名字不同而已</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/avatar.png" alt="angiter wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixin.png" alt="angiter WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.png" alt="angiter Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端基础/" rel="tag"># 前端基础</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/15/Sublime快捷键/" rel="next" title="Sublime快捷键">
+                <i class="fa fa-chevron-left"></i> Sublime快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/22/JavaScript基础二/" rel="prev" title="JavaScript基础二">
+                JavaScript基础二 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/10/04/JavaScript基础一/"
+     data-title="JavaScript基础一"
+     data-content=""
+     data-url="http://yoursite.com/2015/10/04/JavaScript基础一/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/10/04/JavaScript基础一/"
+           data-title="JavaScript基础一" data-url="http://yoursite.com/2015/10/04/JavaScript基础一/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="angiter" />
+          <p class="site-author-name" itemprop="name">angiter</p>
+          <p class="site-description motion-element" itemprop="description">代码与我同在</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xupeng01" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/" title="hexo" target="_blank">hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://theme-next.iissnan.com/" title="theme-next" target="_blank">theme-next</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Js基础"><span class="nav-number">1.</span> <span class="nav-text">Js基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS的组成"><span class="nav-number">1.1.1.</span> <span class="nav-text">JS的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出语句"><span class="nav-number">1.1.2.</span> <span class="nav-text">输出语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码注释"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#书写位置"><span class="nav-number">1.1.4.</span> <span class="nav-text">书写位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签属性"><span class="nav-number">1.1.5.</span> <span class="nav-text">标签属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.2.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的命名规范"><span class="nav-number">1.2.1.</span> <span class="nav-text">变量的命名规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的声明赋值"><span class="nav-number">1.2.2.</span> <span class="nav-text">变量的声明赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">1.2.3.</span> <span class="nav-text">练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弱类型"><span class="nav-number">1.2.4.</span> <span class="nav-text">弱类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.3.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值类型"><span class="nav-number">1.3.2.</span> <span class="nav-text">数值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串类型"><span class="nav-number">1.3.3.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔类型"><span class="nav-number">1.3.4.</span> <span class="nav-text">布尔类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined类型"><span class="nav-number">1.3.5.</span> <span class="nav-text">undefined类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">1.4.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#转换成字符串"><span class="nav-number">1.4.1.</span> <span class="nav-text">转换成字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转化成数值型"><span class="nav-number">1.4.2.</span> <span class="nav-text">转化成数值型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转化成布尔值"><span class="nav-number">1.4.3.</span> <span class="nav-text">转化成布尔值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取数据类型"><span class="nav-number">1.5.</span> <span class="nav-text">获取数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof-关键字"><span class="nav-number">1.5.1.</span> <span class="nav-text">typeof 关键字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作符"><span class="nav-number">1.6.</span> <span class="nav-text">操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一元运算符"><span class="nav-number">1.6.1.</span> <span class="nav-text">一元运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">1.6.2.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值运算符"><span class="nav-number">1.6.3.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运法符"><span class="nav-number">1.6.4.</span> <span class="nav-text">关系运法符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符的优先级"><span class="nav-number">1.6.5.</span> <span class="nav-text">运算符的优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#值类型和引用类型"><span class="nav-number">1.6.6.</span> <span class="nav-text">值类型和引用类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句"><span class="nav-number">1.7.</span> <span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择语句if"><span class="nav-number">1.7.1.</span> <span class="nav-text">选择语句if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元表达式"><span class="nav-number">1.7.2.</span> <span class="nav-text">三元表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择语句switch"><span class="nav-number">1.7.3.</span> <span class="nav-text">选择语句switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环语句for"><span class="nav-number">1.7.4.</span> <span class="nav-text">循环语句for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环语句-for-in-amp-关键字in的使用"><span class="nav-number">1.7.5.</span> <span class="nav-text">循环语句 for-in & 关键字in的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#break和continue"><span class="nav-number">1.7.6.</span> <span class="nav-text">break和continue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环语句while"><span class="nav-number">1.7.7.</span> <span class="nav-text">循环语句while</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">1.8.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的声明"><span class="nav-number">1.8.1.</span> <span class="nav-text">数组的声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的赋值和取值"><span class="nav-number">1.8.2.</span> <span class="nav-text">数组的赋值和取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的遍历"><span class="nav-number">1.8.3.</span> <span class="nav-text">数组的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.8.4.</span> <span class="nav-text">冒泡排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.9.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的声明和调用"><span class="nav-number">1.9.1.</span> <span class="nav-text">函数的声明和调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的参数"><span class="nav-number">1.9.2.</span> <span class="nav-text">函数的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的返回值"><span class="nav-number">1.9.3.</span> <span class="nav-text">函数的返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数高级概念"><span class="nav-number">1.9.4.</span> <span class="nav-text">函数高级概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">1.10.</span> <span class="nav-text">对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键值对"><span class="nav-number">1.10.1.</span> <span class="nav-text">键值对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的声明"><span class="nav-number">1.10.2.</span> <span class="nav-text">对象的声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">1.10.3.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">1.10.4.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于this-的指向"><span class="nav-number">1.11.</span> <span class="nav-text">关于this 的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局上下文"><span class="nav-number">1.11.1.</span> <span class="nav-text">全局上下文:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数上下文"><span class="nav-number">1.11.2.</span> <span class="nav-text">函数上下文:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数中"><span class="nav-number">1.11.3.</span> <span class="nav-text">构造函数中:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量创建对象"><span class="nav-number">1.12.</span> <span class="nav-text">批量创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂模式创建对象"><span class="nav-number">1.12.1.</span> <span class="nav-text">工厂模式创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数创建对象"><span class="nav-number">1.12.2.</span> <span class="nav-text">构造函数创建对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的动态创建"><span class="nav-number">1.13.</span> <span class="nav-text">对象的动态创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的动态特性"><span class="nav-number">1.13.1.</span> <span class="nav-text">对象的动态特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用对象动态特性给对象添加成员的方式"><span class="nav-number">1.13.2.</span> <span class="nav-text">利用对象动态特性给对象添加成员的方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delete关键字"><span class="nav-number">1.14.</span> <span class="nav-text">delete关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除未使用var声明的变量-使用var的删不掉"><span class="nav-number">1.14.1.</span> <span class="nav-text">删除未使用var声明的变量 (使用var的删不掉)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除对象的属性"><span class="nav-number">1.14.2.</span> <span class="nav-text">删除对象的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete删除数组元素"><span class="nav-number">1.14.3.</span> <span class="nav-text">delete删除数组元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他概念"><span class="nav-number">1.15.</span> <span class="nav-text">其他概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象字面量"><span class="nav-number">1.15.1.</span> <span class="nav-text">对象字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象标记法"><span class="nav-number">1.15.2.</span> <span class="nav-text">对象标记法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问属性的两种方式"><span class="nav-number">1.15.3.</span> <span class="nav-text">访问属性的两种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历的两种方式"><span class="nav-number">1.15.4.</span> <span class="nav-text">遍历的两种方式</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">angiter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"biubiulove"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ke69LOowXRs1IqNCm4A1DdoT-gzGzoHsz", "O5iTwans1bqqmp62IcYiKP5J");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

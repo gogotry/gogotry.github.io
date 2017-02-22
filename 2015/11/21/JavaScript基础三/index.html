@@ -1,0 +1,1254 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端基础,JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="事件对象事件：
+onclick onmouseover onmouseout onfocus onblure
+事件对象简介\@事件对象简介
+在触发事件时，会产生一个事件对象event，这个对象中包含着与事件有关的信息。
+所有浏览器都支持event对象，但支持的方式不同。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript基础三">
+<meta property="og:url" content="http://yoursite.com/2015/11/21/JavaScript基础三/index.html">
+<meta property="og:site_name" content="xupengfly">
+<meta property="og:description" content="事件对象事件：
+onclick onmouseover onmouseout onfocus onblure
+事件对象简介\@事件对象简介
+在触发事件时，会产生一个事件对象event，这个对象中包含着与事件有关的信息。
+所有浏览器都支持event对象，但支持的方式不同。">
+<meta property="og:image" content="http://yoursite.com/media/1f659b5c82eebd3fee8781f880fc1f74.png">
+<meta property="og:image" content="http://yoursite.com/media/b78ef9c7d0f6333875863e1bbdc946fc.png">
+<meta property="og:image" content="http://yoursite.com/media/edd047763f6dc61b0262dbf5be17f2a7.png">
+<meta property="og:image" content="http://yoursite.com/media/0b98b4c16c83add1952a01ae60443f72.png">
+<meta property="og:image" content="http://yoursite.com/media/cc64dfba516151331e0db1bf090afb29.png">
+<meta property="og:image" content="http://yoursite.com/media/8c62cd0a133155423796210705803957.png">
+<meta property="og:image" content="http://yoursite.com/media/6d4aa8984b894fa121a697dd9e5474ad.png">
+<meta property="og:image" content="http://yoursite.com/media/993fa9c8df7499f4386b78b5c10c6895.png">
+<meta property="og:image" content="http://yoursite.com/media/e27914a9104ff4022607de1089e73b44.png">
+<meta property="og:image" content="http://yoursite.com/media/4f92cc6364a631ea154406d261f28246.png">
+<meta property="og:updated_time" content="2017-02-22T14:26:18.357Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript基础三">
+<meta name="twitter:description" content="事件对象事件：
+onclick onmouseover onmouseout onfocus onblure
+事件对象简介\@事件对象简介
+在触发事件时，会产生一个事件对象event，这个对象中包含着与事件有关的信息。
+所有浏览器都支持event对象，但支持的方式不同。">
+<meta name="twitter:image" content="http://yoursite.com/media/1f659b5c82eebd3fee8781f880fc1f74.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6383972067393406000',
+      author: '博主大人'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/11/21/JavaScript基础三/"/>
+
+
+
+
+
+  <title> JavaScript基础三 | xupengfly </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xupengfly</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/21/JavaScript基础三/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="angiter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xupengfly">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xupengfly" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript基础三
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-21T12:27:22+08:00">
+                2015-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端基础/" itemprop="url" rel="index">
+                    <span itemprop="name">前端基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/11/21/JavaScript基础三/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/21/JavaScript基础三/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/11/21/JavaScript基础三/" class="leancloud_visitors" data-flag-title="JavaScript基础三">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h1><p><strong>事件：</strong></p>
+<p>onclick onmouseover onmouseout onfocus onblure</p>
+<h3 id="事件对象简介"><a href="#事件对象简介" class="headerlink" title="事件对象简介"></a>事件对象简介</h3><p><strong>\@事件对象简介</strong></p>
+<p>在触发事件时，会产生一个<strong>事件对象event</strong>，这个对象中包含着<strong>与事件有关的信息</strong>。</p>
+<p>所有浏览器都支持event对象，但支持的<strong>方式不同</strong>。</p>
+<a id="more"></a>
+<p>比如鼠标操作时候，会添加鼠标位置的相关信息到事件对象中。</p>
+<p>普通浏览器支持 传入参数</p>
+<p>ie 678 支持 window.event</p>
+<p><strong>\@事件对象的兼容性写法</strong></p>
+<p>var event = event || <strong>window</strong>.<strong>event</strong>;</p>
+<p><img src="media/1f659b5c82eebd3fee8781f880fc1f74.png" alt=""></p>
+<h3 id="三个重要座标"><a href="#三个重要座标" class="headerlink" title="三个重要座标"></a>三个重要座标</h3><p><strong>\@三个重要座标</strong></p>
+<p><strong>clientX clientY</strong></p>
+<p>当前窗口的左上角为基准点</p>
+<p><img src="media/b78ef9c7d0f6333875863e1bbdc946fc.png" alt=""></p>
+<p><strong>pageX pageY</strong></p>
+<p>以当前文档的左上角为基准点</p>
+<p><img src="media/edd047763f6dc61b0262dbf5be17f2a7.png" alt=""></p>
+<p>IE678不支持pageX和pageY 但是我们可以采取另一种方式</p>
+<p>var pageY = event.<strong>pageY</strong> || event.<strong>clientY</strong> +<br><strong>document</strong>.<strong>documentElement</strong>.<strong>scrollTop</strong>;</p>
+<p>var pageX = event.<strong>pageX</strong> || event.<strong>clientX</strong> +<br><strong>document</strong>.<strong>documentElement</strong>.<strong>scrollLeft</strong>;</p>
+<p><strong>screenX screenY</strong></p>
+<p>当前屏幕的左上角为基准点</p>
+<p><img src="media/0b98b4c16c83add1952a01ae60443f72.png" alt=""></p>
+<h2 id="放大镜特效"><a href="#放大镜特效" class="headerlink" title="放大镜特效"></a>放大镜特效</h2><p><strong>\@计算鼠标在盒子中的位置</strong></p>
+<p><img src="media/cc64dfba516151331e0db1bf090afb29.png" alt=""></p>
+<p>制作方法：</p>
+<p><strong>鼠标经过显示盒子</strong></p>
+<p>鼠标经过small，让mask和big显示；鼠标离开small，让mask和big隐藏。</p>
+<p><strong>鼠标经过遮罩跟随</strong></p>
+<p>给small绑定鼠标移动事件</p>
+<p>获取鼠标在small 内的坐标</p>
+<p>计算鼠标在盒子中的座标（鼠标pageX-box到页面左侧的距离；鼠标pageY-box到页面顶部的距离）</p>
+<p>然后赋值给mask的top和left（位置是按照左上角算的，所以top值要减去高度的一半，left值要减去宽度的一半）</p>
+<p><strong>限定遮罩运动范围</strong></p>
+<p>x 最小为0；最大为200，这个200是 small的宽度 -<br>mask的宽度（mask可以向右移动的最大值）</p>
+<p><img src="media/8c62cd0a133155423796210705803957.png" alt=""></p>
+<p><strong>按比例显示大图片</strong></p>
+<p><img src="media/6d4aa8984b894fa121a697dd9e5474ad.png" alt=""></p>
+<p>小盒子移动，大盒子要根据比例来移动，比例为：</p>
+<p>大图 在 大盒子 里移动的距离 / 小黄 在 小图 里移动的距离</p>
+<p>（大图片 - 大盒子 ） / （小盒子 - 小遮罩 ）</p>
+<p>800 - 400 / 350 - 175</p>
+<p>因为是反方向移动 计算时记得加负号呦！</p>
+<h2 id="可拖拽特效"><a href="#可拖拽特效" class="headerlink" title="可拖拽特效"></a>可拖拽特效</h2><p>常用事件：</p>
+<p>onmouseover 鼠标经过</p>
+<p>onmouseout 鼠标离开</p>
+<p>onmousedown 鼠标按下</p>
+<p>onmouseup 鼠标弹起</p>
+<p>onmousemove 鼠标移动</p>
+<p><strong>\@可拖拽特效</strong></p>
+<p>在拖动区域按下鼠标后，在文档中移动鼠标，盒子跟着鼠标坐标走。</p>
+<p>鼠标在文档中弹起后，将事件清空。</p>
+<p>盒子的位置要进行调整，当鼠标按下时，记录鼠标在盒子中的位置，鼠标移动计算盒子位置的时候减去。</p>
+<p><img src="media/993fa9c8df7499f4386b78b5c10c6895.png" alt=""></p>
+<p><strong>清除选中的内容</strong></p>
+<p>window.getSelection ? window.getSelection().removeAllRanges() :<br>document.selection.empty();</p>
+<p>正常浏览器支持：window.getSelection()</p>
+<p>IE678以下支持：document.selection 　　</p>
+<h2 id="注册事件的三种方式"><a href="#注册事件的三种方式" class="headerlink" title="注册事件的三种方式"></a>注册事件的三种方式</h2><p>element.addEventListener(“事件类型”,”事件处理函数”,”是否使用捕获”)</p>
+<p>addEventListener的好处是不会将其他事件覆盖，但是有兼容性问题</p>
+<p>removeEventListener可以移除指定事件</p>
+<p>addEventListener便于管理事件队列 但一般用on的就可以了比较简单</p>
+<h2 id="事件的三个阶段"><a href="#事件的三个阶段" class="headerlink" title="事件的三个阶段"></a>事件的三个阶段</h2><p>1捕获阶段</p>
+<p>2目标阶段 执行当前对象的事件处理程序</p>
+<p>3冒泡阶段</p>
+<p><img src="media/e27914a9104ff4022607de1089e73b44.png" alt=""></p>
+<h2 id="鼠标事件和键盘事件"><a href="#鼠标事件和键盘事件" class="headerlink" title="鼠标事件和键盘事件"></a>鼠标事件和键盘事件</h2><p><strong>常用鼠标事件：</strong></p>
+<p>mousedown、mouseup、mousemove、mouseover、mouseout、click、dblclick</p>
+<p>onmousedown鼠标按下 onmouseup鼠标弹起 onmouseclick=onmousedown+onmouseup</p>
+<p><strong>常用键盘事件：</strong></p>
+<p><strong>keydown</strong>、keypress、<strong>keyup</strong></p>
+<p>onkeydown键盘按下 onkeyup键盘弹起 onkeypress=onkeydown+onkeyup</p>
+<p>onkeydown onkeyup 输出的是<strong>键盘码</strong> onkeypress输出的是<strong>ASCII码表</strong></p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>正则表达式在网络上有很多资料和工具，用的时候直接在网上搜即可</p>
+<h3 id="声明和使用"><a href="#声明和使用" class="headerlink" title="声明和使用"></a>声明和使用</h3><p><strong>\@正则的声明和使用</strong></p>
+<p>通过<strong>构造函数</strong>定义</p>
+<p>var 变量名= new RegExp(/表达式/);</p>
+<p>通过<strong>直接量</strong>定义（简单方便，我们一般用这个）</p>
+<p>var 变量名= /表达式/;</p>
+<p>常用方法，可用于检测传入的字符串是否符合该规则并返回布尔值</p>
+<p>exp.test(“要检测的字符串”)</p>
+<h3 id="预定义类"><a href="#预定义类" class="headerlink" title="预定义类"></a>预定义类</h3><p><strong>\@预定义类和转义符</strong></p>
+<p>. [\^\n\r] 除了换行和回车之外的任意字符</p>
+<p>\d [0-9] 数字字符digit</p>
+<p>\D [\^0-9] 非数字字符</p>
+<p>\w [a-zA-Z0-9_] 单词字符(所有的字母数字和_) word</p>
+<p>\W [\^a-zA-Z0-9_] 非单词字符</p>
+<p>\s [\f\r\n\t\v] 不可见字符 space</p>
+<p>\S [\^\f\r\n\t\v] 可见字符</p>
+<p><strong>转义符</strong></p>
+<p>\f 表示换页 form feed</p>
+<p>\t 表示水平制表符 table</p>
+<p>\v 表示垂直制表符 vertical table</p>
+<p><img src="media/4f92cc6364a631ea154406d261f28246.png" alt=""></p>
+<p>\r,\n,\r\n的区别</p>
+<p>在万恶的旧社会，打字机换行（\n<br>newline）之后只会下移一行，需要回到一行的开头（\r return）才能继续打字</p>
+<p>老式的操作系统也继承了打字机的这一特性，但用户换行之后一般都是要回到开头的，因此新式的操作系统为了方便将键盘上的Enter键的含义修改为\r\n或者直接将\n的含义改为“移动到下一行的开头”。</p>
+<p>说到转义字符你有没有想起HTML的转义字符呢？（<strong>字符实体</strong>）</p>
+<p><strong>\@基本语法补充</strong></p>
+<p>| 表示或 或的优先级最低 可以通过()提升优先级</p>
+<h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><p><strong>\@字符类</strong></p>
+<p>简单类[abc] 表示该位置可以出现的字符</p>
+<p>负向类[\^abc] 表示该位置不可以出现的字符</p>
+<p>范围类[a-e] 表示该位置可以出现的字符的范围</p>
+<p>组合类[a-xA-E0-9] 范围类的组合</p>
+<p><strong>\@验证密码强度</strong></p>
+<h3 id="边界-量词-括号"><a href="#边界-量词-括号" class="headerlink" title="边界 量词 括号"></a>边界 量词 括号</h3><p><strong>\@边界</strong></p>
+<p>\^ 会匹配行或者字符串的起始位置</p>
+<p>\^只有在[]内才表示非 在外边表示开始</p>
+<p>\$ 会匹配行或字符串的结尾位置</p>
+<p>\^\$在一起 表示必须是这个（精确匹配）</p>
+<p><strong>\@量词</strong></p>
+<p>“*“ 重复零次或更多 x>=0</p>
+<p>“+” 重复一次或更多次 x>=1</p>
+<p>“?” 重复零次或一次 x=(0||1)</p>
+<p>{n} n次 x=n</p>
+<p>{n,} 重复n次或更多 x>=n</p>
+<p>{n,m} 重复出现的次数比n多但比m少 n\&lt;=x\&lt;=m</p>
+<p><strong>\@括号总结</strong></p>
+<p>()表示一组</p>
+<p>[]表示一个字符的位置</p>
+<p>{}表示次数</p>
+<p><strong>\@验证座机\@验证姓名\@完整版表单验证</strong></p>
+<h3 id="常见项目的匹配"><a href="#常见项目的匹配" class="headerlink" title="常见项目的匹配"></a>常见项目的匹配</h3><p>常见项目的匹配<strong>网上有很多</strong>（例如搜索常用正则表达式大全），无需记忆，能看懂即可</p>
+<p>匹配国内电话号码：</p>
+<p>/\^0\d{2,3}-\d{7,8}\$/</p>
+<p>匹配姓名：</p>
+<p>/\^[\u4e00-\u9fa5]{2,}\$/</p>
+<p>匹配腾讯QQ号：</p>
+<p>/\^[1-9]\d{4,10}\$/</p>
+<p>匹配手机号：</p>
+<p>/\^(13[0-9]|14[57]|15[0-9]|18[0-9])\d{8}\$/</p>
+<p>匹配邮箱：</p>
+<p>/\^\w+([+-.]\w+)*\@\w+([-.]\w+)*\.\w+([-.]\w+)*\$/</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/avatar.png" alt="angiter wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixin.png" alt="angiter WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.png" alt="angiter Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端基础/" rel="tag"># 前端基础</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/22/JavaScript基础二/" rel="next" title="JavaScript基础二">
+                <i class="fa fa-chevron-left"></i> JavaScript基础二
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/14/jQuery基础总结一/" rel="prev" title="jQuery前端基础一">
+                jQuery前端基础一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/11/21/JavaScript基础三/"
+     data-title="JavaScript基础三"
+     data-content=""
+     data-url="http://yoursite.com/2015/11/21/JavaScript基础三/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/21/JavaScript基础三/"
+           data-title="JavaScript基础三" data-url="http://yoursite.com/2015/11/21/JavaScript基础三/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="angiter" />
+          <p class="site-author-name" itemprop="name">angiter</p>
+          <p class="site-description motion-element" itemprop="description">代码与我同在</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xupeng01" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/" title="hexo" target="_blank">hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://theme-next.iissnan.com/" title="theme-next" target="_blank">theme-next</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事件对象"><span class="nav-number">1.</span> <span class="nav-text">事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象简介"><span class="nav-number">1.0.1.</span> <span class="nav-text">事件对象简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三个重要座标"><span class="nav-number">1.0.2.</span> <span class="nav-text">三个重要座标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#放大镜特效"><span class="nav-number">1.1.</span> <span class="nav-text">放大镜特效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可拖拽特效"><span class="nav-number">1.2.</span> <span class="nav-text">可拖拽特效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册事件的三种方式"><span class="nav-number">1.3.</span> <span class="nav-text">注册事件的三种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的三个阶段"><span class="nav-number">1.4.</span> <span class="nav-text">事件的三个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标事件和键盘事件"><span class="nav-number">1.5.</span> <span class="nav-text">鼠标事件和键盘事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.6.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明和使用"><span class="nav-number">1.6.1.</span> <span class="nav-text">声明和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义类"><span class="nav-number">1.6.2.</span> <span class="nav-text">预定义类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符类"><span class="nav-number">1.6.3.</span> <span class="nav-text">字符类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边界-量词-括号"><span class="nav-number">1.6.4.</span> <span class="nav-text">边界 量词 括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见项目的匹配"><span class="nav-number">1.6.5.</span> <span class="nav-text">常见项目的匹配</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">angiter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"biubiulove"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ke69LOowXRs1IqNCm4A1DdoT-gzGzoHsz", "O5iTwans1bqqmp62IcYiKP5J");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
