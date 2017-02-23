@@ -1,0 +1,1674 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端基础,面向对象," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="面向对象( 思维方式 )以洗衣服为例面向过程的思维方式：
+把解决问题的关注点放在了解决问题的每一个详细步骤(过程)上
+1.收集脏衣服
+2.把脏衣服扔到洗衣机中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是面向对象">
+<meta property="og:url" content="http://yoursite.com/2016/05/28/面向对象基础总结/index.html">
+<meta property="og:site_name" content="xupengfly">
+<meta property="og:description" content="面向对象( 思维方式 )以洗衣服为例面向过程的思维方式：
+把解决问题的关注点放在了解决问题的每一个详细步骤(过程)上
+1.收集脏衣服
+2.把脏衣服扔到洗衣机中">
+<meta property="og:updated_time" content="2017-02-23T12:26:12.628Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="什么是面向对象">
+<meta name="twitter:description" content="面向对象( 思维方式 )以洗衣服为例面向过程的思维方式：
+把解决问题的关注点放在了解决问题的每一个详细步骤(过程)上
+1.收集脏衣服
+2.把脏衣服扔到洗衣机中">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6383972067393406000',
+      author: '博主大人'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/28/面向对象基础总结/"/>
+
+
+
+
+
+  <title> 什么是面向对象 | xupengfly </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xupengfly</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/28/面向对象基础总结/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="angiter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xupengfly">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xupengfly" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                什么是面向对象
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-28T18:55:31+08:00">
+                2016-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端基础/" itemprop="url" rel="index">
+                    <span itemprop="name">前端基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/05/28/面向对象基础总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/28/面向对象基础总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/28/面向对象基础总结/" class="leancloud_visitors" data-flag-title="什么是面向对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="面向对象-思维方式"><a href="#面向对象-思维方式" class="headerlink" title="面向对象( 思维方式 )"></a>面向对象( 思维方式 )</h2><h3 id="以洗衣服为例"><a href="#以洗衣服为例" class="headerlink" title="以洗衣服为例"></a>以洗衣服为例</h3><p><strong>面向过程的思维方式：</strong></p>
+<p>把解决问题的关注点放在了解决问题的每一个详细步骤(过程)上</p>
+<p>1.收集脏衣服</p>
+<p>2.把脏衣服扔到洗衣机中</p>
+<a id="more"></a>
+<p>3.设定洗衣程序</p>
+<p>4.开始洗衣服</p>
+<p>5.拿出衣服晾晒</p>
+<p><strong>面向对象的思维方式：</strong></p>
+<p>把解决问题的关注点放在了解决问题所需要的一些列的对象上</p>
+<p>1.女朋友</p>
+<p>2.洗衣机</p>
+<h3 id="什么是对象"><a href="#什么是对象" class="headerlink" title="什么是对象"></a>什么是对象</h3><p>万物皆对象</p>
+<h3 id="javascript中的对象是什么？"><a href="#javascript中的对象是什么？" class="headerlink" title="javascript中的对象是什么？"></a>javascript中的对象是什么？</h3><p>无序的键值对儿的集合</p>
+<h2 id="面向对象举例"><a href="#面向对象举例" class="headerlink" title="面向对象举例"></a>面向对象举例</h2><h3 id="JS封装存在的问题"><a href="#JS封装存在的问题" class="headerlink" title="JS封装存在的问题"></a>JS封装存在的问题</h3><p>问题:</p>
+<p>1代码结构混乱 不便于维护</p>
+<p>2全局变量增多 造成全局污染</p>
+<p>解决:</p>
+<p>1对象封装(依然存在相同的问题)</p>
+<p>2对象模块化</p>
+<h2 id="面向对象的三大特性"><a href="#面向对象的三大特性" class="headerlink" title="面向对象的三大特性"></a>面向对象的三大特性</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>现实生活中的继承是指子承父业,</p>
+<p>JS中的继承是指就是自己没有的东西,别人有,拿来用就是继承</p>
+<blockquote>
+<p>  混入式继承(mix-in) 就是用for in 遍历</p>
+</blockquote>
+<p>var obj1 = {</p>
+<p>name:”zz”,</p>
+<p>age:18</p>
+<p>}</p>
+<p>var obj2 = {}</p>
+<p>for(var k in obj1){</p>
+<p>obj2[k]=obj1[k];</p>
+<p>}</p>
+<p>console.log(obj2);</p>
+<h3 id="多肽-js中不支持多态"><a href="#多肽-js中不支持多态" class="headerlink" title="多肽(js中不支持多态)"></a>多肽(js中不支持多态)</h3><blockquote>
+<p>  多肽就是父类指针指向子类对象</p>
+</blockquote>
+<p>class Parent{</p>
+<p>public string name;</p>
+<p>public void sayHell(){</p>
+<p>}</p>
+<p>}</p>
+<p>Parent p = new Parent();</p>
+<p>class Son:extends Parent{</p>
+<p>}</p>
+<p>Parent s = new Son();</p>
+<h2 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h2><h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>var obj = {</p>
+<p>name:’zz’,</p>
+<p>age:18</p>
+<p>}</p>
+<p>缺陷: 复用性差</p>
+<h3 id="使用内置构造函数Object"><a href="#使用内置构造函数Object" class="headerlink" title="使用内置构造函数Object"></a>使用内置构造函数Object</h3><p>var obj2 = new Object();</p>
+<p>obj2.name = “”;</p>
+<p>obj2.age = 18;</p>
+<p>缺陷:</p>
+<p>1创造出来的对象是空对象</p>
+<p>2复用性差</p>
+<h3 id="自定义构造函数"><a href="#自定义构造函数" class="headerlink" title="自定义构造函数"></a>自定义构造函数</h3><p><strong>\@什么是构造函数</strong></p>
+<p>构造函数也是一个函数,一般用于初始化对象</p>
+<p><strong>\@构造函数的特点</strong></p>
+<p>1.构造函数的首字母大写</p>
+<p>2.一般和new关键字一起使用</p>
+<p>3.构造函数不需要手动写返回语句(会默认返回新创建出来的对象)</p>
+<p>function Pers(name, age, gender){</p>
+<p>this.name = name;</p>
+<p>this.age = age;</p>
+<p>this.gender = gender;</p>
+<p>//return [];</p>
+<p>}</p>
+<p>var myObj = new Pers();</p>
+<p><strong>\@构造函数的执行过程</strong></p>
+<p>1 使用new关键字 创建对象</p>
+<p>2 调用构造函数</p>
+<p>3 将构造函数内部的this 指针指向使用new关键字创建出来的对象</p>
+<p>4 使用this指针在构造函数内部对对象进行初始化</p>
+<p>5 默认将创建的对象返回</p>
+<p><strong>\@构造函数的注意项目</strong></p>
+<p>1 默认不需要返回值 如果写了</p>
+<blockquote>
+<p>  1.1如果返回的是值类型的数据 则不会对默认返回值有任何影响</p>
+<p>  1.2如果返回的是引用类型的数据 则会将该数据返回</p>
+</blockquote>
+<p>2 当把构造函数当做普通函数调用的时候 this 指向 window</p>
+<p><strong>\@传统构造函数中存在的问题</strong></p>
+<p>将函数的声明，放在构造函数外边</p>
+<p>在构造函数内部将函数的地址赋值给对象的方法</p>
+<p>就可以避免资源浪费，做到所有的对象共享同一个方法</p>
+<p>同时也会造成如下的问题：</p>
+<p>1.全局变量污染</p>
+<p>2.代码结构混乱，不利于维护</p>
+<p>3.不安全</p>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="什么是原型"><a href="#什么是原型" class="headerlink" title="什么是原型"></a>什么是原型</h3><p>在构建函数创建出来的时候,系统会默认帮构造函数创建并关联一个空的对象,就是对象的原型</p>
+<h3 id="原型的作用"><a href="#原型的作用" class="headerlink" title="原型的作用"></a>原型的作用</h3><p>在原型中的所有方法和属性(成员),都可以被和其关联的构造函数创建出来的所有实例共享</p>
+<h3 id="如何访问原型"><a href="#如何访问原型" class="headerlink" title="如何访问原型"></a>如何访问原型</h3><p>构造函数名.prototype</p>
+<p>实例.__proto__(不推荐使用,因为是非标准)</p>
+<h3 id="原型的使用"><a href="#原型的使用" class="headerlink" title="原型的使用"></a>原型的使用</h3><p>1利用对象的动态特性为原型对象添加成员</p>
+<p>function Person(){</p>
+<p>}</p>
+<p>Person.prototype.sayHi = function(){</p>
+<p>console.log(‘我是原型中的sayHi’);</p>
+<p>}</p>
+<p>2直接替换原型对象</p>
+<p>Person.prototype = {</p>
+<p>sayHi:function(){</p>
+<p>console.log(‘我是原型中的sayHi’);</p>
+<p>}</p>
+<p>}</p>
+<p>var aaa = new Person();</p>
+<p>aaa.sayHi();</p>
+<h3 id="原型的注意事项"><a href="#原型的注意事项" class="headerlink" title="原型的注意事项"></a>原型的注意事项</h3><p>1当使用对象去访问属性和方法的时候,会先在自身查找,如果没有才去原型查找</p>
+<p>2一般情况下只会将方法放在原型中,属性放在对象中</p>
+<p>3当替换原型的时候,替换之前创建的的对象和替换之后创建的对象的原型是不一致的</p>
+<p>4对象能够访问的原型，就是在对象创建的那一刻，和构造函数关联的那个原型！</p>
+<p>5只有在获取属性的时候才会在原型中找.当设置属性的时候,会在自身中找,找不到,就新增</p>
+<h3 id="访问原型的方式"><a href="#访问原型的方式" class="headerlink" title="访问原型的方式"></a>访问原型的方式</h3><p>//1 构造函数.prototype</p>
+<p>function Person() {</p>
+<p>}</p>
+<p>var p = new Person();</p>
+<p>var yuanxing = Person.prototype;</p>
+<p>//2 对象.__proto__</p>
+<p>Var yuanxing2 = p.__proto__;</p>
+<p>console.log(Person.prototype === p.__proto__)//true</p>
+<p>//注意:这是一个非标准属性 (不推荐使用)</p>
+<p>//调试过程中使用</p>
+<p>//单下划线一般是私有属性(不建议外部使用,怕对内部代码造成伤害)</p>
+<p><strong>\@实例化</strong></p>
+<p>实例化出来的对象，就可以称作是构造函数的一个实例</p>
+<h3 id="原型的属性constructor"><a href="#原型的属性constructor" class="headerlink" title="原型的属性constructor"></a>原型的属性constructor</h3><p>1原型中有一个属性constructor,可以访问构造函数</p>
+<p>//Person.prototype访问原型</p>
+<p>原型.constructor访问构造函数</p>
+<p>2每一个构造函数都有一个name 属性 可以访问自己函数名</p>
+<p>//console.log(Person.name);</p>
+<p>3用函数替换的方法继承 constructor方向会发生改变,所以在此方法中必须手动添加指向</p>
+<p>Person.prototype = {</p>
+<p>constructor: Person,</p>
+<p>sayHi: function () {</p>
+<p>console.log(“Hey, man”);</p>
+<p>}</p>
+<p>}</p>
+<p>console.log(Person.prototype.constructor);</p>
+<p>var p = new Person();</p>
+<p>console.log(p.constructor);</p>
+<p>console.log(p.constructor.name);</p>
+<h3 id="继承的实现方式"><a href="#继承的实现方式" class="headerlink" title="继承的实现方式"></a>继承的实现方式</h3><p><strong>1 混入式继承</strong></p>
+<p><strong>2 原型继承</strong></p>
+<p>2.1 通过混入的方式为原型新增成员,以实现继承</p>
+<p>2.2 直接替换原型对象</p>
+<p><strong>3 经典继承(兼容问题)</strong></p>
+<p>在使用原型继承的时候,需要创建构造函数,并对原型进行响应的操作</p>
+<p>Object.create()</p>
+<p>var 对象1 = Object.create(对象2);把对象2的当作了对象1(__proto__)的原型</p>
+<p><strong>4封装兼容问题</strong></p>
+<p>1 检测浏览器 能力if(Object.create)</p>
+<p>2 有就直接用</p>
+<p>3 没有(else) 就原型继承</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p><strong>\@什么是原型链</strong></p>
+<p>js中所有的对象都会有原型，原型也是对象，所以原型对象也有原型，这样就形成了一个链式结构，称之为原型链</p>
+<p><strong>\@属性的搜索方式</strong></p>
+<p>1.当使用对象访问成员的时候，会现在对象自身进行查找，如果找到了，就直接使用</p>
+<p>2.如果没有找到，就去对象的原型中进行查找，如果找到了，就直接使用</p>
+<p>3.如果没有找到，就沿着原型链，继续向上查找，直到找到null</p>
+<p>注意！！设置属性不遵循属性搜索原则！！</p>
+<h3 id="Object-prototype-的成员"><a href="#Object-prototype-的成员" class="headerlink" title="Object.prototype 的成员"></a>Object.prototype 的成员</h3><p><strong>\@constructor 指向和原型相关的构造函数</strong></p>
+<p><strong>\@hasOwnProperty 判断对象自身是否拥有某个属性</strong></p>
+<p>对象.hasOwnProperty(“属性名”)</p>
+<p><strong>\@isPrototypeOf 判断当前对象是不是另外一个对象的原型</strong></p>
+<p>当前对象.isPrototypeOf(另外一个对象)</p>
+<p><strong>\@propertyIsEnumerable 判断属性是否属于对象本身并且可以被遍历</strong></p>
+<p>obj.propertyIsEnumerable(“gender”));</p>
+<p><strong>\@toString 和 toLocaleString</strong></p>
+<p>1 toString和toLocaleString都是将对象转换成字符串的方法</p>
+<p>2但是toLocaleString会将对象转换成本地格式的字符串 本地格式是和系统设置相关的！</p>
+<p><strong>\@valueOf</strong></p>
+<p>1当引用类型的数据和值类型的数据参与运算的时候，会先调用引用类型数据的valueOf方法,获取返回，如果可以参与运算，则直接使用</p>
+<p>2如果不能参与运算，则调用toString方法，使用该返回值进行运算</p>
+<p><strong>\@__proto__ 指向对象的原型对象！</strong></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="instanceof关键字"><a href="#instanceof关键字" class="headerlink" title="instanceof关键字"></a>instanceof关键字</h3><p>判断构造函数的原型是不是在对象的原型链上</p>
+<p>语法: 对象 instanceof 构造函数</p>
+<p>返回值: 布尔值</p>
+<h3 id="创建函数的三种方式"><a href="#创建函数的三种方式" class="headerlink" title="创建函数的三种方式"></a>创建函数的三种方式</h3><p><strong>\@函数声明</strong></p>
+<p>function 函数名(参数列表){</p>
+<p>//函数体</p>
+<p>}</p>
+<p><strong>\@函数表达式</strong></p>
+<p>var 函数名 = function (参数列表){</p>
+<p>//函数体</p>
+<p>}</p>
+<p><strong>\@ Function</strong></p>
+<p>var 函数名 = new Function();</p>
+<h3 id="Function的使用"><a href="#Function的使用" class="headerlink" title="Function的使用"></a>Function的使用</h3><p><strong>\@不传传参数</strong></p>
+<p>var func = new Function(); //创建空函数</p>
+<p><strong>\@传一个参数</strong></p>
+<p>var func1 = new Function(methodBody);<br>//创建有函数体的函数，methodBody是一个字符串</p>
+<p><strong>\@传多个参数</strong></p>
+<p>var func2 = new Function(arg1, arg2…argN, methodBody)<br>//创建一个以methodBody为函数体，之前所有的参数为形参名的函数，<br>所有的参数都是字符串！</p>
+<p><strong>\@如何解决函数体过长的问题</strong></p>
+<p>1 拼接字符串</p>
+<p>2 使用模板</p>
+<p>3 有兼容问题的解决方案 反引号 ``</p>
+<h3 id="eval的使用"><a href="#eval的使用" class="headerlink" title="eval的使用"></a>eval的使用</h3><p>eval是个函数，可以将字符串转换成代码并立即执行！</p>
+<p>语法: eval(符合js语法规范的字符串);</p>
+<p><strong>\@使用eval处理JSON格式数据的时候的问题</strong></p>
+<p>1 JSON和JS的对象的异同</p>
+<p>//1.都是键值对的集合</p>
+<p>//2.JSON格式的数据的键必须加引号，对象不需要</p>
+<p>2 如何把JSON格式的数据转换成js对象</p>
+<p>//1.使用JSON对象</p>
+<p>//2.如果JSON对象不可用就用 JSON2.js</p>
+<p>//3.使用eval</p>
+<p>当使用eval处理JSON格式数据的时候，eval会将JSON格式字符串中的大括号{}，当做代码段来解析，所以会报错！</p>
+<p><strong>\@解决方案</strong></p>
+<p>1 将变量声明也同时放在eval中</p>
+<p>var jsonStr = “{key: value}”;</p>
+<p>eval(“var obj=” + jsonStr);</p>
+<p>2 在json格式的字符串前后拼接小括号</p>
+<p>var jsonStr = “{key: value}”;</p>
+<p>var obj = eval(“(“ + jsonStr + “)”);</p>
+<p><strong>\@ Function和eval的异同</strong></p>
+<ol>
+<li>都能将字符串转换成代码</li>
+</ol>
+<p>2.<br>Funciton创建出来的是函数，需要手动去调用，代码才会执行，而eval会直接将字符串转成代码并执行</p>
+<p>问题：</p>
+<ol>
+<li><p>执行效率的问题</p>
+</li>
+<li><p>安全性问题（XSS）</p>
+</li>
+</ol>
+<h3 id="函数的原型链"><a href="#函数的原型链" class="headerlink" title="函数的原型链"></a>函数的原型链</h3><p>1 js 中所有函数的构造函数都是Function, 包括Funtion自己</p>
+<p>2 Funtion是自己的构造函数,也是自己的实例</p>
+<p>3 Function构造函数在原型图中可以担任两个角色，一个是构造函数，一个是实例</p>
+<p>4 当作为构造函数的时候，访问原型使用 Function.prototype</p>
+<p>5但作为实例的时候，访问原型使用Funciton.__proto__</p>
+<h3 id="Object和Function的关系"><a href="#Object和Function的关系" class="headerlink" title="Object和Function的关系"></a>Object和Function的关系</h3><p>可以通过instanceof关键字来确定两者的关系， Object和Function互为实例！</p>
+<h3 id="arguments对象"><a href="#arguments对象" class="headerlink" title="arguments对象"></a>arguments对象</h3><p>1 arguments是函数内部的一个对象，他是一个伪数组</p>
+<p>2 在函数调用的时候，会将函数的实参，依次的存入这个伪数组中。</p>
+<p>3 arguments.length 属性，表示函数在调用的时候，传入的实参的个数</p>
+<p>4 arguments.callee<br>属性，指的就是arguments对象所在的函数，一般用来在匿名函数中做递归</p>
+<h3 id="函数对象的成员"><a href="#函数对象的成员" class="headerlink" title="函数对象的成员"></a>函数对象的成员</h3><p>1 arguments</p>
+<p>2 caller<br>函数的调用环境，如果是在全局，则为null，如果是在其他函数当中调用的，那么caller为所在的那个函数</p>
+<p>3 length 函数的形参的个数</p>
+<p>4 name 函数的名称 函数声明和函数表达式的函数名为正常的函数名，new<br>Function创建出来的函数名为 anonymous</p>
+<h3 id="静态成员以及实例成员"><a href="#静态成员以及实例成员" class="headerlink" title="静态成员以及实例成员"></a>静态成员以及实例成员</h3><p><strong>\@静态成员： 通过构造函数访问的成员就是静态成员</strong></p>
+<p>一般将工具方法，也就是类似于\$.ajax这种，设置为静态成员</p>
+<p><strong>\@实例成员： 通过实例去访问的成员就是实例成员</strong></p>
+<p>一般将和对象相关的成员，也就是类似于css方法这种，设置为实例成员</p>
+<h2 id="数组-递归-变量提升-面向对象第四天代码"><a href="#数组-递归-变量提升-面向对象第四天代码" class="headerlink" title="数组,递归,变量提升(面向对象第四天代码)"></a>数组,递归,变量提升(面向对象第四天代码)</h2><h3 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h3><p>indexOf在数组中查找元素的时候返回的元素的索引，没找到返回-1</p>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p><strong>\@什么是递归</strong></p>
+<p>在函数直接或者间接的调用自己，就是递归</p>
+<p><strong>\@递归的两个要素</strong></p>
+<ol>
+<li><p>自己调自己</p>
+</li>
+<li><p>结束条件</p>
+</li>
+</ol>
+<p><strong>\@化归思想</strong></p>
+<p>化繁为简，化难为易的过程， 转化 归结 的简称</p>
+<p><strong>\@递归的使用</strong></p>
+<ol>
+<li><p>前n项和</p>
+</li>
+<li><p>n的m次方</p>
+</li>
+<li><p>斐波那契数列</p>
+</li>
+<li><p>递归获取后代元素（重点！！）</p>
+</li>
+</ol>
+<p>方法1 children</p>
+<p>方法2 childNodes nodeType类型判断 1元素 2属性 3文本 8注释</p>
+<h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><ol>
+<li>作用域就是变量起作用的范围</li>
+</ol>
+<p>2.<br>在代码写好的时候，根据代码的书写结构，就可以确定变量的作用域，这种作用域就是词法作用域</p>
+<ol>
+<li><p>词法作用域又叫静态作用域</p>
+</li>
+<li><p>js中没有块级作用域（代码块限定的作用域叫做块级作用域）</p>
+</li>
+</ol>
+<h3 id="变量提升-hoisting"><a href="#变量提升-hoisting" class="headerlink" title="变量提升(hoisting)"></a>变量提升(hoisting)</h3><p><strong>\@JS代码执行分两个阶段：1.预解析阶段 2.执行阶段</strong></p>
+<p><strong>\@在预解析阶段，会对代码中所有的变量声明以及函数声明做提升操作，提升到其所在的作用域的最顶上！</strong></p>
+<p><strong>\@特殊情况</strong></p>
+<ol>
+<li><p>函数同名的时候，会全部提升，但是后面的会覆盖掉前面的</p>
+</li>
+<li><p>函数和变量同名的情况，只会提升函数，忽略掉变量的声明</p>
+</li>
+<li><p>变量提升是分作用域的</p>
+</li>
+<li><p>变量提升是分段（script标签）的</p>
+</li>
+</ol>
+<p>5.<br>条件式函数声明（在条件语句中的函数声明），会将条件式函数声明视为函数表达式做处理，只会提升函数名，函数体不提升</p>
+<ol>
+<li>函数中形参赋值的过程是在变量提升之前！</li>
+</ol>
+<p>7函数中的形参，就相当于是在函数中声明一个局部的变量</p>
+<p>8 重复声明同一个变量的时候, 只会声明第一个, 后面的声明会全部省略掉, 只剩下赋值</p>
+<p><strong>\@自调用函数</strong><br>表达式：(function (形参) {})(实参);</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>函数可以创建作用域，函数中又可以声明函数，这样就形成了作用域套作用域的链式结构，称作作用域链</p>
+<h3 id="变量搜索原则"><a href="#变量搜索原则" class="headerlink" title="变量搜索原则"></a>变量搜索原则</h3><ol>
+<li><p>现在使用变量的作用域中进行查找，如果找到了，就直接使用</p>
+</li>
+<li><p>如果没有找到，就去上一级作用域链中进行查找，如果找到了，就直接使用</p>
+</li>
+<li><p>如果没有找到，就沿着作用域链依次向上查找，直到找到全局作用域</p>
+</li>
+</ol>
+<h3 id="绘制作用域链图"><a href="#绘制作用域链图" class="headerlink" title="绘制作用域链图"></a>绘制作用域链图</h3><ol>
+<li><p>首先绘制0级作用域链</p>
+</li>
+<li><p>在全局作用域中查找变量以及函数的声明，用小方块的形式将其画在0级作用域线上</p>
+</li>
+<li><p>再从0级作用域链中的函数中引出下一级作用域链</p>
+</li>
+<li><p>重复以上步骤！！！</p>
+</li>
+</ol>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包就是指可以访问独立的数据的函数！！！</p>
+<h3 id="闭包要解决的问题"><a href="#闭包要解决的问题" class="headerlink" title="闭包要解决的问题"></a>闭包要解决的问题</h3><p>函数内部声明的变量无法再函数外部使用</p>
+<h3 id="闭包的基本模型"><a href="#闭包的基本模型" class="headerlink" title="闭包的基本模型"></a>闭包的基本模型</h3><p>function outer(){</p>
+<p>var data = “”;</p>
+<p>function inner(){</p>
+<p>return data;</p>
+<p>}</p>
+<p>return inner;</p>
+<p>}</p>
+<p>var fn = outer();</p>
+<p>fn();</p>
+<h3 id="如何使用闭包返回多个函数"><a href="#如何使用闭包返回多个函数" class="headerlink" title="如何使用闭包返回多个函数"></a>如何使用闭包返回多个函数</h3><p>在函数内部创建一个对象，在对象中封装多个函数，返回对象，在外部就可以使用对象，访问各个方法</p>
+<h3 id="闭包的原理"><a href="#闭包的原理" class="headerlink" title="闭包的原理"></a>闭包的原理</h3><p>上级作用域无法访问下级作用域中的变量，但是下级作用域可以访问上级作用域的变量</p>
+<h3 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h3><ol>
+<li><p>可以用来保护数据，<br>就是变量被保护在外部函数中，想要修改变量只能通过闭包函数，可以在闭包函数中添加一些校验逻辑，以保证数据的合理性以及安全性</p>
+</li>
+<li><p>可以为函数新增私有的变量</p>
+</li>
+</ol>
+<h3 id="使用闭包解决for循环中注册点击事件的问题"><a href="#使用闭包解决for循环中注册点击事件的问题" class="headerlink" title="使用闭包解决for循环中注册点击事件的问题"></a>使用闭包解决for循环中注册点击事件的问题</h3><p><strong>\@问题</strong></p>
+<p>点击事件在触发的时候，访问的i变量已经变成了最后一个值！！</p>
+<p><strong>\@解决方案</strong></p>
+<p>通过闭包来创建一个函数，该函数拥有自己独立的一个变量j，在循环的时候，将当前的i的值保存一份交给j，再将该闭包函数注册给点击事件，这样在点击事件触发的时候，就不会去访问全局的i，而是使用自己的j</p>
+<h3 id="使用闭包解决for循环中setTimeout代码执行的问题"><a href="#使用闭包解决for循环中setTimeout代码执行的问题" class="headerlink" title="使用闭包解决for循环中setTimeout代码执行的问题"></a>使用闭包解决for循环中setTimeout代码执行的问题</h3><p><strong>\@setTimeout</strong></p>
+<p>延时器<br>:至少t毫秒后(t秒前在执行主逻辑代码,必须全部执行完在执行回调函数)执行callback函数的代码<br>语法: setTimeout(callback,t)</p>
+<p>setTimeout 的特性: JS是单线程的 同时只能处理一件事情</p>
+<p>JS中任务分为<br>主要任务(js的只逻辑代码)<br>次要任务(setTimeout和setInterval的回调函数)</p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>将数据临时的存储起来以提高访问效率</p>
+<h3 id="重要的几种缓存"><a href="#重要的几种缓存" class="headerlink" title="重要的几种缓存"></a>重要的几种缓存</h3><p><strong>\@浏览器缓存</strong></p>
+<p>将网站资源，在浏览器端进行保存，用户请求服务器的时候，这些被保存的资源就直接从本地读取，而不会去服务器请求，这样就可以提升用户的访问速率</p>
+<p><strong>\@硬件缓存</strong></p>
+<p>现将数据从硬盘读取到内存中，再由cpu直接从内存中读取数据，避免了直接让cpu去硬盘中读数据导致系统效率低下的问题</p>
+<p><strong>\@CDN Content Delivery Network</strong></p>
+<p>在距用户最近的网络节点上缓存一份数据，当用户在去请求数据的时候，就不去较远的服务器获取，而直接在CDN服务器获取，会提升访问效率</p>
+<p><strong>\@缓存型数据库</strong></p>
+<p>硬盘型数据库（关系型数据库） MySQL Oracle SQLSEVER</p>
+<p>内存型数据库（非关系型数据库） Redis MongoDB</p>
+<h3 id="使用缓存解决递归实现的斐波那契数列存在的性能问题"><a href="#使用缓存解决递归实现的斐波那契数列存在的性能问题" class="headerlink" title="使用缓存解决递归实现的斐波那契数列存在的性能问题"></a>使用缓存解决递归实现的斐波那契数列存在的性能问题</h3><p><strong>\@性能问题</strong></p>
+<p>由于递归实现的斐波那契数列中，存在大量的重复计算，导致性能低下</p>
+<p><strong>\@如何解决</strong></p>
+<p>使用缓存，将每次计算后的结果进行保存，在下次获取该数据的时候，就直接去缓存中拿，而避免了重复的计算</p>
+<h3 id="闭包优化缓存解决递归实现的斐波那契数列存在的性能问题"><a href="#闭包优化缓存解决递归实现的斐波那契数列存在的性能问题" class="headerlink" title="闭包优化缓存解决递归实现的斐波那契数列存在的性能问题"></a>闭包优化缓存解决递归实现的斐波那契数列存在的性能问题</h3><p>function createFib(){</p>
+<p>var arr = [];</p>
+<p>function fib(n){</p>
+<p>var num = arr[n];</p>
+<p>if(!num){</p>
+<p>if(n \&lt;= 2){</p>
+<p>num = 1;</p>
+<p>}else{</p>
+<p>num = fib(n - 1) + fib(n -2);</p>
+<p>}</p>
+<p>arr[n] = num;</p>
+<p>}</p>
+<p>return num;</p>
+<p>}</p>
+<p>}</p>
+<h3 id="JQ缓存实现猜想"><a href="#JQ缓存实现猜想" class="headerlink" title="JQ缓存实现猜想"></a>JQ缓存实现猜想</h3><p>function createCache(){</p>
+<p>var cache = {};</p>
+<p>var keys = [];</p>
+<p>return function(key, value){</p>
+<p>if(value != undefined){</p>
+<p>cache[key] = value;</p>
+<p>if(keys.push(key) > 20){</p>
+<p>delete cache[keys.shift()];</p>
+<p>}</p>
+<p>}</p>
+<p>return cache[key];</p>
+<p>}</p>
+<p>}</p>
+<h3 id="jQuery缓存源码分析"><a href="#jQuery缓存源码分析" class="headerlink" title="jQuery缓存源码分析"></a>jQuery缓存源码分析</h3><p>function createCache(){</p>
+<p>var keys = [];</p>
+<p>function cache(key, value){</p>
+<p>if(keys.push(key + “ “) > 20){</p>
+<p>delete cache[keys.shift()];</p>
+<p>}</p>
+<p>return (cache[key + “ “] = value);</p>
+<p>}</p>
+<p>return cache;</p>
+<p>}</p>
+<h3 id="沙箱模式"><a href="#沙箱模式" class="headerlink" title="沙箱模式"></a>沙箱模式</h3><blockquote>
+<p>  一个封闭的隔离的环境！在JS中通过函数来创建沙箱</p>
+</blockquote>
+<p>(function(window){</p>
+<p>//变量的声明</p>
+<p>//主要的功能代码</p>
+<p>//如果需要，就通过window对象向外界暴露接口</p>
+<p>})(window)</p>
+<p><strong>\@沙箱的应用</strong></p>
+<ol>
+<li><p>框架</p>
+</li>
+<li><p>组件</p>
+</li>
+<li><p>插件</p>
+</li>
+</ol>
+<h3 id="函数的调用模式"><a href="#函数的调用模式" class="headerlink" title="函数的调用模式"></a>函数的调用模式</h3><p><strong>\@ 函数调用模式</strong></p>
+<p>语法: 函数名()</p>
+<p>This的指向: window</p>
+<p><strong>\@ 方法调用模式</strong></p>
+<p>语法: 对象.方法名()</p>
+<p>This的指向: 谁调用就是谁</p>
+<p><strong>\@ 构造函数调用模式</strong></p>
+<p>语法: new 函数名()</p>
+<p>This的指向: new 创建出来的对象</p>
+<p><strong>\@ 上下文调用模式</strong></p>
+<p>要区分一个函数中的this到底是谁，只需要看他是什么调用模式就好了,<br>函数调用模式就是window, 方法调用模式就是调用方法的对象, 构造函数调用模式就是<br>new创建出来的对象！</p>
+<h3 id="两种创建对象的方式"><a href="#两种创建对象的方式" class="headerlink" title="两种创建对象的方式"></a>两种创建对象的方式</h3><p><strong>\@工厂模式</strong></p>
+<p>function createObj(name, age){</p>
+<p>var obj = new Object();</p>
+<p>obj.name = name;</p>
+<p>obj.age = age;</p>
+<p>return obj;</p>
+<p>}</p>
+<p>var p = createObj(“郑天羊”, 18);</p>
+<p><strong>\@寄生模式</strong></p>
+<p>function Person(name, age){</p>
+<p>var obj = new Object();</p>
+<p>obj.name = name;</p>
+<p>obj.age = age;</p>
+<p>return obj;</p>
+<p>}</p>
+<p>var p = new Person(“郑天羊”, 18);</p>
+<p><strong>工厂模式和寄生模式都可以用来创建对象，但是调用模式不一样，工厂模式是函数调用模式，寄生模式是构造函数调用模式！</strong></p>
+<h3 id="上下文调用模式-call与apply"><a href="#上下文调用模式-call与apply" class="headerlink" title="上下文调用模式(call与apply)"></a>上下文调用模式(call与apply)</h3><p>在前三种调用模式中，this的值都是固定的，无法修改的！上下文（context）调用模式<br>（可以用来改变this的指向, 指的就是函数的调用的环境, this的指向</p>
+<p><strong>\@左值和右值</strong></p>
+<p>lvalue left value 左值: 左值就是指能够正常的在等号的左边被赋值的值</p>
+<p>rvalue right value 右值: 右值就是指能够正常的在等号的右边给别人赋值的值</p>
+<p><strong>\@ call</strong></p>
+<p>函数名.call(obj, arg1…argN);</p>
+<p>//功能：</p>
+<p>//1. 调用函数</p>
+<p>//2. 改变this指向为第一个参数中的对象</p>
+<p>//3. 将第二个及以后的所有参数，依次的传递给函数作为实参</p>
+<p><strong>\@ apply</strong></p>
+<p>函数名.apply(obj, 数组or伪数组);</p>
+<p>//功能：</p>
+<p>//1. 调用函数</p>
+<p>//2. 改变this指向为第一个参数中的对象</p>
+<p>//3. 将第二个参数的数组或者伪数组，中的元素一一拆解，依次传递给函数作为实参</p>
+<p><strong>\@注意事项</strong></p>
+<ol>
+<li>如果call和apply的第一个参数为null或者undefined,this将会指向window</li>
+</ol>
+<p>2.<br>如果call和apply的第一个参数为值类型的数据，会将值类型的数据转换成其对应的引用类型的数据，this指向该引用类型的数据</p>
+<p>tips: 一般情况下apply的传参特性会被使用的居多（转换伪数组为真数组，求最大值）</p>
+<h3 id="forEach和map的使用"><a href="#forEach和map的使用" class="headerlink" title="forEach和map的使用"></a>forEach和map的使用</h3><p>都可以用来遍历数组</p>
+<p><strong>\@ forEach</strong></p>
+<p>数组.forEach(function(value, index, arr){})</p>
+<p>//value：正在遍历的数组元素</p>
+<p>//index: 正在遍历的数组元素的索引</p>
+<p>//arr: 正在遍历的数组</p>
+<p><strong>\@ map</strong></p>
+<p>数组.map(function(value, index, arr){})</p>
+<p>//value：正在遍历的数组元素</p>
+<p>//index: 正在遍历的数组元素的索引</p>
+<p>//arr: 正在遍历的数组</p>
+<p><strong>map是有返回值的，他的返回值是，将每次调用回调函数之后的返回值拼接成一个新的数组，将这个数组返回，作为map的返回值！</strong></p>
+<p><strong>\@ map的练习</strong></p>
+<ol>
+<li>将数组中的元素转成字符串</li>
+</ol>
+<p>var arr = [1, 2, 3, 4];</p>
+<p>var strArr = arr.map(String);</p>
+<p>console.log(strArr);</p>
+<ol>
+<li>生成随机数</li>
+</ol>
+<p>var arr = [1, 2, 3, 4];</p>
+<p>var strArr = arr.map(Math.random);</p>
+<p>console.log(strArr);</p>
+<h2 id="其他知识点"><a href="#其他知识点" class="headerlink" title="其他知识点"></a>其他知识点</h2><h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p>平时在给对象添加属性的时候，使用的都是点语法，或者关联数组语法,<br>通过这两种方式添加的属性，不能手动去设置属性的特性</p>
+<p>特性: 就是属性的描述信息，包括能否修改，能否删除，能否遍历等等</p>
+<p><strong>\@Object.defineProperty用来给对象添加属性的</strong></p>
+<p>Object.defineProperty(obj, propertyName, descriptor);</p>
+<p>//obj 就是要给谁添加属性</p>
+<p>//propertyName 要添加的属性名</p>
+<p>//descriptor 属性的描述信息，也就是特性集合，是一个对象哦~</p>
+<p><strong>\@descriptor对象中的属性</strong></p>
+<p>* writable 默认为false，表示属性是否可写</p>
+<p>* configurable 默认为false， 表示属性是否可以配置（删除）</p>
+<p>* enumerable 默认为false， 表示属性是否可以被遍历（for-in）</p>
+<p>* value 用来设置属性的值</p>
+<p>* get和set方法，和writable一样都可以用来设置属性是否可以写</p>
+<p>Object.defineProperty(obj, “name”, {</p>
+<p>writable: true,</p>
+<p>configurable: true,</p>
+<p>enumerable: true,</p>
+<p>value: 1888,</p>
+<p>set: function(value) {</p>
+<p>this.nameValue = value;</p>
+<p>},</p>
+<p>get: function() {</p>
+<p>return this.nameValue;</p>
+<p>}</p>
+<p>});</p>
+<p>属性的设置器setter和访问器getter，分别是两个方法，一个用来设置属性的值，一个用来获取属性的值,<br>setter和getter一般情况下不和writbale一起使用,<br>如果只有set方法没有get方法，那么这个属性就是一个只写属性,<br>如果只有get方法没有set方法，那么这个属性就是一个只读属性</p>
+<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p>严格模式的开启</p>
+<p>“use strict”</p>
+<p>‘use strict’</p>
+<p><strong>\@严格模式中的特点</strong></p>
+<ol>
+<li><p>声明变量必须使用var</p>
+</li>
+<li><p>对象的属性不能重名</p>
+</li>
+<li><p>函数的形参名不能重复</p>
+</li>
+<li><p>八进制常量不允许使用</p>
+</li>
+<li><p>eval有自己的作用域</p>
+</li>
+</ol>
+<h3 id="事件兼容性处理"><a href="#事件兼容性处理" class="headerlink" title="事件兼容性处理"></a>事件兼容性处理</h3><p><strong>\@三种注册事件的方式</strong></p>
+<ol>
+<li>onclick简单形式</li>
+</ol>
+<p>onclick(function(){})</p>
+<ol>
+<li>addEventListener(type, handler, useCapture) type: 事件类型, handler:<br>事件处理函数, useCapture: 是否使用捕获</li>
+</ol>
+<p>addEventListener(type, eventHandler, useCapture)</p>
+<p>//type:指的就是事件的类型，不带on</p>
+<p>//eventHandler: 事件的处理程序，回调函数</p>
+<p>//useCapture: 是否在捕获阶段触发事件 默认是false</p>
+<ol>
+<li>attachEvent(type, handler)</li>
+</ol>
+<p>attachEvent(type, eventHandler)</p>
+<p>//type:指的就是事件类型，带on</p>
+<p>//eventHandler：事件处理程序，回调函数</p>
+<p><strong>\@ addEventListener和attachEvent的区别</strong></p>
+<p>1.<br>回调函数中获取事件对象的方式不一样，addEventListener通过回调函数的参数获取，attachEvent通过window.event获取</p>
+<p>2.<br>回调函数中的this指向不一致，addEventListener中this指向当前dom对象，attachEvent中this指向window</p>
+<p><strong>\@兼容性处理的通用函数</strong></p>
+<p>function registerEvent(ele, type, handler){</p>
+<p>if(ele.addEventListener){</p>
+<p>ele.addEventListener(type, handler);</p>
+<p>}else if(ele.attachEvent){</p>
+<p>如果使用下面的代码，那么，在事件触发的时候,回调函数中拿不到事件对象，回调函数中的this也会指向window</p>
+<p>//ele.attachEvent(“on”+type,handler)</p>
+<p>解决上面问题的关键，就在于，不让系统去调这个回调函数了,而是我们自己去调<br>调用的时候，将事件对象window.event作为实参传递给这个回调函数,<br>this的指向需要更改，改成当前的元素 ele 使用call</p>
+<p>ele.attachEvent(“on” + type, function(){</p>
+<p>handler.call(ele, window.event);</p>
+<p>})</p>
+<p>}else{</p>
+<p>ele[“on” + type] = handler;</p>
+<p>}</p>
+<p>}</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/avatar.png" alt="angiter wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixin.png" alt="angiter WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.png" alt="angiter Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端基础/" rel="tag"># 前端基础</a>
+          
+            <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/18/canvas三部曲(终章)/" rel="next" title="canvas三部曲(终章)">
+                <i class="fa fa-chevron-left"></i> canvas三部曲(终章)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/09/http服务与ajax编程/" rel="prev" title="http服务与ajax编程">
+                http服务与ajax编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/05/28/面向对象基础总结/"
+     data-title="什么是面向对象"
+     data-content=""
+     data-url="http://yoursite.com/2016/05/28/面向对象基础总结/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/28/面向对象基础总结/"
+           data-title="什么是面向对象" data-url="http://yoursite.com/2016/05/28/面向对象基础总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="angiter" />
+          <p class="site-author-name" itemprop="name">angiter</p>
+          <p class="site-description motion-element" itemprop="description">代码与我同在</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xupeng01" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/" title="hexo" target="_blank">hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://theme-next.iissnan.com/" title="theme-next" target="_blank">theme-next</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象-思维方式"><span class="nav-number">1.</span> <span class="nav-text">面向对象( 思维方式 )</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以洗衣服为例"><span class="nav-number">1.1.</span> <span class="nav-text">以洗衣服为例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是对象"><span class="nav-number">1.2.</span> <span class="nav-text">什么是对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javascript中的对象是什么？"><span class="nav-number">1.3.</span> <span class="nav-text">javascript中的对象是什么？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象举例"><span class="nav-number">2.</span> <span class="nav-text">面向对象举例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS封装存在的问题"><span class="nav-number">2.1.</span> <span class="nav-text">JS封装存在的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象的三大特性"><span class="nav-number">3.</span> <span class="nav-text">面向对象的三大特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">3.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多肽-js中不支持多态"><span class="nav-number">3.3.</span> <span class="nav-text">多肽(js中不支持多态)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象的方式"><span class="nav-number">4.</span> <span class="nav-text">创建对象的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字面量"><span class="nav-number">4.1.</span> <span class="nav-text">字面量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用内置构造函数Object"><span class="nav-number">4.2.</span> <span class="nav-text">使用内置构造函数Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义构造函数"><span class="nav-number">4.3.</span> <span class="nav-text">自定义构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型"><span class="nav-number">5.</span> <span class="nav-text">原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是原型"><span class="nav-number">5.1.</span> <span class="nav-text">什么是原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型的作用"><span class="nav-number">5.2.</span> <span class="nav-text">原型的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何访问原型"><span class="nav-number">5.3.</span> <span class="nav-text">如何访问原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型的使用"><span class="nav-number">5.4.</span> <span class="nav-text">原型的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型的注意事项"><span class="nav-number">5.5.</span> <span class="nav-text">原型的注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问原型的方式"><span class="nav-number">5.6.</span> <span class="nav-text">访问原型的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型的属性constructor"><span class="nav-number">5.7.</span> <span class="nav-text">原型的属性constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的实现方式"><span class="nav-number">5.8.</span> <span class="nav-text">继承的实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">5.9.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-prototype-的成员"><span class="nav-number">5.10.</span> <span class="nav-text">Object.prototype 的成员</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">6.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#instanceof关键字"><span class="nav-number">6.1.</span> <span class="nav-text">instanceof关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建函数的三种方式"><span class="nav-number">6.2.</span> <span class="nav-text">创建函数的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function的使用"><span class="nav-number">6.3.</span> <span class="nav-text">Function的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eval的使用"><span class="nav-number">6.4.</span> <span class="nav-text">eval的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的原型链"><span class="nav-number">6.5.</span> <span class="nav-text">函数的原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object和Function的关系"><span class="nav-number">6.6.</span> <span class="nav-text">Object和Function的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arguments对象"><span class="nav-number">6.7.</span> <span class="nav-text">arguments对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数对象的成员"><span class="nav-number">6.8.</span> <span class="nav-text">函数对象的成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态成员以及实例成员"><span class="nav-number">6.9.</span> <span class="nav-text">静态成员以及实例成员</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组-递归-变量提升-面向对象第四天代码"><span class="nav-number">7.</span> <span class="nav-text">数组,递归,变量提升(面向对象第四天代码)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#indexOf"><span class="nav-number">7.1.</span> <span class="nav-text">indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">7.2.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词法作用域"><span class="nav-number">7.3.</span> <span class="nav-text">词法作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量提升-hoisting"><span class="nav-number">7.4.</span> <span class="nav-text">变量提升(hoisting)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">8.</span> <span class="nav-text">作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量搜索原则"><span class="nav-number">8.1.</span> <span class="nav-text">变量搜索原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制作用域链图"><span class="nav-number">8.2.</span> <span class="nav-text">绘制作用域链图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">9.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是闭包"><span class="nav-number">9.1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包要解决的问题"><span class="nav-number">9.2.</span> <span class="nav-text">闭包要解决的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的基本模型"><span class="nav-number">9.3.</span> <span class="nav-text">闭包的基本模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用闭包返回多个函数"><span class="nav-number">9.4.</span> <span class="nav-text">如何使用闭包返回多个函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的原理"><span class="nav-number">9.5.</span> <span class="nav-text">闭包的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的用途"><span class="nav-number">9.6.</span> <span class="nav-text">闭包的用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用闭包解决for循环中注册点击事件的问题"><span class="nav-number">9.7.</span> <span class="nav-text">使用闭包解决for循环中注册点击事件的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用闭包解决for循环中setTimeout代码执行的问题"><span class="nav-number">9.8.</span> <span class="nav-text">使用闭包解决for循环中setTimeout代码执行的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">10.</span> <span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重要的几种缓存"><span class="nav-number">10.1.</span> <span class="nav-text">重要的几种缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用缓存解决递归实现的斐波那契数列存在的性能问题"><span class="nav-number">10.2.</span> <span class="nav-text">使用缓存解决递归实现的斐波那契数列存在的性能问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包优化缓存解决递归实现的斐波那契数列存在的性能问题"><span class="nav-number">10.3.</span> <span class="nav-text">闭包优化缓存解决递归实现的斐波那契数列存在的性能问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQ缓存实现猜想"><span class="nav-number">10.4.</span> <span class="nav-text">JQ缓存实现猜想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery缓存源码分析"><span class="nav-number">10.5.</span> <span class="nav-text">jQuery缓存源码分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#沙箱模式"><span class="nav-number">10.6.</span> <span class="nav-text">沙箱模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的调用模式"><span class="nav-number">10.7.</span> <span class="nav-text">函数的调用模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种创建对象的方式"><span class="nav-number">10.8.</span> <span class="nav-text">两种创建对象的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文调用模式-call与apply"><span class="nav-number">10.9.</span> <span class="nav-text">上下文调用模式(call与apply)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach和map的使用"><span class="nav-number">10.10.</span> <span class="nav-text">forEach和map的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他知识点"><span class="nav-number">11.</span> <span class="nav-text">其他知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-defineProperty"><span class="nav-number">11.1.</span> <span class="nav-text">Object.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式"><span class="nav-number">11.2.</span> <span class="nav-text">严格模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件兼容性处理"><span class="nav-number">11.3.</span> <span class="nav-text">事件兼容性处理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">angiter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"biubiulove"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ke69LOowXRs1IqNCm4A1DdoT-gzGzoHsz", "O5iTwans1bqqmp62IcYiKP5J");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

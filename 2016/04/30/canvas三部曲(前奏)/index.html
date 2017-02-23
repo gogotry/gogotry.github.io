@@ -1,0 +1,1334 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="canvas," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="什么是 Canvascanvas 是 HTML5 提供的一个用于展示绘图效果的标签. canvas 原意画布, 帆布. 在 HTML 页面中用于展示绘图效果. 最早 canvas 是苹果提出的一个方案, 今天已经在大多数浏览器中实现.
+1canvas 英 [&amp;apos;kænvəs]  美 [&amp;apos;kænvəs]   帆布 画布">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas三部曲(前奏)">
+<meta property="og:url" content="http://yoursite.com/2016/04/30/canvas三部曲(前奏)/index.html">
+<meta property="og:site_name" content="xupengfly">
+<meta property="og:description" content="什么是 Canvascanvas 是 HTML5 提供的一个用于展示绘图效果的标签. canvas 原意画布, 帆布. 在 HTML 页面中用于展示绘图效果. 最早 canvas 是苹果提出的一个方案, 今天已经在大多数浏览器中实现.
+1canvas 英 [&amp;apos;kænvəs]  美 [&amp;apos;kænvəs]   帆布 画布">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-06_015256.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-06_025322.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-06_023133.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-06_134021.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/20151227142627714.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-06_135624.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-06_140228.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/65-141105115211111.jpg">
+<meta property="og:image" content="http://yoursite.com/./imgs/123.jpg">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-08_124829.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-08_130548.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-08_131353.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-08_132309.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-08_134700.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-08_135332.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-09_121247.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-09_122426.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-09_130716.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-09_132957.png">
+<meta property="og:updated_time" content="2017-02-23T12:17:32.145Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="canvas三部曲(前奏)">
+<meta name="twitter:description" content="什么是 Canvascanvas 是 HTML5 提供的一个用于展示绘图效果的标签. canvas 原意画布, 帆布. 在 HTML 页面中用于展示绘图效果. 最早 canvas 是苹果提出的一个方案, 今天已经在大多数浏览器中实现.
+1canvas 英 [&amp;apos;kænvəs]  美 [&amp;apos;kænvəs]   帆布 画布">
+<meta name="twitter:image" content="http://yoursite.com/./imgs/2016-08-06_015256.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6383972067393406000',
+      author: '博主大人'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/04/30/canvas三部曲(前奏)/"/>
+
+
+
+
+
+  <title> canvas三部曲(前奏) | xupengfly </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xupengfly</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/30/canvas三部曲(前奏)/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="angiter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xupengfly">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xupengfly" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                canvas三部曲(前奏)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-30T19:30:35+08:00">
+                2016-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/canvas三部曲/" itemprop="url" rel="index">
+                    <span itemprop="name">canvas三部曲</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/30/canvas三部曲(前奏)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/30/canvas三部曲(前奏)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/30/canvas三部曲(前奏)/" class="leancloud_visitors" data-flag-title="canvas三部曲(前奏)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是-Canvas"><a href="#什么是-Canvas" class="headerlink" title="什么是 Canvas"></a>什么是 Canvas</h2><p>canvas 是 HTML5 提供的一个用于展示绘图效果的标签. canvas 原意画布, 帆布. 在 HTML 页面中用于展示绘图效果. 最早 canvas 是苹果提出的一个方案, 今天已经在大多数浏览器中实现.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">canvas 英 [&apos;kænvəs]  美 [&apos;kænvəs]   帆布 画布</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="canvas-的基本用法"><a href="#canvas-的基本用法" class="headerlink" title="canvas 的基本用法"></a>canvas 的基本用法</h3><p><strong>基本语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;canvas&gt;&lt;/canvas&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>使用 canvas 标签, 即可在页面中开辟一格区域. 可以设置其 width 和 height 设置该区域的尺寸.</li>
+<li>默认 canvas 的宽高为 300 和 150.</li>
+<li>不要使用 CSS 的方式设置宽高, 应该使用 HTML 属性.</li>
+<li>如果浏览器不支持 canvas 标签, 那么就会将其解释为 div 标签. 因此常常在 canvas 中嵌入文本, 以提示用户浏览器的能力.</li>
+<li>canvas 的兼容性非常强, 只要支持该标签的, 基本功能都一样, 因此不用考虑兼容性问题.</li>
+<li>canvas 本身不能绘图. 是使用 JavaScript 来完成绘图. canvas 对象提供了各种绘图用的 api.</li>
+</ol>
+<p><strong>canvas 的使用领域</strong></p>
+<p>canvas 的使用领域很多:</p>
+<ol>
+<li>游戏</li>
+<li>可视化数据(重点)</li>
+<li>banner 广告</li>
+<li>多媒体</li>
+<li>未来<ul>
+<li>模拟仿真</li>
+<li>远程操作</li>
+<li>图形编辑</li>
+</ul>
+</li>
+</ol>
+<h3 id="我们的课程目标"><a href="#我们的课程目标" class="headerlink" title="我们的课程目标"></a>我们的课程目标</h3><ol>
+<li>不是为了做游戏</li>
+<li>学会使用基本的 canvas api, 使用 canvas 可以完成简单的绘图</li>
+<li>实现数据的可视化</li>
+</ol>
+<h2 id="基本绘图"><a href="#基本绘图" class="headerlink" title="基本绘图"></a>基本绘图</h2><h3 id="基本绘图方法"><a href="#基本绘图方法" class="headerlink" title="基本绘图方法"></a>基本绘图方法</h3><p><strong>绘图步骤</strong></p>
+<ol>
+<li>获得 <code>canvas</code> 对象.</li>
+<li>调用 <code>getContext</code> 方法, 提供字符串参数 <code>&#39;2d&#39;</code>.</li>
+<li>该方法返回 <code>CanvasRenderingContext2D</code> 类型的对象. 该对象提供基本的绘图命令.</li>
+<li>使用 <code>CanvasRenderingContext2D</code> 对象提供的方法进行绘图.</li>
+<li>基本绘图命令<ul>
+<li>设置开始绘图的位置: <code>context.moveTo( x, y )</code>.</li>
+<li>设置直线到的位置: <code>context.lineTo( x, y )</code>.</li>
+<li>描边绘制: <code>context.stroke()</code>.</li>
+<li>填充绘制: <code>context.fill()</code>.</li>
+<li>闭合路径: <code>context.closePath()</code>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>01-绘制基本线</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var canvas = document.createElement( &apos;canvas&apos; );</div><div class="line">canvas.width = 500;</div><div class="line">canvas.height = 400;</div><div class="line">canvas.style.border = &apos;1px dashed red&apos;;</div><div class="line">document.body.appendChild( canvas );</div><div class="line">// 获得 CanvasRenderingContext2D 对象</div><div class="line">var context = canvas.getContext( &apos;2d&apos; );</div><div class="line">// 设置 起点</div><div class="line">context.moveTo( 0, 0 );</div><div class="line">// 绘制直线</div><div class="line">context.lineTo( 500, 400 );</div><div class="line">// 设置 起点</div><div class="line">context.moveTo( 0, 400 );</div><div class="line">// 绘制直线</div><div class="line">context.lineTo( 500, 0 );</div><div class="line">// 描边显示效果</div><div class="line">context.stroke();</div></pre></td></tr></table></figure>
+<p>运行结果为</p>
+<p><img src="./imgs/2016-08-06_015256.png" alt=""></p>
+<h4 id="计算机直角坐标系"><a href="#计算机直角坐标系" class="headerlink" title="计算机直角坐标系"></a>计算机直角坐标系</h4><p><img src="./imgs/2016-08-06_025322.png" alt=""></p>
+<h4 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h4><ol>
+<li>需要绘图就需要有 <code>canvas</code> 标签, 该标签用于展示图像.</li>
+<li><code>canvas</code> 的宽高不要使用 CSS 来设置, 会有拉伸的问题. 应该直接使用属性设置.</li>
+<li>但是 <code>canvas</code> 只是展示图像的标签, 它没有绘图的能力. 需要使用 <code>canvas</code> 的上下文工具来实现绘图.</li>
+<li>使用 <code>canvas.getContext( &#39;2d&#39; )</code> 可以获得绘图工具, 该工具是 <code>CanvasRenderingContext2D</code> 类型的对象.</li>
+<li>需要绘图, 首选设置绘图的起点.<ul>
+<li>使用 <code>canvas</code> 绘图, 需要主要的是他主张先描点, 再连线绘制效果.</li>
+<li>因此需要首先设置起点, 然后在起点的基础上描述其他需要的点.</li>
+<li>使用 <code>CanvasRenderingContext2D.moveTo( x, y )</code> 方法设置起点.<ul>
+<li>其中 x, y 表示的是在坐标系中的位置.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用 <code>CanvasRenderingContext2D.lineTo( x, y )</code> 来描述绘制直线的下一个点. 依次类推可以描述多个点.</li>
+<li>描点结束后, 需要使用 <code>CanvasRenderingContext2D.stroke()</code> 方法来连线. 开可以显示出效果.</li>
+</ol>
+<h4 id="getContext-方法"><a href="#getContext-方法" class="headerlink" title="getContext 方法"></a>getContext 方法</h4><p>语法: <code>Canvas.getContext( typeStr )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法用于绘制上下文工具.</li>
+<li>如果是绘制平面图形使用 <code>&#39;2d&#39;</code> 作为参数, 如果绘制立体图形使用 <code>&#39;webgl&#39;</code>.</li>
+<li>使用 <code>&#39;2d&#39;</code> 返回 <code>CanvasRenderingContext2D</code> 类型的对象.</li>
+<li>使用 <code>&#39;webgl&#39;</code> 返回 <code>WebGLRenderingContext</code> 类型的对象.</li>
+</ol>
+<h4 id="moveTo-方法"><a href="#moveTo-方法" class="headerlink" title="moveTo 方法"></a>moveTo 方法</h4><p>语法: <code>CanvasRenderingContext2D.moveTo( x, y )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法用于设置绘制起点.</li>
+<li>其中参数 x, y 表示在坐标系中的位置, 分别是 x 坐标与 y 坐标.</li>
+</ol>
+<h4 id="lineTo-方法"><a href="#lineTo-方法" class="headerlink" title="lineTo 方法"></a>lineTo 方法</h4><p>语法: <code>CanvasRenderingContext2D.lineTo( x, y )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法用于设置需要绘制直线的另一个点. 最终描边后会连线当前点和方法参数描述的点.</li>
+<li>其中参数 x, y 表示在坐标系中的位置, 分别是 x 坐标与 y 坐标.</li>
+</ol>
+<h4 id="stroke-方法"><a href="#stroke-方法" class="headerlink" title="stroke 方法"></a>stroke 方法</h4><p>语法: <code>CanvasRenderingContext2D.stroke()</code></p>
+<p>描述: 该方法用于连线, 将描述的所有点按照指定顺序连接起来.</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><ol>
+<li>绘图先要获得上下文, 即绘图工具</li>
+<li>绘图需要设置开始的坐标</li>
+<li>绘图是先描点, 然后一个一个依次连线</li>
+<li>依次绘图只能绘制单一样式( 色彩等 )</li>
+</ol>
+<h3 id="直线图形"><a href="#直线图形" class="headerlink" title="直线图形"></a>直线图形</h3><p>分别绘制下面的案例:</p>
+<p><img src="./imgs/2016-08-06_023133.png" alt=""></p>
+<ol>
+<li>绘制直线计算坐标.</li>
+<li>描边调用 <code>CanvasRenderingContext2D.stroke()</code> 方法.</li>
+<li>填充使用 <code>CanvasRenderingContext2D.fill()</code> 方法.</li>
+</ol>
+<h4 id="fill-方法"><a href="#fill-方法" class="headerlink" title="fill 方法"></a>fill 方法</h4><p>语法: <code>CanvasRenderingContext2D.fill()</code></p>
+<p>描述: 该方法会按照描绘的点的路径来填充图形. 默认是黑色.</p>
+<h3 id="非零环绕原则"><a href="#非零环绕原则" class="headerlink" title="非零环绕原则"></a>非零环绕原则</h3><p>绘制下面的图</p>
+<p><img src="./imgs/2016-08-06_134021.png" alt=""></p>
+<p>填充满足非零环绕数原则</p>
+<p><img src="./imgs/20151227142627714.png" alt=""></p>
+<p>说明:</p>
+<ol>
+<li>在 <code>canvas</code> 中使用各种方法描点实际上描述的是一个称为路径( path )的东西.</li>
+<li>在 <code>canvas</code> 绘图中, 所有描述的东西都是路径, 只有最后填充或描边的时候才会显示出效果.</li>
+<li>每一个路径都是一个状态.</li>
+</ol>
+<p>练习: 绘制下面图形</p>
+<p><img src="./imgs/2016-08-06_135624.png" alt=""></p>
+<h3 id="闭合路径"><a href="#闭合路径" class="headerlink" title="闭合路径"></a>闭合路径</h3><h4 id="closePath-方法"><a href="#closePath-方法" class="headerlink" title="closePath 方法"></a>closePath 方法</h4><p>语法: <code>CanvasRenderingContext2D.closePath()</code></p>
+<p>描述: 使用该方法可以将最后一个描点与最开始的描点自动连接起来.</p>
+<p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">ctx.moveTo( 100, 100 );</div><div class="line">ctx.lineTo( 300, 100 );</div><div class="line">ctx.lineTo( 300, 200 );</div><div class="line">ctx.closePath();</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p>结果为:</p>
+<p><img src="./imgs/2016-08-06_140228.png" alt=""></p>
+<p>练习: 使用 <code>closePath</code> 改写非零环绕的案例.</p>
+<h3 id="路径的概念"><a href="#路径的概念" class="headerlink" title="路径的概念"></a>路径的概念</h3><ol>
+<li>路径就是一次绘图<ul>
+<li>类比使用油漆刷墙面</li>
+<li>首先打底色, 绝对不会一次性使用多个色彩</li>
+<li>一定是先画完某一个色彩再考虑另一个色彩</li>
+<li>除非需要自己创作才会考虑墙面绘画</li>
+</ul>
+</li>
+<li>路径就好比一桶油漆和一把刷子, 一次性描点绘制. 如果重新更换油漆, 那么是绘制另一个区域.</li>
+<li>如果需要开启新的绘制, 那么使用 <code>CanvasRenderingContext2D.beginPath()</code> 方法.</li>
+</ol>
+<p><strong>墙面油漆图示</strong></p>
+<p><img src="./imgs/65-141105115211111.jpg" alt=""></p>
+<p><img src="./imgs/123.jpg" alt=""></p>
+<p><strong>示例</strong></p>
+<p>如果需要在一个区域内绘制描边的图形和填充的图形. 例如</p>
+<p><img src="./imgs/2016-08-08_124829.png" alt=""></p>
+<h3 id="线型相关属性"><a href="#线型相关属性" class="headerlink" title="线型相关属性"></a>线型相关属性</h3><p>设置描边与填充不一定只能使用黑色的细线. 可以利用一些属性设置其效果</p>
+<ol>
+<li><code>CanvasRenderingContext2D.lineWidth</code> 设置线宽.</li>
+<li><code>CanvasRenderingContext2D.lineCap</code> 设置线末端类型.</li>
+<li><code>CanvasRenderingContext2D.lineJoin</code> 设置相交线的拐点.</li>
+<li><code>CanvasRenderingContext2D.getLineDash()</code> 获得线段样式数组.</li>
+<li><code>CanvasRenderingContext2D.setLineDash()</code> 设置线段样式.</li>
+<li><code>CanvasRenderingContext2D.lineDashOffset</code> 绘制线段偏移量.</li>
+</ol>
+<h4 id="设置线宽"><a href="#设置线宽" class="headerlink" title="设置线宽"></a>设置线宽</h4><p>语法: <code>CanvasRenderingContext2D.lineWidth = number</code></p>
+<p>描述: 设置线宽.</p>
+<p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">ctx.moveTo( 100, 100 );</div><div class="line">ctx.lineTo( 300, 100 );</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineWidth = 10;</div><div class="line">ctx.moveTo( 100, 250 );</div><div class="line">ctx.lineTo( 300, 250 );</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-08_130548.png" alt=""></p>
+<h4 id="设置线末端类型"><a href="#设置线末端类型" class="headerlink" title="设置线末端类型"></a>设置线末端类型</h4><p>语法: <code>CanvasRenderingContext2D.lineCap = value</code></p>
+<p>描述:</p>
+<ol>
+<li>设置线型末端的样式, 可取值为: ‘butt’( 默认 ), ‘round’, ‘square’.</li>
+<li>‘butt’ 表示两端使用方形结束.</li>
+<li>‘round’ 表示两端使用圆角结束.</li>
+<li>‘square’ 表示突出的圆角结束.</li>
+</ol>
+<p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">ctx.lineWidth = 10;</div><div class="line">ctx.moveTo( 100, 100 );</div><div class="line">ctx.lineTo( 300, 100 );</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineCap =  &apos;round&apos;;</div><div class="line">ctx.moveTo( 100, 130 );</div><div class="line">ctx.lineTo( 300, 130 );</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineCap =  &apos;square&apos;;</div><div class="line">ctx.moveTo( 100, 160 );</div><div class="line">ctx.lineTo( 300, 160 );</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-08_131353.png" alt=""></p>
+<h4 id="设置相交线的拐点"><a href="#设置相交线的拐点" class="headerlink" title="设置相交线的拐点"></a>设置相交线的拐点</h4><p>语法: <code>CanvasRenderingContext2D.lineJoin = value</code></p>
+<p>描述:</p>
+<ol>
+<li>设置两条直线的拐点描述方式. 可以取值 ‘round’, ‘bevel’, ‘miter’(默认)</li>
+<li>‘round’ 使用圆角连接.</li>
+<li>‘bevel’ 使用平切连接.</li>
+<li>‘miter’ 使用直角转.</li>
+</ol>
+<p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">ctx.lineWidth = 10;</div><div class="line">ctx.lineJoin = &apos;round&apos;;</div><div class="line">ctx.moveTo( 100, 100 );</div><div class="line">ctx.lineTo( 200, 200 );</div><div class="line">ctx.lineTo( 300, 100 );</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineJoin = &apos;bevel&apos;;</div><div class="line">ctx.moveTo( 100, 150 );</div><div class="line">ctx.lineTo( 200, 250 );</div><div class="line">ctx.lineTo( 300, 150 );</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineJoin = &apos;miter&apos;;</div><div class="line">ctx.moveTo( 100, 200 );</div><div class="line">ctx.lineTo( 200, 300 );</div><div class="line">ctx.lineTo( 300, 200 );</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-08_132309.png" alt=""></p>
+<h4 id="虚线"><a href="#虚线" class="headerlink" title="虚线"></a>虚线</h4><p>语法:</p>
+<ol>
+<li><code>CanvasRenderingContext2D.lineDashOffset = number</code></li>
+<li><code>CanvasRenderingContext2D.getLineDash()</code></li>
+<li><code>CanvasRenderingContext2D.setLineDash()</code></li>
+</ol>
+<p>描述:</p>
+<ol>
+<li>lineDashOffset用于设置开始绘制虚线的偏移量. 数字的正负表示左右偏移.</li>
+<li>getLineDash() 与 setLineDash() 方法使用数组描述实线与虚线的长度.</li>
+</ol>
+<p><strong>演示</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">ctx.moveTo( 100, 90 );</div><div class="line">ctx.lineTo( 100, 110 );</div><div class="line">ctx.moveTo( 300, 90 );</div><div class="line">ctx.lineTo( 300, 110 );</div><div class="line"></div><div class="line">ctx.moveTo( 100, 140 );</div><div class="line">ctx.lineTo( 100, 160 );</div><div class="line">ctx.moveTo( 300, 140 );</div><div class="line">ctx.lineTo( 300, 160 );</div><div class="line"></div><div class="line">ctx.moveTo( 100, 190 );</div><div class="line">ctx.lineTo( 100, 210 );</div><div class="line">ctx.moveTo( 300, 190 );</div><div class="line">ctx.lineTo( 300, 210 );</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo( 100, 100 );</div><div class="line">ctx.lineTo( 300, 100 );</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.setLineDash( [ 5, 5 ] );</div><div class="line">ctx.moveTo( 100, 150 );</div><div class="line">ctx.lineTo( 300, 150 );</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.lineDashOffset = -2;</div><div class="line">ctx.moveTo( 100, 200 );</div><div class="line">ctx.lineTo( 300, 200 );</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-08_134700.png" alt=""></p>
+<h4 id="填充与描边样式"><a href="#填充与描边样式" class="headerlink" title="填充与描边样式"></a>填充与描边样式</h4><p>语法:</p>
+<ol>
+<li><code>CanvasRenderingContext2D.strokeStyle = value</code></li>
+<li><code>CanvasRenderingContext2D.fillStyle = value</code></li>
+</ol>
+<p>描述:</p>
+<ol>
+<li>strokeStyle 可以设置描边颜色, 与 CSS 的语法一样</li>
+<li>fillStyle 设置填充颜色, 与 CSS 语法一样</li>
+<li>这两个属性还可以设置渐变对象.</li>
+</ol>
+<p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for (var i=0;i&lt;6;i++)&#123;</div><div class="line">    for (var j=0;j&lt;6;j++)&#123;</div><div class="line">        ctx.strokeStyle = &apos;rgb(0,&apos; + Math.floor(255-42.5*i) + &apos;,&apos; + </div><div class="line">                        Math.floor(255-42.5*j) + &apos;)&apos;;</div><div class="line">        ctx.beginPath();</div><div class="line">        ctx.arc(12.5+j*25,12.5+i*25,10,0,Math.PI*2,true);</div><div class="line">        ctx.stroke();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-08_135332.png" alt=""></p>
+<h2 id="实例练习"><a href="#实例练习" class="headerlink" title="实例练习"></a>实例练习</h2><h3 id="绘制坐标网格"><a href="#绘制坐标网格" class="headerlink" title="绘制坐标网格"></a>绘制坐标网格</h3><p>绘制下面的效果</p>
+<p><img src="./imgs/2016-08-09_121247.png" alt=""></p>
+<h3 id="绘制坐标系"><a href="#绘制坐标系" class="headerlink" title="绘制坐标系"></a>绘制坐标系</h3><p>绘制下面的效果</p>
+<p><img src="./imgs/2016-08-09_122426.png" alt=""></p>
+<h3 id="绘制坐标点"><a href="#绘制坐标点" class="headerlink" title="绘制坐标点"></a>绘制坐标点</h3><p>绘制下面的效果</p>
+<p><img src="./imgs/2016-08-09_130716.png" alt=""></p>
+<h3 id="绘制折线图"><a href="#绘制折线图" class="headerlink" title="绘制折线图"></a>绘制折线图</h3><p><img src="./imgs/2016-08-09_132957.png" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/avatar.png" alt="angiter wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixin.png" alt="angiter WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.png" alt="angiter Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/canvas/" rel="tag"># canvas</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/22/CSS3-新属性动画实现/" rel="next" title="CSS3-新属性动画实现">
+                <i class="fa fa-chevron-left"></i> CSS3-新属性动画实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/12/canvas三部曲(进阶)/" rel="prev" title="canvas三部曲(进阶)">
+                canvas三部曲(进阶) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/04/30/canvas三部曲(前奏)/"
+     data-title="canvas三部曲(前奏)"
+     data-content=""
+     data-url="http://yoursite.com/2016/04/30/canvas三部曲(前奏)/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/30/canvas三部曲(前奏)/"
+           data-title="canvas三部曲(前奏)" data-url="http://yoursite.com/2016/04/30/canvas三部曲(前奏)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="angiter" />
+          <p class="site-author-name" itemprop="name">angiter</p>
+          <p class="site-description motion-element" itemprop="description">代码与我同在</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xupeng01" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/" title="hexo" target="_blank">hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://theme-next.iissnan.com/" title="theme-next" target="_blank">theme-next</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-Canvas"><span class="nav-number">1.</span> <span class="nav-text">什么是 Canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas-的基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">canvas 的基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们的课程目标"><span class="nav-number">1.2.</span> <span class="nav-text">我们的课程目标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本绘图"><span class="nav-number">2.</span> <span class="nav-text">基本绘图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本绘图方法"><span class="nav-number">2.1.</span> <span class="nav-text">基本绘图方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机直角坐标系"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算机直角坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码分析"><span class="nav-number">2.1.2.</span> <span class="nav-text">代码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getContext-方法"><span class="nav-number">2.1.3.</span> <span class="nav-text">getContext 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moveTo-方法"><span class="nav-number">2.1.4.</span> <span class="nav-text">moveTo 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lineTo-方法"><span class="nav-number">2.1.5.</span> <span class="nav-text">lineTo 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stroke-方法"><span class="nav-number">2.1.6.</span> <span class="nav-text">stroke 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结论"><span class="nav-number">2.1.7.</span> <span class="nav-text">结论</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直线图形"><span class="nav-number">2.2.</span> <span class="nav-text">直线图形</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fill-方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">fill 方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非零环绕原则"><span class="nav-number">2.3.</span> <span class="nav-text">非零环绕原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭合路径"><span class="nav-number">2.4.</span> <span class="nav-text">闭合路径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#closePath-方法"><span class="nav-number">2.4.1.</span> <span class="nav-text">closePath 方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路径的概念"><span class="nav-number">2.5.</span> <span class="nav-text">路径的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线型相关属性"><span class="nav-number">2.6.</span> <span class="nav-text">线型相关属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置线宽"><span class="nav-number">2.6.1.</span> <span class="nav-text">设置线宽</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置线末端类型"><span class="nav-number">2.6.2.</span> <span class="nav-text">设置线末端类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置相交线的拐点"><span class="nav-number">2.6.3.</span> <span class="nav-text">设置相交线的拐点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚线"><span class="nav-number">2.6.4.</span> <span class="nav-text">虚线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#填充与描边样式"><span class="nav-number">2.6.5.</span> <span class="nav-text">填充与描边样式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例练习"><span class="nav-number">3.</span> <span class="nav-text">实例练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制坐标网格"><span class="nav-number">3.1.</span> <span class="nav-text">绘制坐标网格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制坐标系"><span class="nav-number">3.2.</span> <span class="nav-text">绘制坐标系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制坐标点"><span class="nav-number">3.3.</span> <span class="nav-text">绘制坐标点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制折线图"><span class="nav-number">3.4.</span> <span class="nav-text">绘制折线图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">angiter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"biubiulove"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ke69LOowXRs1IqNCm4A1DdoT-gzGzoHsz", "O5iTwans1bqqmp62IcYiKP5J");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1356 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端基础,jQuery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="为何要学jQueryJS的缺点
+使用jQuery可以方便地解决这些问题
+jQuery是什么animate.js是我们自己封装的库，而jQuery是别人帮我们封装好的库。
+JS库就是把常用的代码放到一个单独的文件中，用的时候直接引用到页面里面就可以了。
+jQuery是JS的一个库，封装了开发过程中常用的功能，能够提高开发效率。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈jQuery">
+<meta property="og:url" content="http://yoursite.com/2016/03/14/浅谈jQuery/index.html">
+<meta property="og:site_name" content="xupengfly">
+<meta property="og:description" content="为何要学jQueryJS的缺点
+使用jQuery可以方便地解决这些问题
+jQuery是什么animate.js是我们自己封装的库，而jQuery是别人帮我们封装好的库。
+JS库就是把常用的代码放到一个单独的文件中，用的时候直接引用到页面里面就可以了。
+jQuery是JS的一个库，封装了开发过程中常用的功能，能够提高开发效率。">
+<meta property="og:image" content="http://yoursite.com/media/4a787a9d22366f220c521682190a4bc6.png">
+<meta property="og:image" content="http://yoursite.com/media/698bd6222703e7f491608e63836ede50.png">
+<meta property="og:image" content="http://yoursite.com/media/fa429616801982ad68d2ad0f92265394.png">
+<meta property="og:updated_time" content="2017-02-23T11:19:31.249Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈jQuery">
+<meta name="twitter:description" content="为何要学jQueryJS的缺点
+使用jQuery可以方便地解决这些问题
+jQuery是什么animate.js是我们自己封装的库，而jQuery是别人帮我们封装好的库。
+JS库就是把常用的代码放到一个单独的文件中，用的时候直接引用到页面里面就可以了。
+jQuery是JS的一个库，封装了开发过程中常用的功能，能够提高开发效率。">
+<meta name="twitter:image" content="http://yoursite.com/media/4a787a9d22366f220c521682190a4bc6.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6383972067393406000',
+      author: '博主大人'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/03/14/浅谈jQuery/"/>
+
+
+
+
+
+  <title> 浅谈jQuery | xupengfly </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xupengfly</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/14/浅谈jQuery/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="angiter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xupengfly">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xupengfly" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                浅谈jQuery
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-14T12:03:42+08:00">
+                2016-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端基础/" itemprop="url" rel="index">
+                    <span itemprop="name">前端基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/14/浅谈jQuery/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/浅谈jQuery/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/03/14/浅谈jQuery/" class="leancloud_visitors" data-flag-title="浅谈jQuery">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="为何要学jQuery"><a href="#为何要学jQuery" class="headerlink" title="为何要学jQuery"></a>为何要学jQuery</h2><h3 id="JS的缺点"><a href="#JS的缺点" class="headerlink" title="JS的缺点"></a>JS的缺点</h3><p><img src="media/4a787a9d22366f220c521682190a4bc6.png" alt=""></p>
+<p>使用jQuery可以方便地解决这些问题</p>
+<h3 id="jQuery是什么"><a href="#jQuery是什么" class="headerlink" title="jQuery是什么"></a>jQuery是什么</h3><p>animate.js是我们自己封装的库，而jQuery是别人帮我们封装好的库。</p>
+<p>JS库就是把常用的代码放到一个单独的文件中，用的时候直接引用到页面里面就可以了。</p>
+<p>jQuery是JS的一个库，封装了开发过程中常用的功能，能够提高开发效率。</p>
+<a id="more"></a>
+<h3 id="jQuery学什么"><a href="#jQuery学什么" class="headerlink" title="jQuery学什么"></a>jQuery学什么</h3><p>本阶段主要学习如何使用jQuery，其实就是学习jQuery封装好的一些功能方法，这些方法叫做API（Application<br>Programming Interface应用程序编程接口）。</p>
+<p>这些API的共同特点是：几乎全都是方法。</p>
+<p>所以，在使用时，都是方法调用，要加小括号()，小括号里面是相应的参数，参数不同，功能不同。</p>
+<h3 id="使用jQuery"><a href="#使用jQuery" class="headerlink" title="使用jQuery"></a>使用jQuery</h3><p>使用步骤：</p>
+<p>1引包 2写入口函数 3实现功能（事件处理）</p>
+<p>入口函数就是指程序运行的时候最开始调用的函数，也就是程序开始的地方</p>
+<h2 id="开始使用jQuery"><a href="#开始使用jQuery" class="headerlink" title="开始使用jQuery"></a>开始使用jQuery</h2><h3 id="版本介绍"><a href="#版本介绍" class="headerlink" title="版本介绍"></a>版本介绍</h3><p>最常用的两个版本：</p>
+<p>1.12.x和最新推出的3.0.0</p>
+<p>两个版本的区别：3.0版本，不支持IE6、7、8 <strong>PC端的开发主要使用1.12.x版本</strong></p>
+<p>这几天主要学习1.12.x版本：</p>
+<p><img src="media/698bd6222703e7f491608e63836ede50.png" alt=""></p>
+<p>未压缩版（开发版）：代码可读性高，推荐在<strong>开发和学习环境</strong>中使用，方便查看源代码。</p>
+<p>压缩版：去除了注释、换行、空格、并且将一些变量替换成了a,b,c之类的简单字符，基本没有可读性，推荐在<strong>生产和测试环境</strong>中使用，因为文件较小，减少网络压力。</p>
+<h3 id="引包注意"><a href="#引包注意" class="headerlink" title="引包注意"></a>引包注意</h3><p>第一点：在使用jQuery之前，先把jQuery文件引到页面中来，如果在使用jQuery之前，没有引用jQuery文件，会报错：</p>
+<p>第二点：src路径一定要写正确 如果src路径写错，也会报错：</p>
+<h3 id="入口函数"><a href="#入口函数" class="headerlink" title="入口函数"></a>入口函数</h3><p><strong>jQuery的入口函数:</strong></p>
+<p>第一种：</p>
+<p>\$(document).ready(function(){ //内容 });</p>
+<p>第二种：</p>
+<p>\$(function(){ //内容 });</p>
+<p>以上两种写法，作用完全相同，用哪个都可以</p>
+<p><strong>JS的入口函数：</strong></p>
+<p>window.onload = function() { //内容 };</p>
+<p><strong>jQuery入口函数与JS入口函数的区别</strong></p>
+<p>区别一：书写个数不同</p>
+<p>JS入口函数只能出现一次，出现多次会存在事件覆盖的问题。</p>
+<p>jQuery的入口函数，可以出现任意多次，不会覆盖。</p>
+<p>区别二：执行时机不同</p>
+<p>JS入口函数是在所有资源加载完成后，才执行。（包括：页面、外部js文件、外部css文件、图片等）</p>
+<p>jQuery入口函数，是在文档加载完成后就执行。文档加载完成指的是：DOM树加载完成后，就可以操作DOM了，不用等到所有的外部资源都加载完成。</p>
+<h3 id="符号"><a href="#符号" class="headerlink" title="\$ 符号"></a>\$ 符号</h3><p><strong>\$就是一个普通的字符</strong>，可以用于变量名或函数名</p>
+<p>JS命名规范允许出现的字符有：数字、字母、下划线、\$</p>
+<p>var \$ = “字符串”;</p>
+<p>var \$ = 123;</p>
+<p>function \$(){</p>
+<p>alert(“我是函数\$”);</p>
+<p>}</p>
+<p>\$(); // 调用上面我们自定义的函数\$</p>
+<p><strong>jQuery中的\$实际是一个函数</strong></p>
+<p>// jQuery中使用\$的主要场景</p>
+<p>\$(document）.ready(function(){}); // 调用入口函数</p>
+<p>\$(function(){}); // 调用入口函数</p>
+<p>\$(“#btnShow”) // 获取id属性为btnShow的元素</p>
+<p>\$(“div”) // 获取所有的div元素</p>
+<p>jQuery里面的\$函数，根据传入参数的不同，进行不同的调用，实现不同的功能。返回的是jQuery对象</p>
+<p>jQuery这个JS库，为了避免冲突，给这个最重要的\$函数还起了另外一个名字：jQuery</p>
+<p>jQuery函数跟\$函数的关系：jQuery === \$;</p>
+<h2 id="jQuery对象"><a href="#jQuery对象" class="headerlink" title="jQuery对象"></a>jQuery对象</h2><h3 id="jQuery对象与DOM对象"><a href="#jQuery对象与DOM对象" class="headerlink" title="jQuery对象与DOM对象"></a>jQuery对象与DOM对象</h3><p><strong>DOM对象</strong>此处指的是：使用JS操作DOM的方法返回的对象</p>
+<p>var btn = document.getElementById(“btnShow”); //普通的DOM对象</p>
+<p><strong>jQuery对象</strong>此处指的是：使用jQuery操作DOM的方法返回的对象</p>
+<p>var \$btn = \$(“#btnShow”); // jQuery的DOM对象</p>
+<p>jQuery拿到普通的DOM对象后会对其进行包装，让其成为具有jQuery方法的jQuery对象</p>
+<h3 id="jQuery对象转DOM对象"><a href="#jQuery对象转DOM对象" class="headerlink" title="jQuery对象转DOM对象"></a>jQuery对象转DOM对象</h3><p>第一种方式</p>
+<p>var btn1 = \$btn[0]; //通过索引的方式把DOM对象取出来（推荐使用此方式）</p>
+<p>第二种方式</p>
+<p>var btn2 = \$btn.get(0);//调用get()方法也可以</p>
+<p>这两种方式使用哪一种都可以</p>
+<h3 id="DOM对象转jQuery对象"><a href="#DOM对象转jQuery对象" class="headerlink" title="DOM对象转jQuery对象"></a>DOM对象转jQuery对象</h3><p>\$(普通的DOM对象)</p>
+<p><strong>图解：</strong></p>
+<p><img src="media/fa429616801982ad68d2ad0f92265394.png" alt=""></p>
+<h2 id="jQuery选择器（重点）"><a href="#jQuery选择器（重点）" class="headerlink" title="jQuery选择器（重点）"></a>jQuery选择器（重点）</h2><h3 id="JS中选择DOM元素的方法"><a href="#JS中选择DOM元素的方法" class="headerlink" title="JS中选择DOM元素的方法"></a>JS中选择DOM元素的方法</h3><p>考虑兼容性的话，JS提供的选择DOM的方法只有两个：</p>
+<table>
+<thead>
+<tr>
+<th><strong>JavaScript选择元素的方法：</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>document.getElementById();</td>
+<td>通过id属性获取指定元素 返回唯一的DOM对象</td>
+</tr>
+<tr>
+<td>document.getElementsByTagName();</td>
+<td>通过标签名获取指定元素 返回DOM对象数组（即使只有一个元素）</td>
+</tr>
+</tbody>
+</table>
+<p>JS提供的选择DOM的方法太少，无法满足开发的需要，所以我们使用jQuery选择器来弥补这方面的不足</p>
+<h3 id="什么是jQuery选择器"><a href="#什么是jQuery选择器" class="headerlink" title="什么是jQuery选择器"></a>什么是jQuery选择器</h3><p>jQuery选择器非常强大，它提供了一组方法，让我们更方便地获取页面中的元素。（类比：CSS的选择器）</p>
+<p>强大的原因：jQuery实现了从CSS1到CSS3所有的选择器以及其他常用的选择器</p>
+<p>各种选择器之间可以相互代替，所以，平时真正用到的只是最常用的选择器</p>
+<h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><table>
+<thead>
+<tr>
+<th><strong>符号(名称)</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>用法</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#</td>
+<td>Id选择器</td>
+<td>\$(“#btnShow”).css(“color”, “red”); 选择id为btnShow的一个元素（返回值为jQuery对象，下同）</td>
+</tr>
+<tr>
+<td>.</td>
+<td>类名选择器</td>
+<td>\$(“.liItem”).css(“color”, “red”); 选择含有类liItem的所有元素</td>
+</tr>
+<tr>
+<td>标签名</td>
+<td>标签选择器</td>
+<td>\$(“li”).css(“color”, “red”); 选择标签名为li的所有元素</td>
+</tr>
+<tr>
+<td>用逗号隔开</td>
+<td>并集选择器</td>
+<td>\$(“div,p,li”).css(“color”, “red”); div、p、li都会被选中</td>
+</tr>
+<tr>
+<td>挨在一起</td>
+<td>交集选择器</td>
+<td>\$(“li.current”).css(“color”, “red”); 选择标签名为li并且类名为current的元素</td>
+</tr>
+</tbody>
+</table>
+<p><strong>\@基本选择器</strong></p>
+<p>//id选择器 类名选择器 标签选择器 交集选择器 并集选择器</p>
+<h3 id="层级选择器、过滤选择器"><a href="#层级选择器、过滤选择器" class="headerlink" title="层级选择器、过滤选择器"></a>层级选择器、过滤选择器</h3><table>
+<thead>
+<tr>
+<th><strong>符号(名称)</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>用法</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>层级选择器</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>空格</td>
+<td>后代选择器</td>
+<td>\$(“#j_wrap li”).css(“color”, “red”); 选择id为j_wrap的元素的所有后代元素li</td>
+</tr>
+<tr>
+<td>></td>
+<td>子代选择器</td>
+<td>\$(“#j_wrap > ul > li”).css(“color”, “red”); 选择id为j_wrap的元素的所有子元素ul的所有子元素li</td>
+</tr>
+<tr>
+<td><strong>常用的过滤选择器</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:eq(index)</td>
+<td>选择匹配元素中索引号为index的一个元素，index从0开始</td>
+<td>\$(“li:eq(2)”).css(“color”, ”red”); 选择li元素中索引号为2的一个元素</td>
+</tr>
+<tr>
+<td>:odd</td>
+<td>选择匹配元素中索引号为奇数的所有元素，index从0开始</td>
+<td>\$(“li:odd”).css(“color”, “red”); 选择li元素中索引号为奇数的所有元素</td>
+</tr>
+<tr>
+<td>:even</td>
+<td>选择匹配元素中索引号为偶数的所有元素，index从0开始</td>
+<td>\$(“li:odd”).css(“color”, “red”); 选择li元素中索引号为偶数的所有元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="筛选选择器（注：都是方法）"><a href="#筛选选择器（注：都是方法）" class="headerlink" title="筛选选择器（注：都是方法）"></a>筛选选择器（注：都是方法）</h3><table>
+<thead>
+<tr>
+<th><strong>符号(名称)</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>用法</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find(selector)</td>
+<td>查找指定元素的所有后代元素（子子孙孙）</td>
+<td>\$(“#j_wrap”).find(“li”).css(“color”, “red”); 选择id为j_wrap的所有后代元素li</td>
+</tr>
+<tr>
+<td>children(selector)</td>
+<td>查找指定元素的直接子元素（亲儿子元素）</td>
+<td>\$(“#j_wrap”).children(“ul”).css(“color”, “red”); 选择id为j_wrap的所有子代元素ul</td>
+</tr>
+<tr>
+<td>siblings(selector)</td>
+<td>查找所有其他的兄弟元素（不包括自己）</td>
+<td>\$(“#j_liItem”).siblings().css(“color”, “red”); 选择id为j_liItem的所有兄弟元素</td>
+</tr>
+<tr>
+<td>next(selector)</td>
+<td>查找下一个兄弟元素</td>
+<td>\$(“#j_liItem”).next().css(“color”, “red”); 选择id为j_liItem的下一个兄弟元素</td>
+</tr>
+<tr>
+<td>parent(selector)</td>
+<td>查找父元素（亲的）</td>
+<td>\$(“#j_liItem”).parent(“ul”).css(“color”, “red”); 选择id为j_liItem的父元素</td>
+</tr>
+<tr>
+<td>eq(index)</td>
+<td>查找指定元素的第index个元素，index是索引号，从0开始</td>
+<td>\$(“li”).eq(2).css(“color”, “red”); 选择所有li元素中的第二个</td>
+</tr>
+</tbody>
+</table>
+<p>jQuery基础课程 — DOM操作</p>
+<h2 id="样式操作（重点）"><a href="#样式操作（重点）" class="headerlink" title="样式操作（重点）"></a>样式操作（重点）</h2><h3 id="获取样式"><a href="#获取样式" class="headerlink" title="获取样式"></a>获取样式</h3><p>// 参数表示要获取的 样式属性名称</p>
+<p>\$(selector).css(“font-size”);</p>
+<p>此时，会返回”font-size”样式属性对应的值。</p>
+<h3 id="设置样式"><a href="#设置样式" class="headerlink" title="设置样式"></a>设置样式</h3><p>设置<strong>单个</strong>样式：</p>
+<p>// 第一个参数表示：样式属性名称</p>
+<p>// 第二个参数表示：样式属性值</p>
+<p>\$(selector).css(“color”, “red”);</p>
+<p>设置<strong>多个</strong>样式：</p>
+<p>// 参数为对象</p>
+<p>\$(selector).css({“color”: “red”,“font-size”:“30px”});</p>
+<h2 id="类名操作（重点）"><a href="#类名操作（重点）" class="headerlink" title="类名操作（重点）"></a>类名操作（重点）</h2><h3 id="添加类名"><a href="#添加类名" class="headerlink" title="添加类名"></a>添加类名</h3><p>addClass(className) 为指定元素添加类名</p>
+<p>\$(selector).addClass(“liItem”);</p>
+<p>注意：已经说了是添加类名了，把名字传入即可，不要加点！</p>
+<h3 id="移除类名"><a href="#移除类名" class="headerlink" title="移除类名"></a>移除类名</h3><p>removeClass(className) 为指定元素移除类名</p>
+<p>\$(selector).removeClass(“liItem”); //移除指定类名</p>
+<p>\$(selector).removeClass(); //不指定参数，表示移除所有类名</p>
+<h3 id="判断有没有某个类名"><a href="#判断有没有某个类名" class="headerlink" title="判断有没有某个类名"></a>判断有没有某个类名</h3><p>hasClass(calssName) 判断指定元素是否包含某个类名</p>
+<p>\$(selector).hasClass(“liItem”);//返回true或false</p>
+<h3 id="切换类名"><a href="#切换类名" class="headerlink" title="切换类名"></a>切换类名</h3><p>toggleClass(className) 切换类名，如果没有指定类名就添加，有就移除。</p>
+<p>\$(selector).toggleClass(“liItem”);</p>
+<h3 id="Data属性"><a href="#Data属性" class="headerlink" title="Data属性"></a>Data属性</h3><p>在元素上存放数据,返回jQuery对象。</p>
+<p>data(obj) 可传入key-value形式的数据。</p>
+<p><strong>key</strong>:存储的数据名</p>
+<p><strong>value</strong>:将要存储的任意数据</p>
+<ul>
+<li><p>一个参数是获取</p>
+</li>
+<li><p>两个参数是设置</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/avatar.png" alt="angiter wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixin.png" alt="angiter WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.png" alt="angiter Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端基础/" rel="tag"># 前端基础</a>
+          
+            <a href="/tags/jQuery/" rel="tag"># jQuery</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/21/JavaScript基础三/" rel="next" title="JavaScript基础三">
+                <i class="fa fa-chevron-left"></i> JavaScript基础三
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/22/深入了解jQuery/" rel="prev" title="深入了解jQuery">
+                深入了解jQuery <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/14/浅谈jQuery/"
+     data-title="浅谈jQuery"
+     data-content=""
+     data-url="http://yoursite.com/2016/03/14/浅谈jQuery/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/14/浅谈jQuery/"
+           data-title="浅谈jQuery" data-url="http://yoursite.com/2016/03/14/浅谈jQuery/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="angiter" />
+          <p class="site-author-name" itemprop="name">angiter</p>
+          <p class="site-description motion-element" itemprop="description">代码与我同在</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xupeng01" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/" title="hexo" target="_blank">hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://theme-next.iissnan.com/" title="theme-next" target="_blank">theme-next</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为何要学jQuery"><span class="nav-number">1.</span> <span class="nav-text">为何要学jQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS的缺点"><span class="nav-number">1.1.</span> <span class="nav-text">JS的缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery是什么"><span class="nav-number">1.2.</span> <span class="nav-text">jQuery是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery学什么"><span class="nav-number">1.3.</span> <span class="nav-text">jQuery学什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用jQuery"><span class="nav-number">1.4.</span> <span class="nav-text">使用jQuery</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始使用jQuery"><span class="nav-number">2.</span> <span class="nav-text">开始使用jQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本介绍"><span class="nav-number">2.1.</span> <span class="nav-text">版本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引包注意"><span class="nav-number">2.2.</span> <span class="nav-text">引包注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#入口函数"><span class="nav-number">2.3.</span> <span class="nav-text">入口函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号"><span class="nav-number">2.4.</span> <span class="nav-text">\$ 符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery对象"><span class="nav-number">3.</span> <span class="nav-text">jQuery对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery对象与DOM对象"><span class="nav-number">3.1.</span> <span class="nav-text">jQuery对象与DOM对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery对象转DOM对象"><span class="nav-number">3.2.</span> <span class="nav-text">jQuery对象转DOM对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM对象转jQuery对象"><span class="nav-number">3.3.</span> <span class="nav-text">DOM对象转jQuery对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery选择器（重点）"><span class="nav-number">4.</span> <span class="nav-text">jQuery选择器（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS中选择DOM元素的方法"><span class="nav-number">4.1.</span> <span class="nav-text">JS中选择DOM元素的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是jQuery选择器"><span class="nav-number">4.2.</span> <span class="nav-text">什么是jQuery选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本选择器"><span class="nav-number">4.3.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层级选择器、过滤选择器"><span class="nav-number">4.4.</span> <span class="nav-text">层级选择器、过滤选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#筛选选择器（注：都是方法）"><span class="nav-number">4.5.</span> <span class="nav-text">筛选选择器（注：都是方法）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式操作（重点）"><span class="nav-number">5.</span> <span class="nav-text">样式操作（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取样式"><span class="nav-number">5.1.</span> <span class="nav-text">获取样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置样式"><span class="nav-number">5.2.</span> <span class="nav-text">设置样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类名操作（重点）"><span class="nav-number">6.</span> <span class="nav-text">类名操作（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加类名"><span class="nav-number">6.1.</span> <span class="nav-text">添加类名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除类名"><span class="nav-number">6.2.</span> <span class="nav-text">移除类名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断有没有某个类名"><span class="nav-number">6.3.</span> <span class="nav-text">判断有没有某个类名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换类名"><span class="nav-number">6.4.</span> <span class="nav-text">切换类名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data属性"><span class="nav-number">6.5.</span> <span class="nav-text">Data属性</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">angiter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"biubiulove"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ke69LOowXRs1IqNCm4A1DdoT-gzGzoHsz", "O5iTwans1bqqmp62IcYiKP5J");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

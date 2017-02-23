@@ -1,0 +1,1253 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="canvas," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="变换Canvas 绘图中支持矩阵变换功能. 其中涉及的常用方法有
+
+CanvasRenderingContext2D.transform()
+CanvasRenderingContext2D.scale()
+CanvasRenderingContext2D.translate()
+CanvasRenderingContext2D.rotate()
+CanvasRenderingContext2D.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas三部曲(终章)">
+<meta property="og:url" content="http://yoursite.com/2016/05/18/canvas三部曲(终章)/index.html">
+<meta property="og:site_name" content="xupengfly">
+<meta property="og:description" content="变换Canvas 绘图中支持矩阵变换功能. 其中涉及的常用方法有
+
+CanvasRenderingContext2D.transform()
+CanvasRenderingContext2D.scale()
+CanvasRenderingContext2D.translate()
+CanvasRenderingContext2D.rotate()
+CanvasRenderingContext2D.">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-12_005104.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-12_005920.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-12_010818.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-12_012845.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-12_013849.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-13_013233.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-13_014617.png">
+<meta property="og:image" content="http://yoursite.com/./imgs/04d91106ecb1ec84b6708cd9796fc772.jpg">
+<meta property="og:image" content="http://yoursite.com/./imgs/2016-08-13_015514.png">
+<meta property="og:updated_time" content="2017-02-23T12:37:45.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="canvas三部曲(终章)">
+<meta name="twitter:description" content="变换Canvas 绘图中支持矩阵变换功能. 其中涉及的常用方法有
+
+CanvasRenderingContext2D.transform()
+CanvasRenderingContext2D.scale()
+CanvasRenderingContext2D.translate()
+CanvasRenderingContext2D.rotate()
+CanvasRenderingContext2D.">
+<meta name="twitter:image" content="http://yoursite.com/./imgs/2016-08-12_005104.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6383972067393406000',
+      author: '博主大人'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/18/canvas三部曲(终章)/"/>
+
+
+
+
+
+  <title> canvas三部曲(终章) | xupengfly </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xupengfly</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/18/canvas三部曲(终章)/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="angiter">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xupengfly">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xupengfly" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                canvas三部曲(终章)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-18T20:18:00+08:00">
+                2016-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/canvas三部曲/" itemprop="url" rel="index">
+                    <span itemprop="name">canvas三部曲</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/05/18/canvas三部曲(终章)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/18/canvas三部曲(终章)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/18/canvas三部曲(终章)/" class="leancloud_visitors" data-flag-title="canvas三部曲(终章)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h2><p>Canvas 绘图中支持矩阵变换功能. 其中涉及的常用方法有</p>
+<ol>
+<li><code>CanvasRenderingContext2D.transform()</code></li>
+<li><code>CanvasRenderingContext2D.scale()</code></li>
+<li><code>CanvasRenderingContext2D.translate()</code></li>
+<li><code>CanvasRenderingContext2D.rotate()</code></li>
+<li><code>CanvasRenderingContext2D.setTransForm()</code></li>
+</ol>
+<a id="more"></a>
+<p>还有一些方法, 暂时没有普及与确定. 因此这里的几个方法才是最常用的方法.</p>
+<h3 id="什么是变换"><a href="#什么是变换" class="headerlink" title="什么是变换"></a>什么是变换</h3><p>计算机图形学是建立在解析几何基础之上的. 也就是说所有绘制的图形都是基于坐标进行计算得到的. 那么利用坐标系位置的调整, 同样的坐标可以得到不同的效果. 例如有一个点 A ( 10, 10 ). 可以在坐标系中绘制出该点.</p>
+<p><img src="./imgs/2016-08-12_005104.png" alt=""></p>
+<p>如果调整坐标系. 比如将坐标系向右移动 10 个单位, 得到</p>
+<p><img src="./imgs/2016-08-12_005920.png" alt=""></p>
+<p>此时同样是 A 点, 坐标就变成了 ( 0, 10 ). 然后再把坐标系向上移动 10 个单位, 得到</p>
+<p><img src="./imgs/2016-08-12_010818.png" alt=""></p>
+<p>那么针对新坐标系, 这个点的坐标就是 ( 0, 0 ). 这个就是坐标变换. 通过移动坐标的位置, 对坐标进行旋转, 以及对坐标轴数据的缩放, 从而使得原有点的坐标发生变化, 或利用原有的坐标点绘制新的效果.</p>
+<p>坐标变换有一套完整的数学公式. 利用矩阵可以很容易的表示坐标的所有变换.</p>
+<p><img src="./imgs/2016-08-12_012845.png" alt=""></p>
+<p>这里的 a, b, c, d, e, f 就刚好是 <code>transform</code> 函数的 参数.</p>
+<ol>
+<li>其中 a 有时又标记为 m11. 它表示水平缩放.</li>
+<li>其中 b 有时又标记为 m12. 它表示水平倾斜.</li>
+<li>其中 c 有时又标记为 m21. 它表示垂直倾斜.</li>
+<li>其中 d 有时又标记为 m22. 它表示垂直缩放.</li>
+<li>其中 e 有时又标记为 dx. 它表示水平移动.</li>
+<li>其中 f 有时又标记为 dy. 它表示垂直移动.</li>
+</ol>
+<p><strong>演示</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">ctx.transform( 1, 0, 0, 1, 0, 0 );</div><div class="line">ctx.fillRect( 0, 0, 100, 100 );</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-12_013849.png" alt=""></p>
+<p>这里矩阵变换会比较复杂, 因此在使用中一般使用简单的, 平移, 旋转 和 缩放 的简单 api.</p>
+<h3 id="平移变换"><a href="#平移变换" class="headerlink" title="平移变换"></a>平移变换</h3><p>平移变换就是将原有坐标轴进行平行移动, 那么坐标轴移动后就可以使用新坐标来绘制图形了.</p>
+<p>语法: <code>CanvasRenderingContext2D.translate( x, y )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法将坐标进行平移.</li>
+<li>x 表示水平移动, 正数向右, 负数向左.</li>
+<li>y 表示垂直移动, 正数向下, 负数向上.</li>
+<li>变换可以重复调用, 变换是可以累加的.</li>
+</ol>
+<p>使用该变换, 常常用于绘制不同位置, 但是形状重复的图形.</p>
+<p>注意: 变换也会被 “继承”, 开启新路径后依旧保留原先变换.</p>
+<h3 id="旋转变换"><a href="#旋转变换" class="headerlink" title="旋转变换"></a>旋转变换</h3><p>语法: <code>CanvasRenderingContext2D.rotate( radian )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法将坐标轴进行旋转变换.</li>
+<li>参数是弧度, 表示旋转的方式. 正数表示顺时针旋转, 负数表示逆时针旋转.</li>
+</ol>
+<p>该变换常常用于实现旋转动画等.</p>
+<h3 id="缩放变换"><a href="#缩放变换" class="headerlink" title="缩放变换"></a>缩放变换</h3><p>语法: <code>CanvasRenderingContext2D.scale( x, y )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法实现水平与垂直的缩放.</li>
+<li>参数 x 控制水平缩放倍率. 传参 1 表示不作缩放, 传入大于 1 的数字表示扩大.</li>
+<li>参数 y 控制垂直缩放倍率. 传参 1 表示不作缩放, 传入大于 1 的数字表示扩大.</li>
+</ol>
+<p>该变换常常用于放大与缩小, 以及反转的效果.</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>前面提到 Canvas 是含有状态的, 也就是说需要修改颜色, 直线样式, 绘图方式等效果时需要开启一个新的状态. 但是有时在绘制过程中需要修改状态, 同时绘制完当前状态后又需要回到之前的状态中继续绘制另外的形状. 那么只有再将修改过的样式载更改回来. 如果在该状态中修改的属性较多, 那么每次在回到之前状态时就有很多的代码.</p>
+<p>Canvas 中引入了状态的保持机制. 使用 <code>CanvasRenderingContext2D.save()</code> 方法可以保存当前状态. 如果需要恢复到已经保存的状态, 只需要调用 <code>CanvasRenderingContext2D.restore()</code> 方法即可.</p>
+<p>状态保持的机制是基于状态栈实现的. 也就是说 save 一次就存储一个状态. restore 一次就将刚刚存入的恢复. 如果 save 两次, 就需要 restore 两次, 才可以恢复到最先的状态.</p>
+<p>一般在封装绘图的时候都会采用开始绘制之前, save 一次, 然后 开启一个新路径, 然后绘制结束后 restore, 然后再开启一个新路径. 这样保持当前状态不会对其他绘图代码构成影响.</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>canvas 在绘制图片的时候, drawImage 方法还支持将一个 canvas 绘制到另一个 canvas 中. 因此使用该功能, 可以在内存中完成复杂的绘图, 将绘制好的半成品再绘制到 canvas 中合成需要的效果.</p>
+<h2 id="画布保存"><a href="#画布保存" class="headerlink" title="画布保存"></a>画布保存</h2><p>画布在绘制后实际上就是一张图片, 可以直接右键另存为. 同时也支持使用 js 代码将其保存为 base64 编码的字符串.</p>
+<p>语法: <code>Canvas.ToDataURL( type, encoderOptions )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法可以将画布转换成 base64 格式的数据</li>
+<li>type 表示输出类型. 例如: image/png 或 image/jpeg 等</li>
+<li>encoderOptions 表示图片输出质量, 其取值在 0 到 1 之间. 如果是 1, 表示无损压缩, 必须使用 image/jpeg 或 image/webp 才起作用</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">&lt;img id=&quot;img&quot;/&gt;</div><div class="line">...</div><div class="line">var img = document.getElementById( &apos;img&apos; );</div><div class="line"></div><div class="line">var cas = document.createElement( &apos;canvas&apos; );</div><div class="line">cas.width = 100, cas.height = 100;</div><div class="line">var ctx = cas.getContext( &apos;2d&apos; );</div><div class="line">ctx.fillStyle = &apos;pink&apos;;</div><div class="line">ctx.fillRect( 0, 0, 100, 100 );</div><div class="line"></div><div class="line">var data = cas.toDataURL( &apos;image/png&apos;, 1 );</div><div class="line"></div><div class="line">img.src = data;</div></pre></td></tr></table></figure>
+<h2 id="渐变和图案"><a href="#渐变和图案" class="headerlink" title="渐变和图案"></a>渐变和图案</h2><p>绘制图像有两个主要方法, 一个是描边, 一个是填充. 前面介绍过要设置其样式, 可以使用 <code>strokeStyle</code> 和 <code>fillStyle</code> 属性, 只需要给它们提供颜色就可以了. 但是不仅仅是颜色, 它还支持渐变和重复.</p>
+<p>相关方法</p>
+<ol>
+<li><code>CanvasRenderingContext2D.createLinearGradient()</code></li>
+<li><code>CanvasRenderingContext2D.createRadialGradient()</code></li>
+<li><code>CanvasRenderingContext2D.createPattern()</code></li>
+</ol>
+<h3 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h3><p>语法: <code>CanvasRenderingContext2D.createLinearGradient( x0, y0, x1, y1 )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法返回一个 CanvasGradient 对象. 用于描述渐变的方式.</li>
+<li>该方法有两个参数, 用于表示线型渐变的方向与位置.</li>
+<li>使用的时候, 首先创建一个 CanvasGradient 对象, 然后利用 addColorStop 方法添加颜色区间.<ol>
+<li>方法语法: <code>CanvasGradient.addColorStop( rate, color )</code>.</li>
+<li>该方法用于设置在某个比例位置的颜色是什么. rate 的取值是 0 到 1 之间.</li>
+<li>可以添加多个渐变点.</li>
+</ol>
+</li>
+<li>然后将该对象赋值给 <code>*Style</code> 属性即可.</li>
+</ol>
+<p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">var canvasGradient = ctx.createLinearGradient( 0, 25, 200, 25 );</div><div class="line">canvasGradient.addColorStop( 0, &apos;blue&apos; );</div><div class="line">canvasGradient.addColorStop( 1, &apos;red&apos; );</div><div class="line">ctx.fillStyle = canvasGradient;</div><div class="line"></div><div class="line">ctx.fillRect( 0, 100, 200, 50 );</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-13_013233.png" alt=""></p>
+<p>注意: 渐变点的坐标是基于坐标轴来计算的.</p>
+<h3 id="放射渐变"><a href="#放射渐变" class="headerlink" title="放射渐变"></a>放射渐变</h3><p>语法: <code>CanvasRenderingContext2D.createRadialGradient( x0, y0, r0, x1, y1, r1 )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法实现放射渐变, 渐变的是在两个圆之间. 一般会使用两个内含关系的圆.</li>
+<li>前三个参数分别表示其中一个圆的圆心的坐标, 以及半径.</li>
+<li>后三个参数分别表示另一个圆的圆心的坐标, 以及半径.</li>
+<li>绘制渐变效果用法与线性渐变一样.</li>
+</ol>
+<p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var x = cas.width / 2, y = cas.height / 2, r = 100;</div><div class="line">var g = ctx.createRadialGradient( x + r * 2 / 3, y - r * 2 / 3, 0, x + r / 3, y - r / 3, r * 4 / 3 );</div><div class="line">g.addColorStop( 0, &apos;#fff&apos; );</div><div class="line">g.addColorStop( 1, &apos;#f00&apos; );</div><div class="line">ctx.fillStyle = g;</div><div class="line">ctx.arc( x, y, r, 0, 2 * Math.PI );</div><div class="line">ctx.fill();</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-13_014617.png" alt=""></p>
+<h3 id="重复填充"><a href="#重复填充" class="headerlink" title="重复填充"></a>重复填充</h3><p>语法: <code>CanvasRenderingContext2D.createPattern( img, repetition )</code></p>
+<p>描述:</p>
+<ol>
+<li>该方法表示使用图片来填充的设置方法. 需要两个参数, 一个是图片, 一个是重复的方式.</li>
+<li>图片允许是 img 标签, 图片, canvas 等对象</li>
+<li>可选择的重复方式与 CSS 一致. 有: repeat, repeat-x, repeat-y, no-repeat.</li>
+<li>如果是 空或””, 但不是 undefined, 默认就是 repeat.</li>
+</ol>
+<p>准备一张图片</p>
+<p><img src="./imgs/04d91106ecb1ec84b6708cd9796fc772.jpg" alt=""></p>
+<p><strong>案例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var img = new Image();</div><div class="line">img.src = &apos;imgs/04d91106ecb1ec84b6708cd9796fc772.jpg&apos;;</div><div class="line">img.onload = function () &#123;</div><div class="line">    var p = ctx.createPattern( img, &apos;repeat&apos; );</div><div class="line">    ctx.fillStyle = p;</div><div class="line">    ctx.fillRect( 50, 50, 550, 350 );</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><strong>效果</strong></p>
+<p><img src="./imgs/2016-08-13_015514.png" alt=""></p>
+<h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><p>在 Canvas 中还可以给绘制的内容设置阴影. 但是一般不这么用, 因为性能不高.</p>
+<p>相关属性:</p>
+<ol>
+<li><code>CanvasRenderingContext2D.shadowBlur</code> 属性表示模糊程度.</li>
+<li><code>CanvasRenderingContext2D.shadowColor</code> 属性表示模糊颜色.</li>
+<li><code>CanvasRenderingContext2D.shadowOffsetX</code> 属性表示模糊位置 x 坐标偏移.</li>
+<li><code>CanvasRenderingContext2D.shadowOffsetY</code> 属性表示模糊位置 y 坐标偏移.</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/avatar.png" alt="angiter wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/weixin.png" alt="angiter WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/zfb.png" alt="angiter Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/canvas/" rel="tag"># canvas</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/12/canvas三部曲(进阶)/" rel="next" title="canvas三部曲(进阶)">
+                <i class="fa fa-chevron-left"></i> canvas三部曲(进阶)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/28/面向对象基础总结/" rel="prev" title="什么是面向对象">
+                什么是面向对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/05/18/canvas三部曲(终章)/"
+     data-title="canvas三部曲(终章)"
+     data-content=""
+     data-url="http://yoursite.com/2016/05/18/canvas三部曲(终章)/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/18/canvas三部曲(终章)/"
+           data-title="canvas三部曲(终章)" data-url="http://yoursite.com/2016/05/18/canvas三部曲(终章)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="angiter" />
+          <p class="site-author-name" itemprop="name">angiter</p>
+          <p class="site-description motion-element" itemprop="description">代码与我同在</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xupeng01" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hexo.io/" title="hexo" target="_blank">hexo</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://theme-next.iissnan.com/" title="theme-next" target="_blank">theme-next</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变换"><span class="nav-number">1.</span> <span class="nav-text">变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是变换"><span class="nav-number">1.1.</span> <span class="nav-text">什么是变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平移变换"><span class="nav-number">1.2.</span> <span class="nav-text">平移变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#旋转变换"><span class="nav-number">1.3.</span> <span class="nav-text">旋转变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩放变换"><span class="nav-number">1.4.</span> <span class="nav-text">缩放变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">3.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画布保存"><span class="nav-number">4.</span> <span class="nav-text">画布保存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渐变和图案"><span class="nav-number">5.</span> <span class="nav-text">渐变和图案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线性渐变"><span class="nav-number">5.1.</span> <span class="nav-text">线性渐变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#放射渐变"><span class="nav-number">5.2.</span> <span class="nav-text">放射渐变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复填充"><span class="nav-number">5.3.</span> <span class="nav-text">重复填充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阴影"><span class="nav-number">6.</span> <span class="nav-text">阴影</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">angiter</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"biubiulove"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ke69LOowXRs1IqNCm4A1DdoT-gzGzoHsz", "O5iTwans1bqqmp62IcYiKP5J");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
