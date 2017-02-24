@@ -102,16 +102,22 @@
 
 
 
-<meta name="description" content="代码与我同在">
+<meta name="description" content="跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据
+AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
+1234$http.post(url, data, [config]).success(function()&amp;#123; ... &amp;#125;);$http.get(url, [">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular跨域问题分析">
 <meta property="og:url" content="http://yoursite.com/2016/08/23/angular跨域问题分析/index.html">
 <meta property="og:site_name" content="xupengfly">
-<meta property="og:description" content="代码与我同在">
-<meta property="og:updated_time" content="2017-02-23T12:29:39.157Z">
+<meta property="og:description" content="跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据
+AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
+1234$http.post(url, data, [config]).success(function()&amp;#123; ... &amp;#125;);$http.get(url, [">
+<meta property="og:updated_time" content="2017-02-24T16:51:13.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular跨域问题分析">
-<meta name="twitter:description" content="代码与我同在">
+<meta name="twitter:description" content="跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据
+AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
+1234$http.post(url, data, [config]).success(function()&amp;#123; ... &amp;#125;);$http.get(url, [">
 
 
 
@@ -409,7 +415,34 @@
       
 
       
-        
+        <p><span style="color: #ff0000">跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据</span></p>
+<p><strong>AngularJS XMLHttpRequest：</strong>$http用于读取远程服务器的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$http.post(url, data, [config]).success(function()&#123; ... &#125;);</div><div class="line">$http.get(url, [config]).success(function()&#123; ... &#125;);</div><div class="line">$http.get(url, [config]).success(function()&#123; ... &#125;);</div></pre></td></tr></table></figure>
+<p><span style="color: #ff0000"><strong>一、$http.jsonp【实现跨域】</strong></span></p>
+<p>1.指定<code>callback</code>和回调函数名，函数名为<code>JSON_CALLBACK</code>时，会调用success回调函数，<code>JSON_CALLBACK</code>必须全为大写。</p>
+<p>2.指定其它回调函数，但必须是定义在window下的全局函数。url中必须加上<code>callback</code>。</p>
+<p><span style="color: #ff0000"><strong>二、$http.get【实现跨域】</strong></span></p>
+<p>1.在服务器端设置允许在其他域名下访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;); //允许所有域名访问</div><div class="line">response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;http://www.123.com&quot;); //允许www.123.com访问</div></pre></td></tr></table></figure>
+<p>2.AngularJS端使用<code>$http.get()</code></p>
+<p><span style="color: #ff0000"><strong>三、$http.post【实现跨域】</strong></span></p>
+<p>1.在服务器端设置允许在其他域名下访问，及响应类型、响应头设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);</div><div class="line">response.setHeader(&quot;Access-Control-Allow-Methods&quot;,&quot;POST&quot;);</div><div class="line">response.setHeader(&quot;Access-Control-Allow-Headers&quot;,&quot;x-requested-with,content-type&quot;);</div></pre></td></tr></table></figure>
+<p>2.AngularJS端使用<code>$http.post()</code> ，同时设置请求头信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$http.post(&apos;http://localhost/ajax/getAllIndustryCategoty.pt&apos;,&#123;languageColumn:&apos;name_eu&apos;&#125;,&#123;&apos;Content-Type&apos;:&apos;application/x-www-form-urlencoded&apos;&#125;).success(function(data)&#123;</div><div class="line">  $scope.industries = data;</div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
+<p><span style="color: #ff0000"><strong>四、实现方式</strong></span></p>
+<p><strong>跨域方式一</strong>【<code>JSONP</code>】：</p>
+<p>方法一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$http.jsonp(&quot;http://localhost/sitesettings/getBadgeInfo.pt?jsonp=JSON_CALLBACK&amp;siteid=137bd406&quot;).success(function(data)&#123; ... &#125;);</div><div class="line">// The name of the callback should be the string JSON_CALLBACK.</div></pre></td></tr></table></figure>
+<p>方法二【返回值，需要使用对应callback方法接收，但如何置于<code>$scope</code>?】：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$http.jsonp(&quot;http://localhost/sitesettings/getBadgeInfo.pt?jsonp=badgeabc&amp;siteid=137bd406&quot;);</div><div class="line">function badgeabc(data)&#123; ... &#125;</div><div class="line"></div><div class="line">public String execute() throws Exception &#123; </div><div class="line"> String result = FAIL;</div><div class="line"> response.setHeader(&quot;&quot;, &quot;&quot;);</div><div class="line"> SiteHandlerAction siteHandlerAction = (SiteHandlerAction)BeansFactory.getBean(SiteHandlerAction.class);</div><div class="line"> BadgeHandlerAction badgeHandlerAction = (BadgeHandlerAction)BeansFactory.getBean(BadgeHandlerAction.class);</div><div class="line"> if(&quot;&quot;.equals(siteid) || siteid == null || StringUtils.isBlank(&quot;jsonp&quot;))&#123;</div><div class="line">  result = FAIL;</div><div class="line"> &#125;else&#123;</div><div class="line">  Site site = siteHandlerAction.find(siteid);</div><div class="line">  UserBadgeStatus userBadgeStatus = badgeHandlerAction.getUserBadgeStatus(site.getId());</div><div class="line">  if(userBadgeStatus != null)&#123;</div><div class="line">   result = &quot;&#123;\&quot;t\&quot;:&quot;+userBadgeStatus.getStyle()+&quot;,\&quot;l\&quot;:&quot;+userBadgeStatus.getSuspend_location()+&quot;,\&quot;s\&quot;:&quot;+site.getId()+&quot;&#125;&quot;;</div><div class="line">   JSONObject jsonObj = JSONObject.fromObject(result);</div><div class="line">   String json = jsonObj.toString();</div><div class="line">   result = jsonp + &quot;(&quot; + json + &quot;)&quot;;</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line"> PrintWriter write = response.getWriter();</div><div class="line"> write.print(result);</div><div class="line"> write.flush();</div><div class="line"> write.close();</div><div class="line"> return NONE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>跨域方式二</strong>【<code>$http.get()</code> 】：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function getAdustryController($scope,$http)&#123;</div><div class="line"> $http.get(&apos;http://localhost/ajax/getAllIndustryCategoty.pt?languageColumn=name_eu&apos;).success(function(data)&#123;</div><div class="line">  $scope.industries = data;</div><div class="line"> &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>跨域方式三</strong>【<code>$http.post()</code>】：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function getAdustryController($scope,$http)&#123;</div><div class="line"> $http.post(&apos;http://localhost/ajax/getAllIndustryCategoty.pt&apos;,&#123;languageColumn:&apos;name_eu&apos;&#125;,&#123;&apos;Content-Type&apos;:&apos;application/x-www-form-urlencoded&apos;&#125;).success(function(data)&#123;</div><div class="line">  $scope.industries = data;</div><div class="line"> &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// java端支持跨域请求</div><div class="line">public String execute()&#123;</div><div class="line"> response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;); //允许哪些url可以跨域请求到本域</div><div class="line"> response.setHeader(&quot;Access-Control-Allow-Methods&quot;,&quot;POST&quot;); //允许的请求方法，一般是GET,POST,PUT,DELETE,OPTIONS</div><div class="line"> response.setHeader(&quot;Access-Control-Allow-Headers&quot;,&quot;x-requested-with,content-type&quot;); //允许哪些请求头</div></pre></td></tr></table></figure>
+<p>可以跨域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">SiteHandlerAction SiteHandler = (SiteHandlerAction) BeansFactory.getBean(SiteHandlerAction.class);</div><div class="line">List list = SiteHandler.getAllIndustryCategory(); //所有的分类集合</div><div class="line">JSONArray jsonArray = JSONArray.fromObject(list); //将list转为json</div><div class="line">String json = jsonArray.toString(); //转为json字符串</div><div class="line">try &#123;</div><div class="line"> PrintWriter write = response.getWriter();</div><div class="line"> write.print(json);</div><div class="line"> write.close();</div><div class="line">&#125; catch (IOException e) &#123;</div><div class="line"> e.printStackTrace();</div><div class="line">&#125;</div><div class="line">return NONE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -467,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/12/轻松搭建简单代理服务器/" rel="next" title="轻松搭建简单代理服务器">
-                <i class="fa fa-chevron-left"></i> 轻松搭建简单代理服务器
+              <a href="/2016/08/12/轻松搭建简单代理服务器/" rel="next" title="利用node搭建简单代理服务器">
+                <i class="fa fa-chevron-left"></i> 利用node搭建简单代理服务器
               </a>
             
           </div>
@@ -559,7 +592,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

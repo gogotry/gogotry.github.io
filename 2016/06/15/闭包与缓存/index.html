@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端基础,CSS3," />
+  <meta name="keywords" content="前端基础,面向对象," />
 
 
 
@@ -102,29 +102,49 @@
 
 
 
-<meta name="description" content="过渡过渡是CSS3中具有颠覆性的特征之一，可以实现元素不同状态间的平滑过渡（补间动画），经常用来制作动画效果。
-帧动画：通过一帧一帧的关键画面按照固定顺序和速度播放。如电影胶片
-
-补间动画：自动完成从起始状到终止状的的过度。">
+<meta name="description" content="闭包什么是闭包闭包就是指可以访问独立的数据的函数！！！
+闭包要解决的问题函数内部声明的变量无法再函数外部使用
+闭包的基本模型function outer(){
+var data = “”;
+function inner(){
+return data;
+}
+return inner;
+}
+var fn = outer();
+fn();
+如何使用闭包返回多个函数在函数内部创建一个对象，在对象中封装多个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3-新属性动画实现">
-<meta property="og:url" content="http://yoursite.com/2016/04/22/CSS3-新属性动画实现/index.html">
+<meta property="og:title" content="闭包与缓存">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/闭包与缓存/index.html">
 <meta property="og:site_name" content="xupengfly">
-<meta property="og:description" content="过渡过渡是CSS3中具有颠覆性的特征之一，可以实现元素不同状态间的平滑过渡（补间动画），经常用来制作动画效果。
-帧动画：通过一帧一帧的关键画面按照固定顺序和速度播放。如电影胶片
-
-补间动画：自动完成从起始状到终止状的的过度。">
-<meta property="og:image" content="http://yoursite.com/media/5a93ab21acde7cee4c91f8cc6c2c948f.jpg">
-<meta property="og:image" content="http://yoursite.com/media/d7743a7db602d3205b481e87afc6b6a7.png">
-<meta property="og:image" content="http://yoursite.com/media/4785ab4ee3f1e938fa3652106c7890e3.png">
-<meta property="og:updated_time" content="2017-02-23T12:37:36.109Z">
+<meta property="og:description" content="闭包什么是闭包闭包就是指可以访问独立的数据的函数！！！
+闭包要解决的问题函数内部声明的变量无法再函数外部使用
+闭包的基本模型function outer(){
+var data = “”;
+function inner(){
+return data;
+}
+return inner;
+}
+var fn = outer();
+fn();
+如何使用闭包返回多个函数在函数内部创建一个对象，在对象中封装多个">
+<meta property="og:updated_time" content="2017-02-24T16:27:16.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3-新属性动画实现">
-<meta name="twitter:description" content="过渡过渡是CSS3中具有颠覆性的特征之一，可以实现元素不同状态间的平滑过渡（补间动画），经常用来制作动画效果。
-帧动画：通过一帧一帧的关键画面按照固定顺序和速度播放。如电影胶片
-
-补间动画：自动完成从起始状到终止状的的过度。">
-<meta name="twitter:image" content="http://yoursite.com/media/5a93ab21acde7cee4c91f8cc6c2c948f.jpg">
+<meta name="twitter:title" content="闭包与缓存">
+<meta name="twitter:description" content="闭包什么是闭包闭包就是指可以访问独立的数据的函数！！！
+闭包要解决的问题函数内部声明的变量无法再函数外部使用
+闭包的基本模型function outer(){
+var data = “”;
+function inner(){
+return data;
+}
+return inner;
+}
+var fn = outer();
+fn();
+如何使用闭包返回多个函数在函数内部创建一个对象，在对象中封装多个">
 
 
 
@@ -152,13 +172,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/04/22/CSS3-新属性动画实现/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/06/15/闭包与缓存/"/>
 
 
 
 
 
-  <title> CSS3-新属性动画实现 | xupengfly </title>
+  <title> 闭包与缓存 | xupengfly </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -304,7 +324,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/22/CSS3-新属性动画实现/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/15/闭包与缓存/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="angiter">
@@ -328,7 +348,7 @@
             
             
               
-                CSS3-新属性动画实现
+                闭包与缓存
               
             
           </h1>
@@ -343,8 +363,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-22T21:16:23+08:00">
-                2016-04-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-15T00:23:14+08:00">
+                2016-06-15
               </time>
             
 
@@ -366,8 +386,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS3从入门到精通/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS3从入门到精通</span>
+                  <a href="/categories/面向对象/" itemprop="url" rel="index">
+                    <span itemprop="name">面向对象</span>
                   </a>
                 </span>
 
@@ -384,8 +404,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/04/22/CSS3-新属性动画实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/CSS3-新属性动画实现/" itemprop="commentCount"></span>
+                <a href="/2016/06/15/闭包与缓存/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/闭包与缓存/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,7 +415,7 @@
 
           
           
-             <span id="/2016/04/22/CSS3-新属性动画实现/" class="leancloud_visitors" data-flag-title="CSS3-新属性动画实现">
+             <span id="/2016/06/15/闭包与缓存/" class="leancloud_visitors" data-flag-title="闭包与缓存">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,66 +442,255 @@
       
 
       
-        <h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><p>过渡是CSS3中具有颠覆性的特征之一，可以实现元素不同状态间的平滑过渡（补间动画），经常用来制作动画效果。</p>
-<p>帧动画：通过一帧一帧的关键画面按照固定顺序和速度播放。如电影胶片</p>
-<p><img src="media/5a93ab21acde7cee4c91f8cc6c2c948f.jpg" alt=""></p>
-<p>补间动画：自动完成从起始状到终止状的的过度。</p>
-<a id="more"></a>
-<p>关于补间动画更多学习可查看<a href="http://mux.alimama.com/posts/1009" target="_blank" rel="external">http://mux.alimama.com/posts/1009</a></p>
-<p>特点：当前元素只要有“属性”发生变化时，可以平滑的进行过渡。</p>
-<p>transition-property设置过渡属性</p>
-<p>transition-duration设置过渡时间</p>
-<p>transition-timing-function设置过渡速度</p>
-<p>transition-delay设置过渡延时</p>
-<p>贝塞尔曲线限定了过渡的轨迹。这部分没有提及，有兴趣同学自行查阅相关资料了解一下即可。</p>
-<p>以上四属性重在更解，具体细节可参考手册辅助记忆</p>
-<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p>动画是CSS3中具有颠覆性的特征之一，可通过设置多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果。</p>
-<p>参考手册</p>
-<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><p>转换是CSS3中具有颠覆性的特征之一，可以实现元素的位移、旋转、变形、缩放，甚至支持矩阵方式，配合即将学习的过渡和动画知识，可以取代大量之前只能靠Flash才可以实现的效果。</p>
-<p>2D 转换</p>
-<p>translate(x,y) x、y 可为负值，相对自身移动，并未脱离文档流。</p>
-<p>左手坐标系：伸出左手，让拇指和食指成“L”形，大拇指向右，食指向上，中指指向前方。这样我们就建立了一个左手坐标系，拇指、食指和中指分别代表X、Y、Z轴的正方向。</p>
-<p>左手法则：左手握住旋转轴，竖起拇指指向旋转轴正方向，正向旋转方向就是其余手指卷曲的方向。</p>
-<p><img src="media/d7743a7db602d3205b481e87afc6b6a7.png" alt=""></p>
-<p>3D坐标轴，用X、Y、Z分别表示空间的3个维度，三条轴上互相垂直。</p>
-<p><img src="media/4785ab4ee3f1e938fa3652106c7890e3.png" alt=""></p>
-<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><p>由于网页呈现终端设备越来越趋向于多样化，尤其是移动终端（手机），具有不同屏幕尽寸、不同分辨率，为了保证网页能十分友好的呈现，CSS3为开发人员提供了可以识别呈现终端的方法，这样便可以有针对性的为不同的呈现终端分别进行处理，被广泛应用于响应式开发中。</p>
-<p>html 标签方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;viewport content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;/&gt;</div></pre></td></tr></table></figure>
-<p>css 属性方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">@media screen and (max-width:720px) and (min-width:320px)&#123;</div><div class="line"></div><div class="line">      body&#123;</div><div class="line"></div><div class="line">       background-color:red;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">@media screen and (max-width:320px)&#123;</div><div class="line"></div><div class="line">      body&#123;</div><div class="line"></div><div class="line">         background-color:blue;</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>常使用的是检测设备宽度</p>
-<h2 id="Web字体与字体格式"><a href="#Web字体与字体格式" class="headerlink" title="Web字体与字体格式"></a>Web字体与字体格式</h2><p>开发人员可以为自已的网页指定特殊的字体，无需考虑用户电脑上是否安装了此特殊字体，从此把特殊字体处理成图片的时代便成为了过去。</p>
-<p>支持程度比较好，甚至IE低版本浏览器也能支持。</p>
-<p>不同浏览器所支持的字体格式是不一样的，我们有必要了解一下有关字体格式的知识。</p>
-<p>1、TureTpe(.ttf)格式</p>
-<p>.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome4+、Safari3+、Opera10+、iOS<br>Mobile、Safari4.2+；</p>
-<p>2、OpenType(.otf)格式</p>
-<p>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，支持这种字体的浏览器有Firefox3.5+、Chrome4.0+、Safari3.1+、Opera10.0+、iOS<br>Mobile、Safari4.2+；</p>
-<p>3、Web Open Font Format(.woff)格式</p>
-<p>woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+；</p>
-<p>4、Embedded Open Type(.eot)格式</p>
-<p>.eot字体是IE专用字体，可以从TrueType创建此格式字体，支持这种字体的浏览器有IE4+；</p>
-<p>5、SVG(.svg)格式</p>
-<p>.svg字体是基于SVG字体渲染的一种格式，支持这种字体的浏览器有Chrome4+、Safari3.1+、Opera10.0+、iOS<br>Mobile Safari3.2+；</p>
-<p>关于字体介绍摘自<a href="http://www.w3cplus.com/content/css3-font-face/" target="_blank" rel="external">http://www.w3cplus.com/content/css3-font-face/</a></p>
-<p>了解了上面的知识后，我们就需要为不同的浏览器准备不同格式的字体，通常我们会通过字体生成工具帮我们生成各种格式的字体，因此无需过于在意字体格式间的区别差异。</p>
-<p>推荐<a href="http://www.zhaozi.cn/、http://www.youziku.com/" target="_blank" rel="external">http://www.zhaozi.cn/、http://www.youziku.com/</a> 查找更多中文字体</p>
-<h2 id="字体图标"><a href="#字体图标" class="headerlink" title="字体图标"></a>字体图标</h2><p>其实我们可以把文字理解成是一种特殊形状的图片，反之我们是不是也可以把图片制作成字体呢？</p>
-<p>答案是肯定的。</p>
-<p>常见的是把网页常用的一些小的图标，借助工具帮我们生成一个字体库，然后就可以像使用文字一样使用图标了。</p>
-<p>优点：</p>
-<p>1、将所有图标打包成字体库，减少请求；</p>
-<p>2、具有矢量性，可保证清晰度；</p>
-<p>3、使用灵活，便于维护；</p>
-<p>Font Awesome 使用介绍</p>
-<p><a href="http://fontawesome.dashgame.com/" target="_blank" rel="external">http://fontawesome.dashgame.com/</a></p>
-<p>定制自已的字体图标库</p>
-<p><a href="http://iconfont.cn/" target="_blank" rel="external">http://iconfont.cn/</a></p>
-<p><a href="https://icomoon.io/" target="_blank" rel="external">https://icomoon.io/</a></p>
-<p>SVG</p>
-<p><a href="http://www.iconsvg.com/" target="_blank" rel="external">http://www.iconsvg.com/</a></p>
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>通过<a href="http://caniuse.com/" target="_blank" rel="external">http://caniuse.com/</a><br>可查询CSS3各特性的支持程度，一般兼容性处理的常见方法是为属性添加私有前缀，如不能解决，应避免使用，无需刻意去处理CSS3的兼容性问题。</p>
+        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包就是指可以访问独立的数据的函数！！！</p>
+<h3 id="闭包要解决的问题"><a href="#闭包要解决的问题" class="headerlink" title="闭包要解决的问题"></a>闭包要解决的问题</h3><p>函数内部声明的变量无法再函数外部使用</p>
+<h3 id="闭包的基本模型"><a href="#闭包的基本模型" class="headerlink" title="闭包的基本模型"></a>闭包的基本模型</h3><p>function outer(){</p>
+<p>var data = “”;</p>
+<p>function inner(){</p>
+<p>return data;</p>
+<p>}</p>
+<p>return inner;</p>
+<p>}</p>
+<p>var fn = outer();</p>
+<p>fn();</p>
+<h3 id="如何使用闭包返回多个函数"><a href="#如何使用闭包返回多个函数" class="headerlink" title="如何使用闭包返回多个函数"></a>如何使用闭包返回多个函数</h3><p>在函数内部创建一个对象，在对象中封装多个函数，返回对象，在外部就可以使用对象，访问各个方法</p>
+<h3 id="闭包的原理"><a href="#闭包的原理" class="headerlink" title="闭包的原理"></a>闭包的原理</h3><p>上级作用域无法访问下级作用域中的变量，但是下级作用域可以访问上级作用域的变量</p>
+<h3 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h3><ol>
+<li><p>可以用来保护数据，<br>就是变量被保护在外部函数中，想要修改变量只能通过闭包函数，可以在闭包函数中添加一些校验逻辑，以保证数据的合理性以及安全性</p>
+</li>
+<li><p>可以为函数新增私有的变量</p>
+</li>
+</ol>
+<h3 id="使用闭包解决for循环中注册点击事件的问题"><a href="#使用闭包解决for循环中注册点击事件的问题" class="headerlink" title="使用闭包解决for循环中注册点击事件的问题"></a>使用闭包解决for循环中注册点击事件的问题</h3><p><strong>\@问题</strong></p>
+<p>点击事件在触发的时候，访问的i变量已经变成了最后一个值！！</p>
+<p><strong>\@解决方案</strong></p>
+<p>通过闭包来创建一个函数，该函数拥有自己独立的一个变量j，在循环的时候，将当前的i的值保存一份交给j，再将该闭包函数注册给点击事件，这样在点击事件触发的时候，就不会去访问全局的i，而是使用自己的j</p>
+<h3 id="使用闭包解决for循环中setTimeout代码执行的问题"><a href="#使用闭包解决for循环中setTimeout代码执行的问题" class="headerlink" title="使用闭包解决for循环中setTimeout代码执行的问题"></a>使用闭包解决for循环中setTimeout代码执行的问题</h3><p><strong>\@setTimeout</strong></p>
+<p>延时器<br>:至少t毫秒后(t秒前在执行主逻辑代码,必须全部执行完在执行回调函数)执行callback函数的代码<br>语法: setTimeout(callback,t)</p>
+<p>setTimeout 的特性: JS是单线程的 同时只能处理一件事情</p>
+<p>JS中任务分为<br>主要任务(js的只逻辑代码)<br>次要任务(setTimeout和setInterval的回调函数)</p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>将数据临时的存储起来以提高访问效率</p>
+<h3 id="重要的几种缓存"><a href="#重要的几种缓存" class="headerlink" title="重要的几种缓存"></a>重要的几种缓存</h3><p><strong>\@浏览器缓存</strong></p>
+<p>将网站资源，在浏览器端进行保存，用户请求服务器的时候，这些被保存的资源就直接从本地读取，而不会去服务器请求，这样就可以提升用户的访问速率</p>
+<p><strong>\@硬件缓存</strong></p>
+<p>现将数据从硬盘读取到内存中，再由cpu直接从内存中读取数据，避免了直接让cpu去硬盘中读数据导致系统效率低下的问题</p>
+<p><strong>\@CDN Content Delivery Network</strong></p>
+<p>在距用户最近的网络节点上缓存一份数据，当用户在去请求数据的时候，就不去较远的服务器获取，而直接在CDN服务器获取，会提升访问效率</p>
+<p><strong>\@缓存型数据库</strong></p>
+<p>硬盘型数据库（关系型数据库） MySQL Oracle SQLSEVER</p>
+<p>内存型数据库（非关系型数据库） Redis MongoDB</p>
+<h3 id="使用缓存解决递归实现的斐波那契数列存在的性能问题"><a href="#使用缓存解决递归实现的斐波那契数列存在的性能问题" class="headerlink" title="使用缓存解决递归实现的斐波那契数列存在的性能问题"></a>使用缓存解决递归实现的斐波那契数列存在的性能问题</h3><p><strong>\@性能问题</strong></p>
+<p>由于递归实现的斐波那契数列中，存在大量的重复计算，导致性能低下</p>
+<p><strong>\@如何解决</strong></p>
+<p>使用缓存，将每次计算后的结果进行保存，在下次获取该数据的时候，就直接去缓存中拿，而避免了重复的计算</p>
+<h3 id="闭包优化缓存解决递归实现的斐波那契数列存在的性能问题"><a href="#闭包优化缓存解决递归实现的斐波那契数列存在的性能问题" class="headerlink" title="闭包优化缓存解决递归实现的斐波那契数列存在的性能问题"></a>闭包优化缓存解决递归实现的斐波那契数列存在的性能问题</h3><p>function createFib(){</p>
+<p>var arr = [];</p>
+<p>function fib(n){</p>
+<p>var num = arr[n];</p>
+<p>if(!num){</p>
+<p>if(n \&lt;= 2){</p>
+<p>num = 1;</p>
+<p>}else{</p>
+<p>num = fib(n - 1) + fib(n -2);</p>
+<p>}</p>
+<p>arr[n] = num;</p>
+<p>}</p>
+<p>return num;</p>
+<p>}</p>
+<p>}</p>
+<h3 id="JQ缓存实现猜想"><a href="#JQ缓存实现猜想" class="headerlink" title="JQ缓存实现猜想"></a>JQ缓存实现猜想</h3><p>function createCache(){</p>
+<p>var cache = {};</p>
+<p>var keys = [];</p>
+<p>return function(key, value){</p>
+<p>if(value != undefined){</p>
+<p>cache[key] = value;</p>
+<p>if(keys.push(key) > 20){</p>
+<p>delete cache[keys.shift()];</p>
+<p>}</p>
+<p>}</p>
+<p>return cache[key];</p>
+<p>}</p>
+<p>}</p>
+<h3 id="jQuery缓存源码分析"><a href="#jQuery缓存源码分析" class="headerlink" title="jQuery缓存源码分析"></a>jQuery缓存源码分析</h3><p>function createCache(){</p>
+<p>var keys = [];</p>
+<p>function cache(key, value){</p>
+<p>if(keys.push(key + “ “) > 20){</p>
+<p>delete cache[keys.shift()];</p>
+<p>}</p>
+<p>return (cache[key + “ “] = value);</p>
+<p>}</p>
+<p>return cache;</p>
+<p>}</p>
+<h3 id="沙箱模式"><a href="#沙箱模式" class="headerlink" title="沙箱模式"></a>沙箱模式</h3><blockquote>
+<p>  一个封闭的隔离的环境！在JS中通过函数来创建沙箱</p>
+</blockquote>
+<p>(function(window){</p>
+<p>//变量的声明</p>
+<p>//主要的功能代码</p>
+<p>//如果需要，就通过window对象向外界暴露接口</p>
+<p>})(window)</p>
+<p><strong>\@沙箱的应用</strong></p>
+<ol>
+<li><p>框架</p>
+</li>
+<li><p>组件</p>
+</li>
+<li><p>插件</p>
+</li>
+</ol>
+<h3 id="函数的调用模式"><a href="#函数的调用模式" class="headerlink" title="函数的调用模式"></a>函数的调用模式</h3><p><strong>\@ 函数调用模式</strong></p>
+<p>语法: 函数名()</p>
+<p>This的指向: window</p>
+<p><strong>\@ 方法调用模式</strong></p>
+<p>语法: 对象.方法名()</p>
+<p>This的指向: 谁调用就是谁</p>
+<p><strong>\@ 构造函数调用模式</strong></p>
+<p>语法: new 函数名()</p>
+<p>This的指向: new 创建出来的对象</p>
+<p><strong>\@ 上下文调用模式</strong></p>
+<p>要区分一个函数中的this到底是谁，只需要看他是什么调用模式就好了,<br>函数调用模式就是window, 方法调用模式就是调用方法的对象, 构造函数调用模式就是<br>new创建出来的对象！</p>
+<h3 id="两种创建对象的方式"><a href="#两种创建对象的方式" class="headerlink" title="两种创建对象的方式"></a>两种创建对象的方式</h3><p><strong>\@工厂模式</strong></p>
+<p>function createObj(name, age){</p>
+<p>var obj = new Object();</p>
+<p>obj.name = name;</p>
+<p>obj.age = age;</p>
+<p>return obj;</p>
+<p>}</p>
+<p>var p = createObj(“郑天羊”, 18);</p>
+<p><strong>\@寄生模式</strong></p>
+<p>function Person(name, age){</p>
+<p>var obj = new Object();</p>
+<p>obj.name = name;</p>
+<p>obj.age = age;</p>
+<p>return obj;</p>
+<p>}</p>
+<p>var p = new Person(“郑天羊”, 18);</p>
+<p><strong>工厂模式和寄生模式都可以用来创建对象，但是调用模式不一样，工厂模式是函数调用模式，寄生模式是构造函数调用模式！</strong></p>
+<h3 id="上下文调用模式-call与apply"><a href="#上下文调用模式-call与apply" class="headerlink" title="上下文调用模式(call与apply)"></a>上下文调用模式(call与apply)</h3><p>在前三种调用模式中，this的值都是固定的，无法修改的！上下文（context）调用模式<br>（可以用来改变this的指向, 指的就是函数的调用的环境, this的指向</p>
+<p><strong>\@左值和右值</strong></p>
+<p>lvalue left value 左值: 左值就是指能够正常的在等号的左边被赋值的值</p>
+<p>rvalue right value 右值: 右值就是指能够正常的在等号的右边给别人赋值的值</p>
+<p><strong>\@ call</strong></p>
+<p>函数名.call(obj, arg1…argN);</p>
+<p>//功能：</p>
+<p>//1. 调用函数</p>
+<p>//2. 改变this指向为第一个参数中的对象</p>
+<p>//3. 将第二个及以后的所有参数，依次的传递给函数作为实参</p>
+<p><strong>\@ apply</strong></p>
+<p>函数名.apply(obj, 数组or伪数组);</p>
+<p>//功能：</p>
+<p>//1. 调用函数</p>
+<p>//2. 改变this指向为第一个参数中的对象</p>
+<p>//3. 将第二个参数的数组或者伪数组，中的元素一一拆解，依次传递给函数作为实参</p>
+<p><strong>\@注意事项</strong></p>
+<ol>
+<li>如果call和apply的第一个参数为null或者undefined,this将会指向window</li>
+</ol>
+<p>2.<br>如果call和apply的第一个参数为值类型的数据，会将值类型的数据转换成其对应的引用类型的数据，this指向该引用类型的数据</p>
+<p>tips: 一般情况下apply的传参特性会被使用的居多（转换伪数组为真数组，求最大值）</p>
+<h3 id="forEach和map的使用"><a href="#forEach和map的使用" class="headerlink" title="forEach和map的使用"></a>forEach和map的使用</h3><p>都可以用来遍历数组</p>
+<p><strong>\@ forEach</strong></p>
+<p>数组.forEach(function(value, index, arr){})</p>
+<p>//value：正在遍历的数组元素</p>
+<p>//index: 正在遍历的数组元素的索引</p>
+<p>//arr: 正在遍历的数组</p>
+<p><strong>\@ map</strong></p>
+<p>数组.map(function(value, index, arr){})</p>
+<p>//value：正在遍历的数组元素</p>
+<p>//index: 正在遍历的数组元素的索引</p>
+<p>//arr: 正在遍历的数组</p>
+<p><strong>map是有返回值的，他的返回值是，将每次调用回调函数之后的返回值拼接成一个新的数组，将这个数组返回，作为map的返回值！</strong></p>
+<p><strong>\@ map的练习</strong></p>
+<ol>
+<li>将数组中的元素转成字符串</li>
+</ol>
+<p>var arr = [1, 2, 3, 4];</p>
+<p>var strArr = arr.map(String);</p>
+<p>console.log(strArr);</p>
+<ol>
+<li>生成随机数</li>
+</ol>
+<p>var arr = [1, 2, 3, 4];</p>
+<p>var strArr = arr.map(Math.random);</p>
+<p>console.log(strArr);</p>
+<h2 id="其他知识点"><a href="#其他知识点" class="headerlink" title="其他知识点"></a>其他知识点</h2><h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p>平时在给对象添加属性的时候，使用的都是点语法，或者关联数组语法,<br>通过这两种方式添加的属性，不能手动去设置属性的特性</p>
+<p>特性: 就是属性的描述信息，包括能否修改，能否删除，能否遍历等等</p>
+<p><strong>\@Object.defineProperty用来给对象添加属性的</strong></p>
+<p>Object.defineProperty(obj, propertyName, descriptor);</p>
+<p>//obj 就是要给谁添加属性</p>
+<p>//propertyName 要添加的属性名</p>
+<p>//descriptor 属性的描述信息，也就是特性集合，是一个对象哦~</p>
+<p><strong>\@descriptor对象中的属性</strong></p>
+<p>* writable 默认为false，表示属性是否可写</p>
+<p>* configurable 默认为false， 表示属性是否可以配置（删除）</p>
+<p>* enumerable 默认为false， 表示属性是否可以被遍历（for-in）</p>
+<p>* value 用来设置属性的值</p>
+<p>* get和set方法，和writable一样都可以用来设置属性是否可以写</p>
+<p>Object.defineProperty(obj, “name”, {</p>
+<p>writable: true,</p>
+<p>configurable: true,</p>
+<p>enumerable: true,</p>
+<p>value: 1888,</p>
+<p>set: function(value) {</p>
+<p>this.nameValue = value;</p>
+<p>},</p>
+<p>get: function() {</p>
+<p>return this.nameValue;</p>
+<p>}</p>
+<p>});</p>
+<p>属性的设置器setter和访问器getter，分别是两个方法，一个用来设置属性的值，一个用来获取属性的值,<br>setter和getter一般情况下不和writbale一起使用,<br>如果只有set方法没有get方法，那么这个属性就是一个只写属性,<br>如果只有get方法没有set方法，那么这个属性就是一个只读属性</p>
+<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p>严格模式的开启</p>
+<p>“use strict”</p>
+<p>‘use strict’</p>
+<p><strong>\@严格模式中的特点</strong></p>
+<ol>
+<li><p>声明变量必须使用var</p>
+</li>
+<li><p>对象的属性不能重名</p>
+</li>
+<li><p>函数的形参名不能重复</p>
+</li>
+<li><p>八进制常量不允许使用</p>
+</li>
+<li><p>eval有自己的作用域</p>
+</li>
+</ol>
+<h3 id="事件兼容性处理"><a href="#事件兼容性处理" class="headerlink" title="事件兼容性处理"></a>事件兼容性处理</h3><p><strong>\@三种注册事件的方式</strong></p>
+<ol>
+<li>onclick简单形式</li>
+</ol>
+<p>onclick(function(){})</p>
+<ol>
+<li>addEventListener(type, handler, useCapture) type: 事件类型, handler:<br>事件处理函数, useCapture: 是否使用捕获</li>
+</ol>
+<p>addEventListener(type, eventHandler, useCapture)</p>
+<p>//type:指的就是事件的类型，不带on</p>
+<p>//eventHandler: 事件的处理程序，回调函数</p>
+<p>//useCapture: 是否在捕获阶段触发事件 默认是false</p>
+<ol>
+<li>attachEvent(type, handler)</li>
+</ol>
+<p>attachEvent(type, eventHandler)</p>
+<p>//type:指的就是事件类型，带on</p>
+<p>//eventHandler：事件处理程序，回调函数</p>
+<p><strong>\@ addEventListener和attachEvent的区别</strong></p>
+<p>1.<br>回调函数中获取事件对象的方式不一样，addEventListener通过回调函数的参数获取，attachEvent通过window.event获取</p>
+<p>2.<br>回调函数中的this指向不一致，addEventListener中this指向当前dom对象，attachEvent中this指向window</p>
+<p><strong>\@兼容性处理的通用函数</strong></p>
+<p>function registerEvent(ele, type, handler){</p>
+<p>if(ele.addEventListener){</p>
+<p>ele.addEventListener(type, handler);</p>
+<p>}else if(ele.attachEvent){</p>
+<p>如果使用下面的代码，那么，在事件触发的时候,回调函数中拿不到事件对象，回调函数中的this也会指向window</p>
+<p>//ele.attachEvent(“on”+type,handler)</p>
+<p>解决上面问题的关键，就在于，不让系统去调这个回调函数了,而是我们自己去调<br>调用的时候，将事件对象window.event作为实参传递给这个回调函数,<br>this的指向需要更改，改成当前的元素 ele 使用call</p>
+<p>ele.attachEvent(“on” + type, function(){</p>
+<p>handler.call(ele, window.event);</p>
+<p>})</p>
+<p>}else{</p>
+<p>ele[“on” + type] = handler;</p>
+<p>}</p>
+<p>}</p>
 
       
     </div>
@@ -533,7 +742,7 @@
           
             <a href="/tags/前端基础/" rel="tag"># 前端基础</a>
           
-            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+            <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
           
         </div>
       
@@ -542,8 +751,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/12/CSS3-新属性的合理使用/" rel="next" title="CSS3-新属性的合理使用">
-                <i class="fa fa-chevron-left"></i> CSS3-新属性的合理使用
+              <a href="/2016/06/09/http服务与ajax编程/" rel="next" title="http服务与ajax编程">
+                <i class="fa fa-chevron-left"></i> http服务与ajax编程
               </a>
             
           </div>
@@ -552,8 +761,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/30/canvas三部曲(前奏)/" rel="prev" title="canvas三部曲(前奏)">
-                canvas三部曲(前奏) <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/23/ajax跨域问题处理/" rel="prev" title="ajax跨域问题处理">
+                ajax跨域问题处理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -569,10 +778,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/04/22/CSS3-新属性动画实现/"
-     data-title="CSS3-新属性动画实现"
+        <div class="ds-share flat" data-thread-key="2016/06/15/闭包与缓存/"
+     data-title="闭包与缓存"
      data-content=""
-     data-url="http://yoursite.com/2016/04/22/CSS3-新属性动画实现/">
+     data-url="http://yoursite.com/2016/06/15/闭包与缓存/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -599,8 +808,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/22/CSS3-新属性动画实现/"
-           data-title="CSS3-新属性动画实现" data-url="http://yoursite.com/2016/04/22/CSS3-新属性动画实现/">
+      <div class="ds-thread" data-thread-key="2016/06/15/闭包与缓存/"
+           data-title="闭包与缓存" data-url="http://yoursite.com/2016/06/15/闭包与缓存/">
       </div>
     
   </div>
@@ -756,7 +965,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡"><span class="nav-number">1.</span> <span class="nav-text">过渡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画"><span class="nav-number">2.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换"><span class="nav-number">3.</span> <span class="nav-text">转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">4.</span> <span class="nav-text">媒体查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web字体与字体格式"><span class="nav-number">5.</span> <span class="nav-text">Web字体与字体格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体图标"><span class="nav-number">6.</span> <span class="nav-text">字体图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性"><span class="nav-number">7.</span> <span class="nav-text">兼容性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是闭包"><span class="nav-number">1.1.</span> <span class="nav-text">什么是闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包要解决的问题"><span class="nav-number">1.2.</span> <span class="nav-text">闭包要解决的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的基本模型"><span class="nav-number">1.3.</span> <span class="nav-text">闭包的基本模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用闭包返回多个函数"><span class="nav-number">1.4.</span> <span class="nav-text">如何使用闭包返回多个函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的原理"><span class="nav-number">1.5.</span> <span class="nav-text">闭包的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的用途"><span class="nav-number">1.6.</span> <span class="nav-text">闭包的用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用闭包解决for循环中注册点击事件的问题"><span class="nav-number">1.7.</span> <span class="nav-text">使用闭包解决for循环中注册点击事件的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用闭包解决for循环中setTimeout代码执行的问题"><span class="nav-number">1.8.</span> <span class="nav-text">使用闭包解决for循环中setTimeout代码执行的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">2.</span> <span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重要的几种缓存"><span class="nav-number">2.1.</span> <span class="nav-text">重要的几种缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用缓存解决递归实现的斐波那契数列存在的性能问题"><span class="nav-number">2.2.</span> <span class="nav-text">使用缓存解决递归实现的斐波那契数列存在的性能问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包优化缓存解决递归实现的斐波那契数列存在的性能问题"><span class="nav-number">2.3.</span> <span class="nav-text">闭包优化缓存解决递归实现的斐波那契数列存在的性能问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQ缓存实现猜想"><span class="nav-number">2.4.</span> <span class="nav-text">JQ缓存实现猜想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery缓存源码分析"><span class="nav-number">2.5.</span> <span class="nav-text">jQuery缓存源码分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#沙箱模式"><span class="nav-number">2.6.</span> <span class="nav-text">沙箱模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的调用模式"><span class="nav-number">2.7.</span> <span class="nav-text">函数的调用模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种创建对象的方式"><span class="nav-number">2.8.</span> <span class="nav-text">两种创建对象的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文调用模式-call与apply"><span class="nav-number">2.9.</span> <span class="nav-text">上下文调用模式(call与apply)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach和map的使用"><span class="nav-number">2.10.</span> <span class="nav-text">forEach和map的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他知识点"><span class="nav-number">3.</span> <span class="nav-text">其他知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-defineProperty"><span class="nav-number">3.1.</span> <span class="nav-text">Object.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式"><span class="nav-number">3.2.</span> <span class="nav-text">严格模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件兼容性处理"><span class="nav-number">3.3.</span> <span class="nav-text">事件兼容性处理</span></a></li></ol></li></ol></div>
             
 
           </div>

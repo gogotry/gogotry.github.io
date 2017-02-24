@@ -102,16 +102,22 @@
 
 
 
-<meta name="description" content="代码与我同在">
+<meta name="description" content="环境安装node菜鸟教程：http://www.runoob.com/nodejs/nodejs-install-setup.html
+开始搭建安装依赖框架12npm install --save expressnpm install --save express-http-proxy
+开始搭建123456789101112131415161718192021//第一步引包const expres">
 <meta property="og:type" content="article">
-<meta property="og:title" content="轻松搭建简单代理服务器">
+<meta property="og:title" content="利用node搭建简单代理服务器">
 <meta property="og:url" content="http://yoursite.com/2016/08/12/轻松搭建简单代理服务器/index.html">
 <meta property="og:site_name" content="xupengfly">
-<meta property="og:description" content="代码与我同在">
-<meta property="og:updated_time" content="2017-02-23T12:33:47.666Z">
+<meta property="og:description" content="环境安装node菜鸟教程：http://www.runoob.com/nodejs/nodejs-install-setup.html
+开始搭建安装依赖框架12npm install --save expressnpm install --save express-http-proxy
+开始搭建123456789101112131415161718192021//第一步引包const expres">
+<meta property="og:updated_time" content="2017-02-24T17:09:33.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="轻松搭建简单代理服务器">
-<meta name="twitter:description" content="代码与我同在">
+<meta name="twitter:title" content="利用node搭建简单代理服务器">
+<meta name="twitter:description" content="环境安装node菜鸟教程：http://www.runoob.com/nodejs/nodejs-install-setup.html
+开始搭建安装依赖框架12npm install --save expressnpm install --save express-http-proxy
+开始搭建123456789101112131415161718192021//第一步引包const expres">
 
 
 
@@ -145,7 +151,7 @@
 
 
 
-  <title> 轻松搭建简单代理服务器 | xupengfly </title>
+  <title> 利用node搭建简单代理服务器 | xupengfly </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -315,7 +321,7 @@
             
             
               
-                轻松搭建简单代理服务器
+                利用node搭建简单代理服务器
               
             
           </h1>
@@ -341,6 +347,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技能/" itemprop="url" rel="index">
+                    <span itemprop="name">技能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -360,7 +388,7 @@
 
           
           
-             <span id="/2016/08/12/轻松搭建简单代理服务器/" class="leancloud_visitors" data-flag-title="轻松搭建简单代理服务器">
+             <span id="/2016/08/12/轻松搭建简单代理服务器/" class="leancloud_visitors" data-flag-title="利用node搭建简单代理服务器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -387,7 +415,10 @@
       
 
       
-        
+        <p><strong>环境</strong><br>安装node<br>菜鸟教程：<a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">http://www.runoob.com/nodejs/nodejs-install-setup.html</a></p>
+<p><strong>开始搭建</strong><br>安装依赖框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --save express</div><div class="line">npm install --save express-http-proxy</div></pre></td></tr></table></figure></p>
+<p>开始搭建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//第一步引包</div><div class="line">const express = require(&apos;express&apos;);</div><div class="line">const path = require(&apos;path&apos;);</div><div class="line">const http = require(&apos;http&apos;);</div><div class="line">const proxy = require(&apos;express-http-proxy&apos;);</div><div class="line"></div><div class="line">const app = express();</div><div class="line"></div><div class="line">//第二步处理路由</div><div class="line">app.use(express.static(path.join(__dirname, &apos;../&apos;)));</div><div class="line"></div><div class="line">const proxyUrl = &apos;http://127.0.0.1:3000&apos;;</div><div class="line"></div><div class="line">// 只要是以 /api/** 开头的请求路径</div><div class="line">// 则直接通过 proxy 中间件代理将请求原封不动的转发到指令的 API 服务器</div><div class="line">// 然后将接收到 API 服务器的响应数据原封不动的响应给自己的当前这个请求</div><div class="line">app.use(&apos;/api&apos;, proxy(proxyUrl));</div><div class="line"></div><div class="line">app.listen(5000, () =&gt; &#123;</div><div class="line">  console.log(&apos;Proxy Server is running at port 5000...&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -439,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/23/跨域问题处理/" rel="next" title="跨域问题处理">
-                <i class="fa fa-chevron-left"></i> 跨域问题处理
+              <a href="/2016/06/23/ajax跨域问题处理/" rel="next" title="ajax跨域问题处理">
+                <i class="fa fa-chevron-left"></i> ajax跨域问题处理
               </a>
             
           </div>
@@ -467,7 +498,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/08/12/轻松搭建简单代理服务器/"
-     data-title="轻松搭建简单代理服务器"
+     data-title="利用node搭建简单代理服务器"
      data-content=""
      data-url="http://yoursite.com/2016/08/12/轻松搭建简单代理服务器/">
   <div class="ds-share-inline">
@@ -497,7 +528,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/08/12/轻松搭建简单代理服务器/"
-           data-title="轻松搭建简单代理服务器" data-url="http://yoursite.com/2016/08/12/轻松搭建简单代理服务器/">
+           data-title="利用node搭建简单代理服务器" data-url="http://yoursite.com/2016/08/12/轻松搭建简单代理服务器/">
       </div>
     
   </div>
@@ -535,7 +566,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
