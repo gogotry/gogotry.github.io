@@ -105,8 +105,9 @@
 <meta name="description" content="浏览器不允许Ajax跨站请求，所以存在Ajax跨域问题，下面是两种办法解决
 1、在请求页面上使用Access-Control-Allow-Origin标头。
 　　使用如下标头可以接受全部网站请求：
-1234使用如下标头可以接受指定网站请求：```header(&amp;apos;Access-Control-Allow-Origin:http://www.abc.com&amp;apos;)
-所以，服务器写法：">
+1header(&amp;apos;Access-Control-Allow-Origin:*&amp;apos;)
+使用如下标头可以接受指定网站请求：
+1header(&amp;apos;Access-Control-All">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ajax跨域问题处理">
 <meta property="og:url" content="http://yoursite.com/2016/06/23/ajax跨域问题处理/index.html">
@@ -114,16 +115,18 @@
 <meta property="og:description" content="浏览器不允许Ajax跨站请求，所以存在Ajax跨域问题，下面是两种办法解决
 1、在请求页面上使用Access-Control-Allow-Origin标头。
 　　使用如下标头可以接受全部网站请求：
-1234使用如下标头可以接受指定网站请求：```header(&amp;apos;Access-Control-Allow-Origin:http://www.abc.com&amp;apos;)
-所以，服务器写法：">
-<meta property="og:updated_time" content="2017-02-24T17:36:12.225Z">
+1header(&amp;apos;Access-Control-Allow-Origin:*&amp;apos;)
+使用如下标头可以接受指定网站请求：
+1header(&amp;apos;Access-Control-All">
+<meta property="og:updated_time" content="2017-02-24T17:54:20.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax跨域问题处理">
 <meta name="twitter:description" content="浏览器不允许Ajax跨站请求，所以存在Ajax跨域问题，下面是两种办法解决
 1、在请求页面上使用Access-Control-Allow-Origin标头。
 　　使用如下标头可以接受全部网站请求：
-1234使用如下标头可以接受指定网站请求：```header(&amp;apos;Access-Control-Allow-Origin:http://www.abc.com&amp;apos;)
-所以，服务器写法：">
+1header(&amp;apos;Access-Control-Allow-Origin:*&amp;apos;)
+使用如下标头可以接受指定网站请求：
+1header(&amp;apos;Access-Control-All">
 
 
 
@@ -424,7 +427,10 @@
         <p><strong>浏览器不允许Ajax跨站请求，所以存在Ajax跨域问题，下面是两种办法解决</strong></p>
 <p>1、在请求页面上使用Access-Control-Allow-Origin标头。</p>
 <p>　　使用如下标头可以接受全部网站请求：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">使用如下标头可以接受指定网站请求：</div><div class="line"></div><div class="line">```header(&apos;Access-Control-Allow-Origin:http://www.abc.com&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(&apos;Access-Control-Allow-Origin:*&apos;)</div></pre></td></tr></table></figure>
+<p>使用如下标头可以接受指定网站请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(&apos;Access-Control-Allow-Origin:http://www.abc.com&apos;)</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>所以，服务器写法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">header(&apos;Access-Control-Allow-Origin:*&apos;);</div><div class="line"></div><div class="line">die( json_encode(array(&apos;msg&apos;=&gt;&apos;msg....&apos;)) );</div></pre></td></tr></table></figure>
 <p>　　ajax写法和平常一样：</p>

@@ -112,7 +112,7 @@ AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
 <meta property="og:description" content="跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据
 AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
 1234$http.post(url, data, [config]).success(function()&amp;#123; ... &amp;#125;);$http.get(url, [">
-<meta property="og:updated_time" content="2017-02-24T16:51:13.683Z">
+<meta property="og:updated_time" content="2017-02-24T17:51:06.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular跨域问题分析">
 <meta name="twitter:description" content="跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据
@@ -418,6 +418,7 @@ AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
         <p><span style="color: #ff0000">跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据</span></p>
 <p><strong>AngularJS XMLHttpRequest：</strong>$http用于读取远程服务器的数据</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$http.post(url, data, [config]).success(function()&#123; ... &#125;);</div><div class="line">$http.get(url, [config]).success(function()&#123; ... &#125;);</div><div class="line">$http.get(url, [config]).success(function()&#123; ... &#125;);</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p><span style="color: #ff0000"><strong>一、$http.jsonp【实现跨域】</strong></span></p>
 <p>1.指定<code>callback</code>和回调函数名，函数名为<code>JSON_CALLBACK</code>时，会调用success回调函数，<code>JSON_CALLBACK</code>必须全为大写。</p>
 <p>2.指定其它回调函数，但必须是定义在window下的全局函数。url中必须加上<code>callback</code>。</p>

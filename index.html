@@ -414,11 +414,9 @@
 
       
         
-          
-          跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据
-AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
-1234$http.post(url, data, [config]).suc
-          ...
+          <p><span style="color: #ff0000">跨域，前端开发中经常遇到的问题，AngularJS实现跨域方式类似于Ajax，下面是AngularJS中使用$http实现跨域请求数据</span></p>
+<p><strong>AngularJS XMLHttpRequest：</strong>$http用于读取远程服务器的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$http.post(url, data, [config]).success(function()&#123; ... &#125;);</div><div class="line">$http.get(url, [config]).success(function()&#123; ... &#125;);</div><div class="line">$http.get(url, [config]).success(function()&#123; ... &#125;);</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/23/angular跨域问题分析/#more" rel="contents">
@@ -584,11 +582,8 @@ AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
 
       
         
-          
-          环境安装node菜鸟教程：http://www.runoob.com/nodejs/nodejs-install-setup.html
-开始搭建安装依赖框架12npm install --save expressnpm install --save express-http-proxy
-开始搭建12
-          ...
+          <p><strong>环境</strong><br>安装node<br>菜鸟教程：<a href="http://www.runoob.com/nodejs/nodejs-install-setup.html">http://www.runoob.com/nodejs/nodejs-install-setup.html</a></p>
+<p><strong>开始搭建</strong><br>安装依赖框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --save express</div><div class="line">npm install --save express-http-proxy</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/12/轻松搭建简单代理服务器/#more" rel="contents">
@@ -754,12 +749,12 @@ AngularJS XMLHttpRequest：$http用于读取远程服务器的数据
 
       
         
-          
-          浏览器不允许Ajax跨站请求，所以存在Ajax跨域问题，下面是两种办法解决
-1、在请求页面上使用Access-Control-Allow-Origin标头。
-　　使用如下标头可以接受全部网站请求：
-1234使用如下标头可以接受指定网站请求：```header(&apos;Access-Control
-          ...
+          <p><strong>浏览器不允许Ajax跨站请求，所以存在Ajax跨域问题，下面是两种办法解决</strong></p>
+<p>1、在请求页面上使用Access-Control-Allow-Origin标头。</p>
+<p>　　使用如下标头可以接受全部网站请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(&apos;Access-Control-Allow-Origin:*&apos;)</div></pre></td></tr></table></figure>
+<p>使用如下标头可以接受指定网站请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(&apos;Access-Control-Allow-Origin:http://www.abc.com&apos;)</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/06/23/ajax跨域问题处理/#more" rel="contents">
